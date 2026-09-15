@@ -2,124 +2,59 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta
+        name="description"
+        content="Mi experiencia de voluntariado"
+    >
 
     <title>Mi experiencia de voluntariado</title>
 
-    <meta
-        name="description"
-        content="Portfolio personal de experiencias de voluntariado, campañas, actividades y aprendizajes."
-    >
-
-    <meta name="theme-color" content="#126782">
-
-    <meta property="og:title" content="Mi experiencia de voluntariado">
-    <meta
-        property="og:description"
-        content="Descubre mis experiencias, campañas, actividades y aprendizajes como voluntario."
-    >
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
     <style>
-
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
         :root {
             --primary: #126782;
-            --primary-dark: #0b4d64;
-            --primary-light: #e9f5f8;
-
+            --primary-dark: #0d4f65;
             --accent: #f4a11a;
-            --accent-dark: #d88600;
-
-            --dark: #102f3a;
-            --text: #294650;
-            --muted: #6b7f87;
-
-            --background: #f6fafb;
-            --surface: #ffffff;
-            --surface-2: #eef5f7;
-
-            --border: #dce8eb;
-
-            --shadow-sm: 0 5px 20px rgba(16, 47, 58, .08);
-            --shadow-md: 0 15px 40px rgba(16, 47, 58, .12);
-            --shadow-lg: 0 25px 70px rgba(16, 47, 58, .18);
-
-            --radius-sm: 10px;
-            --radius-md: 18px;
-            --radius-lg: 28px;
-
-            --container: 1180px;
-
-            --transition: .3s ease;
+            --accent-dark: #d88700;
+            --text: #1d2939;
+            --muted: #667085;
+            --background: #f7fafc;
+            --white: #ffffff;
+            --border: #dbe4ea;
+            --shadow: 0 12px 30px rgba(18, 103, 130, 0.12);
+            --radius: 18px;
         }
 
-
-        /* =========================================================
-           DARK MODE
-        ========================================================= */
-
-        html.dark {
-            --dark: #f3f8fa;
-            --text: #d7e5e9;
-            --muted: #9eb2b9;
-
-            --background: #091c23;
-            --surface: #102a33;
-            --surface-2: #16343e;
-
-            --border: #284750;
-
-            --primary-light: #143c49;
-
-            --shadow-sm: 0 5px 20px rgba(0, 0, 0, .2);
-            --shadow-md: 0 15px 40px rgba(0, 0, 0, .25);
-            --shadow-lg: 0 25px 70px rgba(0, 0, 0, .35);
-        }
-
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        *,
-        *::before,
-        *::after {
+        * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
         }
 
         body {
-            margin: 0;
-            font-family: "DM Sans", sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
             background: var(--background);
             color: var(--text);
-            line-height: 1.7;
-            transition:
-                background var(--transition),
-                color var(--transition);
+            line-height: 1.6;
         }
 
         body.no-scroll {
             overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         img {
@@ -128,1140 +63,382 @@
         }
 
         button,
-        input,
-        select {
+        a {
             font: inherit;
         }
 
-        button {
-            cursor: pointer;
+        .container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        a {
-            color: inherit;
-        }
-
-
-        /* =========================================================
-           ACCESSIBILITY
-        ========================================================= */
-
-        .skip-link {
-            position: fixed;
-            top: -100px;
-            left: 20px;
-            z-index: 9999;
-
-            padding: 12px 18px;
-
-            background: var(--accent);
-            color: #111;
-
-            border-radius: 0 0 10px 10px;
-
-            font-weight: 700;
-
-            transition: top .2s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        :focus-visible {
-            outline: 3px solid var(--accent);
-            outline-offset: 4px;
-        }
-
-
-        /* =========================================================
-           PROGRESS BAR
-        ========================================================= */
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10000;
-
-            width: 0%;
-            height: 4px;
-
-            background: var(--accent);
-        }
-
-
-        /* =========================================================
+        /* =========================
            HEADER
-        ========================================================= */
+        ========================= */
 
         header {
             position: sticky;
             top: 0;
-            z-index: 1000;
-
-            background: color-mix(
-                in srgb,
-                var(--surface) 94%,
-                transparent
-            );
-
-            backdrop-filter: blur(15px);
-
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.96);
             border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
         }
 
-        .navbar {
-            max-width: var(--container);
-            margin: auto;
-
-            min-height: 76px;
-
-            padding: 10px 20px;
-
+        .nav {
+            min-height: 72px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            gap: 20px;
+            gap: 25px;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-
-            text-decoration: none;
-
             font-weight: 800;
-            color: var(--dark);
+            color: var(--primary);
         }
 
         .logo img {
-            width: 48px;
-            height: 48px;
-
+            width: 44px;
+            height: 44px;
             object-fit: cover;
-
             border-radius: 50%;
-
-            border: 3px solid var(--primary);
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 5px;
-
+            gap: 22px;
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
 
         .nav-links a {
-            display: block;
-
-            padding: 10px 13px;
-
-            border-radius: 10px;
-
-            text-decoration: none;
-
             color: var(--text);
-
-            font-size: .92rem;
             font-weight: 600;
-
-            transition: var(--transition);
+            transition: color 0.2s ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-            background: var(--primary-light);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .icon-btn {
-            width: 42px;
-            height: 42px;
-
-            display: grid;
-            place-items: center;
-
-            border: 1px solid var(--border);
-            border-radius: 50%;
-
-            background: var(--surface);
-            color: var(--text);
-
-            transition: var(--transition);
-        }
-
-        .icon-btn:hover {
-            transform: translateY(-2px);
-            border-color: var(--primary);
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        .language-select {
-            padding: 8px 10px;
-
-            border: 1px solid var(--border);
-            border-radius: 10px;
-
-            background: var(--surface);
-            color: var(--text);
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-
-        /* =========================================================
+        /* =========================
            HERO
-        ========================================================= */
+        ========================= */
 
         .hero {
-            min-height: 680px;
-
-            position: relative;
-
-            display: grid;
-            place-items: center;
-
+            padding: 90px 0;
             background:
                 linear-gradient(
-                    rgba(8, 45, 57, .72),
-                    rgba(8, 45, 57, .72)
+                    135deg,
+                    rgba(18, 103, 130, 0.94),
+                    rgba(13, 79, 101, 0.92)
                 ),
-                url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=2000&q=85")
-                center / cover;
-
+                url("./imag/verano.JPG")
+                center / cover no-repeat;
             color: white;
         }
 
         .hero-content {
-            width: min(900px, 92%);
-
-            text-align: center;
-
-            padding: 80px 20px;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-
-            padding: 7px 15px;
-
-            margin-bottom: 22px;
-
-            border: 1px solid rgba(255,255,255,.35);
-            border-radius: 100px;
-
-            background: rgba(255,255,255,.12);
-
-            font-size: .85rem;
-            font-weight: 700;
+            max-width: 760px;
         }
 
         .hero h1 {
-            margin: 0 0 25px;
-
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(3rem, 8vw, 6.5rem);
-            line-height: .95;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.05;
+            margin-bottom: 24px;
         }
 
         .hero p {
-            max-width: 700px;
-            margin: auto;
-
-            font-size: clamp(1rem, 2vw, 1.3rem);
-
-            color: rgba(255,255,255,.88);
+            font-size: 1.15rem;
+            max-width: 650px;
+            opacity: 0.95;
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
-            margin-top: 35px;
-
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
         }
+
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-
-            padding: 13px 22px;
-
             border: 0;
-            border-radius: 12px;
-
-            text-decoration: none;
-
+            border-radius: 10px;
+            padding: 12px 20px;
+            cursor: pointer;
             font-weight: 700;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-            transition: var(--transition);
+        .btn:hover {
+            transform: translateY(-2px);
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: #16232a;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 8px 18px rgba(18, 103, 130, 0.18);
         }
 
         .btn-primary:hover {
-            background: #ffb52f;
-            transform: translateY(-3px);
+            background: var(--primary-dark);
         }
 
-        .btn-outline {
-            border: 1px solid rgba(255,255,255,.45);
-            background: rgba(255,255,255,.08);
-            color: white;
+        .btn-accent {
+            background: var(--accent);
+            color: #1f2937;
         }
 
-        .btn-outline:hover {
+        .btn-accent:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-light {
             background: white;
-            color: var(--dark);
+            color: var(--primary);
         }
 
+        /* =========================
+           SECTIONS
+        ========================= */
 
-        /* =========================================================
-           COMMON
-        ========================================================= */
-
-        .section {
-            padding: 100px 20px;
+        section {
+            padding: 80px 0;
         }
 
-        .container {
-            max-width: var(--container);
-            margin: auto;
-        }
-
-        .section-heading {
+        .section-header {
             max-width: 720px;
-            margin: 0 auto 55px;
-
-            text-align: center;
+            margin-bottom: 45px;
         }
 
-        .eyebrow {
+        .section-header span {
             display: inline-block;
-
             margin-bottom: 10px;
-
             color: var(--primary);
-
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-
-            font-size: .75rem;
-            font-weight: 800;
+            letter-spacing: 0.08em;
+            font-size: 0.85rem;
         }
 
-        h2 {
-            margin: 0 0 15px;
-
-            color: var(--dark);
-
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            line-height: 1.1;
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            margin-bottom: 15px;
         }
 
-        .section-heading p {
-            margin: 0;
+        .section-header p {
             color: var(--muted);
         }
 
-
-        /* =========================================================
-           STATS
-        ========================================================= */
-
-        .stats {
-            position: relative;
-            z-index: 5;
-
-            margin-top: -65px;
-            padding: 0 20px;
-        }
-
-        .stats-grid {
-            max-width: 1050px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
-            background: var(--surface);
-
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-
-            box-shadow: var(--shadow-lg);
-
-            overflow: hidden;
-        }
-
-        .stat {
-            padding: 30px 20px;
-
-            text-align: center;
-
-            border-right: 1px solid var(--border);
-        }
-
-        .stat:last-child {
-            border-right: 0;
-        }
-
-        .stat-number {
-            color: var(--primary);
-
-            font-size: 2.6rem;
-            font-weight: 800;
-        }
-
-        .stat-label {
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-
-        /* =========================================================
+        /* =========================
            EXPERIENCE
-        ========================================================= */
+        ========================= */
 
         .experience-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-
-            align-items: center;
-        }
-
-        .experience-image {
-            position: relative;
-        }
-
-        .experience-image img {
-            width: 100%;
-            min-height: 500px;
-
-            object-fit: cover;
-
-            border-radius: var(--radius-lg);
-
-            box-shadow: var(--shadow-lg);
-        }
-
-        .experience-badge {
-            position: absolute;
-
-            right: -20px;
-            bottom: 30px;
-
-            max-width: 220px;
-
-            padding: 20px;
-
-            background: var(--surface);
-
-            border-radius: 18px;
-
-            box-shadow: var(--shadow-md);
-        }
-
-        .experience-badge strong {
-            display: block;
-
-            color: var(--primary);
-
-            font-size: 1.8rem;
-        }
-
-        .experience-content h3 {
-            margin-top: 0;
-
-            color: var(--dark);
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 2rem;
-        }
-
-        .experience-list {
-            padding: 0;
-
-            list-style: none;
-        }
-
-        .experience-list li {
-            position: relative;
-
-            margin-bottom: 15px;
-            padding-left: 30px;
-        }
-
-        .experience-list li::before {
-            content: "✓";
-
-            position: absolute;
-            left: 0;
-
-            width: 22px;
-            height: 22px;
-
-            display: grid;
-            place-items: center;
-
-            background: var(--primary-light);
-            color: var(--primary);
-
-            border-radius: 50%;
-
-            font-weight: 800;
-        }
-
-
-        /* =========================================================
-           CAMPAIGNS
-        ========================================================= */
-
-        .campaigns {
-            background: var(--surface-2);
-        }
-
-        .filter-bar {
-            max-width: 900px;
-
-            margin: 0 auto 35px;
-
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-
-            justify-content: center;
-        }
-
-        .filter-btn {
-            padding: 10px 17px;
-
-            border: 1px solid var(--border);
-            border-radius: 100px;
-
-            background: var(--surface);
-            color: var(--text);
-
-            font-weight: 700;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .search-box {
-            width: min(500px, 100%);
-
-            margin: 0 auto 35px;
-
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-
-            padding: 15px 20px 15px 48px;
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            background: var(--surface);
-            color: var(--text);
-
-            outline: none;
-        }
-
-        .search-box span {
-            position: absolute;
-
-            left: 17px;
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            font-size: 1.1rem;
-        }
-
-        .campaign-grid {
-            display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 24px;
         }
 
-        .campaign-card {
-            overflow: hidden;
-
-            background: var(--surface);
-
+        .experience-card {
+            background: var(--white);
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-
-            box-shadow: var(--shadow-sm);
-
-            transition: var(--transition);
-        }
-
-        .campaign-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .campaign-image {
-            height: 250px;
+            border-radius: var(--radius);
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        .campaign-image img {
+        .experience-card img {
             width: 100%;
-            height: 100%;
-
+            height: 220px;
             object-fit: cover;
-
-            transition: transform .5s ease;
         }
 
-        .campaign-card:hover img {
-            transform: scale(1.06);
+        .experience-info {
+            padding: 24px;
         }
 
-        .campaign-content {
-            padding: 25px;
-        }
-
-        .campaign-year {
-            color: var(--accent-dark);
-
-            font-size: .78rem;
-            font-weight: 800;
-
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .campaign-content h3 {
-            margin: 8px 0;
-
-            color: var(--dark);
-
-            font-family: "Playfair Display", serif;
-        }
-
-        .campaign-content p {
-            margin-bottom: 0;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           TIMELINE
-        ========================================================= */
-
-        .timeline {
-            position: relative;
-
-            max-width: 850px;
-
-            margin: auto;
-        }
-
-        .timeline::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            bottom: 0;
-            left: 50%;
-
-            width: 3px;
-
-            transform: translateX(-50%);
-
-            background: var(--primary-light);
-        }
-
-        .timeline-item {
-            width: 50%;
-
-            position: relative;
-
-            padding: 20px 45px 45px;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-dot {
-            position: absolute;
-
-            top: 25px;
-            right: -9px;
-
-            width: 18px;
-            height: 18px;
-
-            border: 4px solid var(--background);
-            border-radius: 50%;
-
-            background: var(--accent);
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -9px;
-        }
-
-        .timeline-card {
-            padding: 22px;
-
-            background: var(--surface);
-
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-
-            box-shadow: var(--shadow-sm);
-        }
-
-        .timeline-year {
+        .experience-info h3 {
+            margin-bottom: 8px;
             color: var(--primary);
-
-            font-weight: 800;
         }
 
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        .skills {
-            background: var(--surface-2);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            padding: 30px 20px;
-
-            text-align: center;
-
-            background: var(--surface);
-
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-
-            transition: var(--transition);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-
-            margin: 0 auto 15px;
-
-            display: grid;
-            place-items: center;
-
-            background: var(--primary-light);
-
-            border-radius: 18px;
-
-            font-size: 1.7rem;
-        }
-
-        .skill-card h3 {
-            margin: 0 0 7px;
-            color: var(--dark);
-        }
-
-        .skill-card p {
-            margin: 0;
-
+        .experience-info p {
             color: var(--muted);
-
-            font-size: .9rem;
         }
 
-
-        /* =========================================================
-           GALLERY
-        ========================================================= */
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .gallery-item {
-            height: 270px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            padding: 0;
-
-            border: 0;
-            border-radius: 16px;
-
-            background: transparent;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: transform .5s ease;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-
-            inset: 0;
-
-            display: flex;
-            align-items: flex-end;
-
-            padding: 20px;
-
-            background: linear-gradient(
-                transparent,
-                rgba(0,0,0,.75)
-            );
-
-            opacity: 0;
-
-            transition: var(--transition);
-
-            color: white;
-
-            text-align: left;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-item:hover .gallery-overlay,
-        .gallery-item:focus .gallery-overlay {
-            opacity: 1;
-        }
-
-
-        /* =========================================================
+        /* =========================
            CERTIFICATES
-        ========================================================= */
+        ========================= */
 
-        .certificates {
-            background: var(--surface-2);
-        }
-
-        .certificate-tools {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 15px;
-
-            margin-bottom: 30px;
-        }
-
-        .certificate-search {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .certificate-grid {
+        .certificates-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
 
         .certificate-card {
-            overflow: hidden;
-
-            background: var(--surface);
-
+            background: white;
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
 
-            box-shadow: var(--shadow-sm);
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 18px 40px rgba(18, 103, 130, 0.16);
         }
 
         .certificate-image {
-            height: 300px;
-
-            overflow: hidden;
-
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: #f5f7f9;
             cursor: pointer;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
         }
 
         .certificate-image img {
             width: 100%;
             height: 100%;
-
-            object-fit: cover;
-
-            transition: transform .4s ease;
+            object-fit: contain;
+            transition: transform 0.3s ease;
         }
 
-        .certificate-card:hover img {
-            transform: scale(1.04);
+        .certificate-image:hover img {
+            transform: scale(1.03);
         }
 
         .certificate-info {
-            padding: 20px;
+            padding: 22px;
         }
 
         .certificate-info h3 {
-            margin: 0 0 5px;
-
-            color: var(--dark);
-
-            font-family: "Playfair Display", serif;
+            color: var(--primary);
+            margin-bottom: 6px;
         }
 
         .certificate-info p {
-            margin: 0 0 15px;
-
             color: var(--muted);
-            font-size: .9rem;
+            margin-bottom: 18px;
         }
 
+        /* =========================
+           ABOUT
+        ========================= */
 
-        /* =========================================================
-           QUOTE
-        ========================================================= */
-
-        .quote-section {
-            padding: 110px 20px;
-
-            background:
-                linear-gradient(
-                    rgba(18,103,130,.94),
-                    rgba(18,103,130,.94)
-                ),
-                url("./imag/verano.JPG")
-                center / cover;
-
-            color: white;
+        .about {
+            background: white;
         }
 
-        blockquote {
-            max-width: 850px;
-
-            margin: auto;
-
-            text-align: center;
-
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            line-height: 1.25;
-        }
-
-        blockquote::before {
-            content: "“";
-
-            display: block;
-
-            margin-bottom: -20px;
-
-            font-size: 6rem;
-            line-height: 1;
-
-            opacity: .35;
-        }
-
-
-        /* =========================================================
-           FAQ
-        ========================================================= */
-
-        .faq {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .faq-item {
-            margin-bottom: 12px;
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            background: var(--surface);
-
-            overflow: hidden;
-        }
-
-        .faq-question {
-            width: 100%;
-
-            display: flex;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
             align-items: center;
-            justify-content: space-between;
-
-            padding: 20px;
-
-            border: 0;
-
-            background: transparent;
-            color: var(--dark);
-
-            text-align: left;
-
-            font-weight: 700;
         }
 
-        .faq-answer {
-            display: none;
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
 
-            padding: 0 20px 20px;
+        .about-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
 
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
             color: var(--muted);
+            margin-bottom: 16px;
         }
 
-        .faq-item.open .faq-answer {
-            display: block;
-        }
+        /* =========================
+           CONTACT
+        ========================= */
 
-        .faq-item.open .faq-question span {
-            transform: rotate(45deg);
-        }
-
-        .faq-question span {
-            font-size: 1.5rem;
-            transition: transform .3s;
-        }
-
-
-        /* =========================================================
-           CTA
-        ========================================================= */
-
-        .cta {
-            padding: 100px 20px;
-
-            text-align: center;
-
-            background: var(--surface);
-        }
-
-        .cta-box {
-            max-width: 850px;
-
-            margin: auto;
-            padding: 60px 30px;
-
-            border-radius: var(--radius-lg);
-
+        .contact-box {
             background:
                 linear-gradient(
                     135deg,
                     var(--primary),
                     var(--primary-dark)
                 );
-
             color: white;
-
-            box-shadow: var(--shadow-lg);
+            border-radius: 24px;
+            padding: 55px;
+            text-align: center;
         }
 
-        .cta-box h2 {
-            color: white;
+        .contact-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
         }
 
-        .cta-note {
-            margin-top: 20px;
-
-            color: rgba(255,255,255,.72);
-
-            font-size: .85rem;
+        .contact-box p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            opacity: 0.92;
         }
 
-
-        /* =========================================================
+        /* =========================
            FOOTER
-        ========================================================= */
+        ========================= */
 
         footer {
-            padding: 40px 20px;
-
-            background: var(--dark);
-
+            padding: 35px 0;
+            background: #0b2632;
             color: white;
-
             text-align: center;
         }
 
         footer p {
-            margin: 5px;
-            color: rgba(255,255,255,.7);
+            opacity: 0.8;
         }
 
-
-        /* =========================================================
-           LIGHTBOX
-        ========================================================= */
+        /* =========================
+           MODAL
+        ========================= */
 
         .modal {
             position: fixed;
-
             inset: 0;
-
-            z-index: 9998;
-
+            z-index: 1000;
             display: none;
-
             align-items: center;
             justify-content: center;
-
-            padding: 30px;
-
-            background: rgba(0,0,0,.88);
+            padding: 25px;
+            background: rgba(4, 15, 20, 0.9);
         }
 
         .modal.show {
@@ -1269,179 +446,79 @@
         }
 
         .modal-content {
-            max-width: 1000px;
-            width: 100%;
-
             position: relative;
-
-            text-align: center;
+            width: min(1000px, 100%);
+            max-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
         .modal-image {
             max-width: 100%;
-            max-height: 75vh;
-
-            margin: auto;
-
+            max-height: 78vh;
             object-fit: contain;
-
             border-radius: 10px;
+            background: white;
+        }
+
+        .modal-caption {
+            color: white;
+            text-align: center;
+            font-weight: 600;
         }
 
         .modal-close,
         .modal-prev,
         .modal-next {
             position: absolute;
-
-            z-index: 2;
-
-            width: 48px;
-            height: 48px;
-
-            display: grid;
-            place-items: center;
-
+            width: 44px;
+            height: 44px;
             border: 0;
             border-radius: 50%;
-
-            background: rgba(255,255,255,.15);
-            color: white;
-
-            font-size: 1.5rem;
-
-            backdrop-filter: blur(8px);
+            background: white;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: 800;
+            display: grid;
+            place-items: center;
         }
 
         .modal-close {
-            top: -60px;
-            right: 0;
+            top: -10px;
+            right: -10px;
         }
 
         .modal-prev {
-            left: 15px;
+            left: 10px;
             top: 50%;
-
             transform: translateY(-50%);
         }
 
         .modal-next {
-            right: 15px;
+            right: 10px;
             top: 50%;
-
             transform: translateY(-50%);
         }
 
-        .modal-caption {
-            margin-top: 15px;
-            color: white;
-        }
-
         .modal-actions {
-            margin-top: 15px;
-
             display: flex;
             justify-content: center;
             gap: 10px;
         }
 
-
-        /* =========================================================
-           TOAST
-        ========================================================= */
-
-        .toast-container {
-            position: fixed;
-
-            right: 20px;
-            bottom: 20px;
-
-            z-index: 10001;
-
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .toast {
-            min-width: 250px;
-
-            padding: 14px 18px;
-
-            background: var(--dark);
-            color: white;
-
-            border-radius: 12px;
-
-            box-shadow: var(--shadow-md);
-
-            animation: toastIn .3s ease;
-        }
-
-        @keyframes toastIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =========================================================
-           BACK TO TOP
-        ========================================================= */
-
-        .back-top {
-            position: fixed;
-
-            right: 20px;
-            bottom: 85px;
-
-            z-index: 900;
-
-            width: 45px;
-            height: 45px;
-
-            display: grid;
-            place-items: center;
-
-            border: 0;
-            border-radius: 50%;
-
-            background: var(--primary);
-            color: white;
-
-            box-shadow: var(--shadow-md);
-
-            opacity: 0;
-            pointer-events: none;
-
-            transform: translateY(10px);
-
-            transition: var(--transition);
-        }
-
-        .back-top.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-
-        /* =========================================================
-           REVEAL ANIMATION
-        ========================================================= */
+        /* =========================
+           REVEAL
+        ========================= */
 
         .reveal {
             opacity: 0;
             transform: translateY(25px);
-
             transition:
-                opacity .7s ease,
-                transform .7s ease;
+                opacity 0.7s ease,
+                transform 0.7s ease;
         }
 
         .reveal.visible {
@@ -1449,609 +526,895 @@
             transform: translateY(0);
         }
 
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-        /* =========================================================
-           NO RESULTS
-        ========================================================= */
+        @media (max-width: 900px) {
+            .experience-grid,
+            .certificates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-        .no-results {
-            display: none;
-
-            padding: 40px;
-
-            text-align: center;
-
-            color: var(--muted);
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
+        @media (max-width: 650px) {
+            .container {
+                width: min(100% - 28px, 1120px);
+            }
 
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 1000px) {
+            .nav {
+                min-height: 64px;
+            }
 
             .nav-links {
-                position: fixed;
-
-                top: 76px;
-                left: 0;
-                right: 0;
-
-                padding: 20px;
-
-                flex-direction: column;
-
-                background: var(--surface);
-
-                border-bottom: 1px solid var(--border);
-
-                transform: translateY(-120%);
-
-                transition: transform .3s ease;
-
-                box-shadow: var(--shadow-md);
-            }
-
-            .nav-links.open {
-                transform: translateY(0);
-            }
-
-            .nav-links li,
-            .nav-links a {
-                width: 100%;
-                text-align: center;
-            }
-
-            .menu-toggle {
-                display: grid;
-            }
-
-            .language-select {
                 display: none;
             }
 
-            .experience-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .campaign-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .certificate-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-
-        @media (max-width: 700px) {
-
             .hero {
-                min-height: 620px;
+                padding: 65px 0;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            section {
+                padding: 60px 0;
             }
 
-            .stat:nth-child(2) {
-                border-right: 0;
-            }
-
-            .stat:nth-child(-n+2) {
-                border-bottom: 1px solid var(--border);
-            }
-
-            .campaign-grid,
-            .certificate-grid,
-            .skills-grid {
+            .experience-grid,
+            .certificates-grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery-item {
-                height: 200px;
-            }
-
-            .timeline::before {
-                left: 15px;
-            }
-
-            .timeline-item,
-            .timeline-item:nth-child(even) {
-                width: 100%;
-                left: 0;
-
-                padding-left: 50px;
-                padding-right: 0;
-
-                text-align: left;
-            }
-
-            .timeline-dot,
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: 6px;
-                right: auto;
-            }
-
-            .experience-badge {
-                right: 15px;
+            .contact-box {
+                padding: 35px 22px;
             }
 
             .modal {
                 padding: 15px;
             }
 
-            .modal-prev,
-            .modal-next {
-                top: auto;
-                bottom: -60px;
-
-                transform: none;
-            }
-
             .modal-prev {
-                left: calc(50% - 60px);
+                left: 0;
             }
 
             .modal-next {
-                right: calc(50% - 60px);
+                right: 0;
             }
         }
-
-
-        @media (max-width: 450px) {
-
-            .navbar {
-                padding-inline: 12px;
-            }
-
-            .logo span {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat,
-            .stat:nth-child(2) {
-                border-right: 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .stat:last-child {
-                border-bottom: 0;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        /* =========================================================
-           PRINT
-        ========================================================= */
-
-        @media print {
-
-            header,
-            .hero-buttons,
-            .filter-bar,
-            .search-box,
-            .certificate-tools,
-            .back-top,
-            .toast-container,
-            .reading-progress,
-            .modal {
-                display: none !important;
-            }
-
-            .hero {
-                min-height: auto;
-
-                padding: 50px;
-
-                background: none;
-
-                color: black;
-            }
-
-            .hero p {
-                color: black;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
     </style>
 </head>
 
-
 <body>
 
-<a href="#main-content" class="skip-link">
-    Saltar al contenido
-</a>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-<div class="reading-progress" id="readingProgress"></div>
+    <header>
+        <div class="container nav">
+
+            <a href="#inicio" class="logo">
+                <img
+                    src="./imag/logo.jpg"
+                    alt="Logo"
+                >
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="#inicio">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#experiencia">Experiencia</a>
+                    </li>
+                    <li>
+                        <a href="#certificados">Certificados</a>
+                    </li>
+                    <li>
+                        <a href="#sobre-mi">Sobre mí</a>
+                    </li>
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
 
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+    <!-- =========================
+         HERO
+    ========================== -->
 
-<header>
+    <main>
 
-    <nav class="navbar" aria-label="Navegación principal">
+        <section
+            class="hero"
+            id="inicio"
+        >
+            <div class="container">
 
-        <a href="#inicio" class="logo">
+                <div class="hero-content">
+
+                    <h1>
+                        Mi experiencia de
+                        voluntariado
+                    </h1>
+
+                    <p>
+                        Un recorrido por las experiencias,
+                        aprendizajes y momentos que he
+                        vivido gracias al voluntariado.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#certificados"
+                            class="btn btn-accent"
+                        >
+                            Ver certificados
+                        </a>
+
+                        <a
+                            href="#experiencia"
+                            class="btn btn-light"
+                        >
+                            Conocer mi experiencia
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             EXPERIENCIA
+        ========================== -->
+
+        <section id="experiencia">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>Experiencia</span>
+
+                    <h2>
+                        Momentos que forman parte
+                        de mi historia
+                    </h2>
+
+                    <p>
+                        A lo largo de diferentes campañas
+                        y actividades he tenido la oportunidad
+                        de colaborar, aprender y compartir
+                        experiencias con muchas personas.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+                    <article class="experience-card reveal">
+
+                        <img
+                            src="./imag/voluntariado.jpg"
+                            alt="Actividad de voluntariado"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-info">
+
+                            <h3>
+                                Voluntariado
+                            </h3>
+
+                            <p>
+                                Participación en diferentes
+                                actividades de voluntariado,
+                                colaborando con el equipo y
+                                ayudando en la organización.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <img
+                            src="./imag/navidad.jpg"
+                            alt="Voluntariado durante Navidad"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-info">
+
+                            <h3>
+                                Campañas de Navidad
+                            </h3>
+
+                            <p>
+                                Experiencias durante diferentes
+                                campañas navideñas, compartiendo
+                                tiempo y esfuerzo con el resto
+                                de voluntarios.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <img
+                            src="./imag/semanasanta.jpg"
+                            alt="Actividades de Semana Santa"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-info">
+
+                            <h3>
+                                Semana Santa
+                            </h3>
+
+                            <p>
+                                Participación en actividades
+                                y proyectos durante los periodos
+                                de vacaciones.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <img
+                            src="./imag/verano.JPG"
+                            alt="Voluntariado durante el verano"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-info">
+
+                            <h3>
+                                Verano
+                            </h3>
+
+                            <p>
+                                Una de las experiencias que más
+                                me ha permitido aprender sobre
+                                responsabilidad, compañerismo
+                                y trabajo en equipo.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <img
+                            src="./imag/escritura.jpg"
+                            alt="Actividad de escritura"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-info">
+
+                            <h3>
+                                Actividades
+                            </h3>
+
+                            <p>
+                                Colaboración en actividades
+                                educativas, creativas y de
+                                entretenimiento.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <img
+                            src="./imag/actividadesmonis.jpg"
+                            alt="Actividades con monitores"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-info">
+
+                            <h3>
+                                Trabajo en equipo
+                            </h3>
+
+                            <p>
+                                Aprendiendo junto a otros
+                                voluntarios y monitores y
+                                desarrollando nuevas habilidades.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CERTIFICADOS
+        ========================== -->
+
+        <section id="certificados">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>Certificados</span>
+
+                    <h2>
+                        Mis certificados de voluntariado
+                    </h2>
+
+                    <p>
+                        Puedes pulsar sobre la imagen para
+                        verla en grande o utilizar el botón
+                        para abrir el certificado completo
+                        en formato PDF.
+                    </p>
+
+                </div>
+
+
+                <div class="certificates-grid">
+
+
+                    <!-- CERTIFICADO 1 -->
+
+                    <article
+                        class="certificate-card reveal"
+                        data-search="diviertet verano 2023 moraira voluntariado"
+                    >
+
+                        <button
+                            class="certificate-image"
+                            type="button"
+                            data-image="./imag/certificado1.png"
+                            data-caption="Voluntariado Diviertet — Verano 2023, Moraira"
+                        >
+
+                            <img
+                                src="./imag/certificado1.png"
+                                alt="Certificado de voluntariado Diviertet"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </button>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado Diviertet
+                            </h3>
+
+                            <p>
+                                Verano 2023 · Moraira
+                            </p>
+
+                            <a
+                                class="btn btn-primary certificate-view"
+                                href="./imag/MÓNICA BLANCO MERINO_firmado_Diviertet Moraira_Veranoagosto_2023.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                📄 Ver certificado
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CERTIFICADO 2 -->
+
+                    <article
+                        class="certificate-card reveal"
+                        data-search="navidad 2023 2024 benicassim voluntariado"
+                    >
+
+                        <button
+                            class="certificate-image"
+                            type="button"
+                            data-image="./imag/certificado2.png"
+                            data-caption="Voluntariado — Navidad 2023/24, Benicàssim"
+                        >
+
+                            <img
+                                src="./imag/certificado2.png"
+                                alt="Certificado de voluntariado Navidad 2023"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </button>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                            </h3>
+
+                            <p>
+                                Navidad 2023/24 · Benicàssim
+                            </p>
+
+                            <a
+                                class="btn btn-primary certificate-view"
+                                href="./imag/MONICA BLANCO MERINO_firmado_Navidad23_24_Benicassim.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                📄 Ver certificado
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CERTIFICADO 3 -->
+
+                    <article
+                        class="certificate-card reveal"
+                        data-search="reconocimiento navidad benicassim"
+                    >
+
+                        <button
+                            class="certificate-image"
+                            type="button"
+                            data-image="./imag/certificado3.png"
+                            data-caption="Reconocimiento — Campaña de Navidad, Benicàssim"
+                        >
+
+                            <img
+                                src="./imag/certificado3.png"
+                                alt="Reconocimiento de campaña de Navidad"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </button>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Reconocimiento
+                            </h3>
+
+                            <p>
+                                Campaña de Navidad · Benicàssim
+                            </p>
+
+                            <a
+                                class="btn btn-primary certificate-view"
+                                href="./imag/MÓNICA BLANCO MERINO_firmado_verano_24_Moraira.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                📄 Ver certificado
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CERTIFICADO 4 -->
+
+                    <article
+                        class="certificate-card reveal"
+                        data-search="verano 2024 moraira voluntariado"
+                    >
+
+                        <button
+                            class="certificate-image"
+                            type="button"
+                            data-image="./imag/certificado4.png"
+                            data-caption="Voluntariado — Verano 2024, Moraira"
+                        >
+
+                            <img
+                                src="./imag/certificado4.png"
+                                alt="Certificado de voluntariado verano 2024"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </button>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                            </h3>
+
+                            <p>
+                                Verano 2024 · Moraira
+                            </p>
+
+                            <a
+                                class="btn btn-primary certificate-view"
+                                href="./imag/MÓNICA BLANCO MERINO_firmado_Navidad24_25_Benicassim.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                📄 Ver certificado
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CERTIFICADO 5 -->
+
+                    <article
+                        class="certificate-card reveal"
+                        data-search="navidad 2024 2025 benicassim"
+                    >
+
+                        <button
+                            class="certificate-image"
+                            type="button"
+                            data-image="./imag/certificado5.png"
+                            data-caption="Voluntariado — Navidad 2024/25, Benicàssim"
+                        >
+
+                            <img
+                                src="./imag/certificado5.png"
+                                alt="Certificado Navidad 2024 2025"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </button>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                            </h3>
+
+                            <p>
+                                Navidad 2024/25 · Benicàssim
+                            </p>
+
+                            <a
+                                class="btn btn-primary certificate-view"
+                                href="./imag/MONICA BLANCO MERINO_firmado_Primavera_abril25_Benicassim.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                📄 Ver certificado
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CERTIFICADO 6 -->
+
+                    <article
+                        class="certificate-card reveal"
+                        data-search="primavera 2025 benicassim voluntariado"
+                    >
+
+                        <button
+                            class="certificate-image"
+                            type="button"
+                            data-image="./imag/certificado6.png"
+                            data-caption="Voluntariado — Primavera 2025, Benicàssim"
+                        >
+
+                            <img
+                                src="./imag/certificado6.png"
+                                alt="Certificado de voluntariado primavera 2025"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </button>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                            </h3>
+
+                            <p>
+                                Primavera 2025 · Benicàssim
+                            </p>
+
+                            <a
+                                class="btn btn-primary certificate-view"
+                                href="./imag/MONICA BLANCO MERINO_firmado_Diviertet Alcossebre 25 .pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                📄 Ver certificado
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE MÍ
+        ========================== -->
+
+        <section
+            class="about"
+            id="sobre-mi"
+        >
+
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+
+                        <img
+                            src="./imag/actividadesmonis.jpg"
+                            alt="Actividad de voluntariado"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <h2>
+                            Lo que me ha aportado
+                            el voluntariado
+                        </h2>
+
+                        <p>
+                            El voluntariado me ha permitido
+                            conocer nuevas personas, participar
+                            en actividades diferentes y aprender
+                            a trabajar en equipo.
+                        </p>
+
+                        <p>
+                            Cada experiencia me ha ayudado a
+                            desarrollar responsabilidad,
+                            organización, comunicación y
+                            compromiso.
+                        </p>
+
+                        <p>
+                            Además, considero que ayudar a los
+                            demás y formar parte de un equipo
+                            es una experiencia que aporta tanto
+                            a nivel personal como profesional.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    <!-- =========================
+        CONTACTO
+    ========================= -->
+
+    <section id="contacto">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <span>Contacto</span>
+
+                <h2>
+                    ¿Quieres ponerte en contacto conmigo?
+                </h2>
+
+                <p>
+                    Si quieres conocer más sobre mi experiencia
+                    de voluntariado, puedes contactar conmigo
+                    a través de los siguientes medios.
+                </p>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h2>
+                    ¡Hablemos!
+                </h2>
+
+                <p>
+                    Estaré encantado/a de recibir tu mensaje.
+                </p>
+
+
+                <div
+                    style="
+                        display:flex;
+                        flex-wrap:wrap;
+                        justify-content:center;
+                        gap:15px;
+                        margin:25px 0;
+                    "
+                >
+
+                    <!-- EMAIL -->
+                    <a
+                        href="mailto:TUEMAIL@ejemplo.com"
+                        class="btn btn-light"
+                    >
+                        ✉️ Email
+                    </a>
+
+
+                    <!-- TELÉFONO -->
+                    <a
+                        href="tel:+34600000000"
+                        class="btn btn-light"
+                    >
+                        📞 Teléfono
+                    </a>
+
+
+                    <!-- INSTAGRAM -->
+                    <a
+                        href="https://www.instagram.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-accent"
+                    >
+                        📷 Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 · Mi experiencia de voluntariado
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         MODAL / LIGHTBOX
+    ========================== -->
+
+    <div
+        class="modal"
+        id="certificateModal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Vista del certificado"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+
+            <button
+                class="modal-prev"
+                id="modalPrev"
+                type="button"
+                aria-label="Certificado anterior"
+            >
+                ‹
+            </button>
+
 
             <img
-                src="./imag/logo.jpg"
-                alt="Logo del portfolio"
+                class="modal-image"
+                id="modalImage"
+                src=""
+                alt=""
             >
 
-            <span>Mi voluntariado</span>
 
-        </a>
+            <button
+                class="modal-next"
+                id="modalNext"
+                type="button"
+                aria-label="Certificado siguiente"
+            >
+                ›
+            </button>
 
 
-        <ul class="nav-links" id="navLinks">
+            <p
+                class="modal-caption"
+                id="modalCaption"
+            ></p>
 
-            <li>
-                <a href="#inicio" class="nav-link active">
-                    Inicio
+
+            <div class="modal-actions">
+
+                <a
+                    class="btn btn-primary"
+                    id="downloadImage"
+                    href="#"
+                    download
+                >
+                    ⬇ Descargar
                 </a>
-            </li>
-
-            <li>
-                <a href="#experiencia" class="nav-link">
-                    Experiencia
-                </a>
-            </li>
-
-            <li>
-                <a href="#campanas" class="nav-link">
-                    Campañas
-                </a>
-            </li>
-
-            <li>
-                <a href="#timeline" class="nav-link">
-                    Trayectoria
-                </a>
-            </li>
-
-            <li>
-                <a href="#galeria" class="nav-link">
-                    Galería
-                </a>
-            </li>
-
-            <li>
-                <a href="#certificados" class="nav-link">
-                    Certificados
-                </a>
-            </li>
-
-            <li>
-                <a href="#faq" class="nav-link">
-                    FAQ
-                </a>
-            </li>
-
-        </ul>
-
-
-        <div class="nav-actions">
-
-            <select
-                id="languageSelect"
-                class="language-select"
-                aria-label="Seleccionar idioma"
-            >
-                <option value="es">ES</option>
-                <option value="va">VA</option>
-                <option value="en">EN</option>
-            </select>
-
-
-            <button
-                class="icon-btn"
-                id="themeToggle"
-                type="button"
-                aria-label="Cambiar tema"
-                title="Cambiar tema"
-            >
-                🌙
-            </button>
-
-
-            <button
-                class="icon-btn menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-            >
-                ☰
-            </button>
-
-        </div>
-
-    </nav>
-
-</header>
-
-
-<main id="main-content">
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero" id="inicio">
-
-    <div class="hero-content reveal">
-
-        <span class="hero-tag">
-            ✦ Experiencia personal
-        </span>
-
-        <h1>
-            Mi experiencia<br>
-            de voluntariado
-        </h1>
-
-        <p>
-            Un recorrido por las experiencias, personas, campañas
-            y aprendizajes que han marcado mi camino como voluntario.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#experiencia"
-                class="btn btn-primary"
-            >
-                Conocer mi experiencia ↓
-            </a>
-
-            <button
-                class="btn btn-outline"
-                id="shareButton"
-                type="button"
-            >
-                🔗 Compartir
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     STATS
-========================================================= -->
-
-<section class="stats" aria-label="Estadísticas">
-
-    <div class="stats-grid">
-
-        <div class="stat">
-            <div
-                class="stat-number"
-                data-counter="8"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Experiencias
-            </div>
-        </div>
-
-
-        <div class="stat">
-            <div
-                class="stat-number"
-                data-counter="1000"
-                data-suffix="+"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Horas
-            </div>
-        </div>
-
-
-        <div class="stat">
-            <div
-                class="stat-number"
-                data-counter="50"
-                data-suffix="+"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Actividades
-            </div>
-        </div>
-
-
-        <div class="stat">
-            <div
-                class="stat-number"
-                data-counter="3"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Campañas principales
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     EXPERIENCIA
-========================================================= -->
-
-<section
-    class="section"
-    id="experiencia"
->
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="eyebrow">
-                Mi recorrido
-            </span>
-
-            <h2>
-                Mucho más que ayudar
-            </h2>
-
-            <p>
-                Cada experiencia de voluntariado me ha permitido
-                aprender, colaborar y descubrir nuevas formas de
-                aportar a los demás.
-            </p>
-
-        </div>
-
-
-        <div class="experience-grid">
-
-            <div class="experience-image reveal">
-
-                <img
-                    src="./imag/voluntariado.jpg"
-                    alt="Actividad de voluntariado"
-                    loading="lazy"
-                    decoding="async"
-                >
-
-                <div class="experience-badge">
-
-                    <strong>2023 → 2025</strong>
-
-                    <span>
-                        Años de experiencias,
-                        aprendizaje y compromiso.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="experience-content reveal">
-
-                <h3>
-                    Una experiencia que deja huella
-                </h3>
-
-                <p>
-                    El voluntariado me ha permitido formar parte
-                    de diferentes campañas y actividades,
-                    conocer personas nuevas y asumir
-                    responsabilidades.
-                </p>
-
-                <p>
-                    Durante este recorrido he aprendido que
-                    ayudar no consiste únicamente en dedicar
-                    tiempo, sino también en escuchar, colaborar,
-                    adaptarse y crecer junto a los demás.
-                </p>
-
-
-                <ul class="experience-list">
-
-                    <li>
-                        Trabajo en equipo
-                    </li>
-
-                    <li>
-                        Organización de actividades
-                    </li>
-
-                    <li>
-                        Comunicación y empatía
-                    </li>
-
-                    <li>
-                        Responsabilidad
-                    </li>
-
-                    <li>
-                        Creatividad
-                    </li>
-
-                </ul>
 
             </div>
 
@@ -2059,1905 +1422,200 @@
 
     </div>
 
-</section>
 
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-<!-- =========================================================
-     CAMPAÑAS
-========================================================= -->
+    <script>
 
-<section
-    class="section campaigns"
-    id="campanas"
->
+        /* =========================
+           MODAL
+        ========================== */
 
-    <div class="container">
+        const modal =
+            document.getElementById(
+                "certificateModal"
+            );
 
-        <div class="section-heading reveal">
+        const modalImage =
+            document.getElementById(
+                "modalImage"
+            );
 
-            <span class="eyebrow">
-                Experiencias
-            </span>
+        const modalCaption =
+            document.getElementById(
+                "modalCaption"
+            );
 
-            <h2>
-                Mis campañas
-            </h2>
+        const modalClose =
+            document.getElementById(
+                "modalClose"
+            );
 
-            <p>
-                Algunas de las campañas y periodos de voluntariado
-                más importantes de mi trayectoria.
-            </p>
+        const modalPrev =
+            document.getElementById(
+                "modalPrev"
+            );
 
-        </div>
+        const modalNext =
+            document.getElementById(
+                "modalNext"
+            );
 
+        const downloadImage =
+            document.getElementById(
+                "downloadImage"
+            );
 
-        <div class="search-box">
+        const body =
+            document.body;
 
-            <span>🔎</span>
 
-            <input
-                type="search"
-                id="campaignSearch"
-                placeholder="Buscar campañas..."
-                aria-label="Buscar campañas"
-            >
+        const certificateItems =
+            Array.from(
+                document.querySelectorAll(
+                    ".certificate-image"
+                )
+            );
 
-        </div>
 
+        let modalItems = [];
 
-        <div
-            class="filter-bar"
-            id="campaignFilters"
-        >
+        let currentModalIndex = 0;
 
-            <button
-                class="filter-btn active"
-                data-filter="all"
-                type="button"
-            >
-                Todas
-            </button>
+        let previousFocusedElement = null;
 
-            <button
-                class="filter-btn"
-                data-filter="navidad"
-                type="button"
-            >
-                Navidad
-            </button>
 
-            <button
-                class="filter-btn"
-                data-filter="semanasanta"
-                type="button"
-            >
-                Semana Santa
-            </button>
-
-            <button
-                class="filter-btn"
-                data-filter="verano"
-                type="button"
-            >
-                Verano
-            </button>
-
-        </div>
-
-
-        <div
-            class="campaign-grid"
-            id="campaignGrid"
-        >
-
-
-            <article
-                class="campaign-card reveal"
-                data-category="navidad"
-                data-search="navidad campaña benicàssim invierno"
-            >
-
-                <div class="campaign-image">
-
-                    <img
-                        src="./imag/navidad.jpg"
-                        alt="Campaña de Navidad"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                </div>
-
-                <div class="campaign-content">
-
-                    <span class="campaign-year">
-                        2023 / 24
-                    </span>
-
-                    <h3>
-                        Campaña de Navidad
-                    </h3>
-
-                    <p>
-                        Una experiencia llena de actividades,
-                        compañerismo y momentos especiales.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="campaign-card reveal"
-                data-category="semanasanta"
-                data-search="semana santa actividades primavera"
-            >
-
-                <div class="campaign-image">
-
-                    <img
-                        src="./imag/semanasanta.jpg"
-                        alt="Actividades de Semana Santa"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                </div>
-
-                <div class="campaign-content">
-
-                    <span class="campaign-year">
-                        Primavera
-                    </span>
-
-                    <h3>
-                        Semana Santa
-                    </h3>
-
-                    <p>
-                        Participación en actividades y
-                        dinámicas durante el periodo vacacional.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="campaign-card reveal"
-                data-category="verano"
-                data-search="verano moraira diviertet actividades monitores"
-            >
-
-                <div class="campaign-image">
-
-                    <img
-                        src="./imag/verano.JPG"
-                        alt="Campaña de verano"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                </div>
-
-                <div class="campaign-content">
-
-                    <span class="campaign-year">
-                        2023 / 2024
-                    </span>
-
-                    <h3>
-                        Campaña de verano
-                    </h3>
-
-                    <p>
-                        Actividades de ocio, convivencia,
-                        creatividad y trabajo en equipo.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <div
-            class="no-results"
-            id="campaignNoResults"
-        >
-            No se han encontrado campañas.
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     TIMELINE
-========================================================= -->
-
-<section
-    class="section"
-    id="timeline"
->
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="eyebrow">
-                Mi trayectoria
-            </span>
-
-            <h2>
-                Una línea temporal
-            </h2>
-
-            <p>
-                Así ha evolucionado mi experiencia de voluntariado.
-            </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-            <article class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-year">
-                        2023
-                    </span>
-
-                    <h3>
-                        Primeras experiencias
-                    </h3>
-
-                    <p>
-                        Inicio de mi recorrido con actividades
-                        de verano en Moraira.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-year">
-                        2023 / 24
-                    </span>
-
-                    <h3>
-                        Navidad
-                    </h3>
-
-                    <p>
-                        Participación en la campaña de Navidad
-                        en Benicàssim.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-year">
-                        2024
-                    </span>
-
-                    <h3>
-                        Verano
-                    </h3>
-
-                    <p>
-                        Nueva experiencia de voluntariado
-                        durante el verano en Moraira.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-year">
-                        2024 / 25
-                    </span>
-
-                    <h3>
-                        Navidad
-                    </h3>
-
-                    <p>
-                        Regreso a la campaña de Navidad
-                        en Benicàssim.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-year">
-                        2025
-                    </span>
-
-                    <h3>
-                        Primavera
-                    </h3>
-
-                    <p>
-                        Participación en nuevas actividades
-                        y consolidación de todo lo aprendido.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SKILLS
-========================================================= -->
-
-<section class="section skills">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="eyebrow">
-                Lo que he aprendido
-            </span>
-
-            <h2>
-                Habilidades desarrolladas
-            </h2>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    🤝
-                </div>
-
-                <h3>
-                    Trabajo en equipo
-                </h3>
-
-                <p>
-                    Colaborar con diferentes personas
-                    para conseguir objetivos comunes.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    💬
-                </div>
-
-                <h3>
-                    Comunicación
-                </h3>
-
-                <p>
-                    Escuchar, explicar ideas y relacionarme
-                    con diferentes perfiles.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    💡
-                </div>
-
-                <h3>
-                    Creatividad
-                </h3>
-
-                <p>
-                    Crear actividades y buscar soluciones
-                    ante diferentes situaciones.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    ❤️
-                </div>
-
-                <h3>
-                    Empatía
-                </h3>
-
-                <p>
-                    Comprender las necesidades de las personas
-                    y acompañarlas.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     GALERÍA
-========================================================= -->
-
-<section
-    class="section"
-    id="galeria"
->
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="eyebrow">
-                Momentos
-            </span>
-
-            <h2>
-                Galería
-            </h2>
-
-            <p>
-                Algunos momentos de las experiencias vividas.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-grid">
-
-
-            <button
-                class="gallery-item reveal"
-                type="button"
-                data-image="./imag/verano.JPG"
-                data-caption="Experiencia de voluntariado durante el verano"
-            >
-
-                <img
-                    src="./imag/verano.JPG"
-                    alt="Voluntariado durante el verano"
-                    loading="lazy"
-                >
-
-                <span class="gallery-overlay">
-                    Ver imagen →
-                </span>
-
-            </button>
-
-
-            <button
-                class="gallery-item reveal"
-                type="button"
-                data-image="./imag/voluntariado.jpg"
-                data-caption="Actividad de voluntariado"
-            >
-
-                <img
-                    src="./imag/voluntariado.jpg"
-                    alt="Actividad de voluntariado"
-                    loading="lazy"
-                >
-
-                <span class="gallery-overlay">
-                    Ver imagen →
-                </span>
-
-            </button>
-
-
-            <button
-                class="gallery-item reveal"
-                type="button"
-                data-image="./imag/escritura.jpg"
-                data-caption="Actividad de escritura"
-            >
-
-                <img
-                    src="./imag/escritura.jpg"
-                    alt="Actividad de escritura"
-                    loading="lazy"
-                >
-
-                <span class="gallery-overlay">
-                    Ver imagen →
-                </span>
-
-            </button>
-
-
-            <button
-                class="gallery-item reveal"
-                type="button"
-                data-image="./imag/actividadesmonis.jpg"
-                data-caption="Actividades con monitores"
-            >
-
-                <img
-                    src="./imag/actividadesmonis.jpg"
-                    alt="Actividades con monitores"
-                    loading="lazy"
-                >
-
-                <span class="gallery-overlay">
-                    Ver imagen →
-                </span>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CERTIFICADOS
-========================================================= -->
-
-<section
-    class="section certificates"
-    id="certificados"
->
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="eyebrow">
-                Reconocimientos
-            </span>
-
-            <h2>
-                Mis certificados
-            </h2>
-
-            <p>
-                Una recopilación de los certificados y
-                reconocimientos obtenidos.
-            </p>
-
-        </div>
-
-
-        <div class="certificate-tools">
-
-            <div class="search-box certificate-search">
-
-                <span>🔎</span>
-
-                <input
-                    type="search"
-                    id="certificateSearch"
-                    placeholder="Buscar certificado..."
-                    aria-label="Buscar certificados"
-                >
-
-            </div>
-
-        </div>
-
-
-        <div
-            class="certificate-grid"
-            id="certificateGrid"
-        >
-
-
-            <article
-                class="certificate-card reveal"
-                data-search="diviertet verano 2023 moraira voluntariado"
-            >
-
-                <button
-                    class="certificate-image"
-                    type="button"
-                    data-image="./imag/certificado1.png"
-                    data-caption="Voluntariado Diviertet — Verano 2023, Moraira"
-                >
-
-                    <img
-                        src="./imag/certificado1.png"
-                        alt="Certificado de voluntariado Diviertet"
-                        loading="lazy"
-                    >
-
-                </button>
-
-                <div class="certificate-info">
-
-                    <h3>
-                        Voluntariado Diviertet
-                    </h3>
-
-                    <p>
-                        Verano 2023 · Moraira
-                    </p>
-
-                    <button
-                        class="btn btn-primary certificate-view"
-                        type="button"
-                        data-image="./imag/certificado1.png"
-                        data-caption="Voluntariado Diviertet — Verano 2023, Moraira"
-                    >
-                        Ver certificado
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="certificate-card reveal"
-                data-search="navidad 2023 2024 benicassim voluntariado"
-            >
-
-                <button
-                    class="certificate-image"
-                    type="button"
-                    data-image="./imag/certificado2.png"
-                    data-caption="Voluntariado — Navidad 2023/24, Benicàssim"
-                >
-
-                    <img
-                        src="./imag/certificado2.png"
-                        alt="Certificado de voluntariado Navidad 2023"
-                        loading="lazy"
-                    >
-
-                </button>
-
-                <div class="certificate-info">
-
-                    <h3>
-                        Voluntariado
-                    </h3>
-
-                    <p>
-                        Navidad 2023/24 · Benicàssim
-                    </p>
-
-                    <button
-                        class="btn btn-primary certificate-view"
-                        type="button"
-                        data-image="./imag/certificado2.png"
-                        data-caption="Voluntariado — Navidad 2023/24, Benicàssim"
-                    >
-                        Ver certificado
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="certificate-card reveal"
-                data-search="reconocimiento navidad benicassim"
-            >
-
-                <button
-                    class="certificate-image"
-                    type="button"
-                    data-image="./imag/certificado3.png"
-                    data-caption="Reconocimiento — Campaña de Navidad, Benicàssim"
-                >
-
-                    <img
-                        src="./imag/certificado3.png"
-                        alt="Reconocimiento de campaña de Navidad"
-                        loading="lazy"
-                    >
-
-                </button>
-
-                <div class="certificate-info">
-
-                    <h3>
-                        Reconocimiento
-                    </h3>
-
-                    <p>
-                        Campaña de Navidad · Benicàssim
-                    </p>
-
-                    <button
-                        class="btn btn-primary certificate-view"
-                        type="button"
-                        data-image="./imag/certificado3.png"
-                        data-caption="Reconocimiento — Campaña de Navidad, Benicàssim"
-                    >
-                        Ver certificado
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="certificate-card reveal"
-                data-search="verano 2024 moraira voluntariado"
-            >
-
-                <button
-                    class="certificate-image"
-                    type="button"
-                    data-image="./imag/certificado4.png"
-                    data-caption="Voluntariado — Verano 2024, Moraira"
-                >
-
-                    <img
-                        src="./imag/certificado4.png"
-                        alt="Certificado de voluntariado verano 2024"
-                        loading="lazy"
-                    >
-
-                </button>
-
-                <div class="certificate-info">
-
-                    <h3>
-                        Voluntariado
-                    </h3>
-
-                    <p>
-                        Verano 2024 · Moraira
-                    </p>
-
-                    <button
-                        class="btn btn-primary certificate-view"
-                        type="button"
-                        data-image="./imag/certificado4.png"
-                        data-caption="Voluntariado — Verano 2024, Moraira"
-                    >
-                        Ver certificado
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="certificate-card reveal"
-                data-search="navidad 2024 2025 benicassim"
-            >
-
-                <button
-                    class="certificate-image"
-                    type="button"
-                    data-image="./imag/certificado5.png"
-                    data-caption="Voluntariado — Navidad 2024/25, Benicàssim"
-                >
-
-                    <img
-                        src="./imag/certificado5.png"
-                        alt="Certificado Navidad 2024 2025"
-                        loading="lazy"
-                    >
-
-                </button>
-
-                <div class="certificate-info">
-
-                    <h3>
-                        Voluntariado
-                    </h3>
-
-                    <p>
-                        Navidad 2024/25 · Benicàssim
-                    </p>
-
-                    <button
-                        class="btn btn-primary certificate-view"
-                        type="button"
-                        data-image="./imag/certificado5.png"
-                        data-caption="Voluntariado — Navidad 2024/25, Benicàssim"
-                    >
-                        Ver certificado
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="certificate-card reveal"
-                data-search="primavera 2025 benicassim voluntariado"
-            >
-
-                <button
-                    class="certificate-image"
-                    type="button"
-                    data-image="./imag/certificado6.png"
-                    data-caption="Voluntariado — Primavera 2025, Benicàssim"
-                >
-
-                    <img
-                        src="./imag/certificado6.png"
-                        alt="Certificado de voluntariado primavera 2025"
-                        loading="lazy"
-                    >
-
-                </button>
-
-                <div class="certificate-info">
-
-                    <h3>
-                        Voluntariado
-                    </h3>
-
-                    <p>
-                        Primavera 2025 · Benicàssim
-                    </p>
-
-                    <button
-                        class="btn btn-primary certificate-view"
-                        type="button"
-                        data-image="./imag/certificado6.png"
-                        data-caption="Voluntariado — Primavera 2025, Benicàssim"
-                    >
-                        Ver certificado
-                    </button>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <div
-            class="no-results"
-            id="certificateNoResults"
-        >
-            No se han encontrado certificados.
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     QUOTE
-========================================================= -->
-
-<section class="quote-section">
-
-    <blockquote>
-
-        No se trata solamente de ayudar,
-        sino de compartir una parte de tu tiempo
-        y aprender de cada persona que conoces.
-
-    </blockquote>
-
-</section>
-
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-
-<section
-    class="section"
-    id="faq"
->
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="eyebrow">
-                Preguntas
-            </span>
-
-            <h2>
-                Sobre mi experiencia
-            </h2>
-
-        </div>
-
-
-        <div class="faq">
-
-
-            <article class="faq-item reveal">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                    aria-expanded="false"
-                >
-
-                    ¿Qué me ha aportado el voluntariado?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    Principalmente experiencia,
-                    responsabilidad, capacidad de trabajar
-                    en equipo, comunicación y nuevas
-                    relaciones personales.
-
-                </div>
-
-            </article>
-
-
-            <article class="faq-item reveal">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                    aria-expanded="false"
-                >
-
-                    ¿Qué tipo de actividades he realizado?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    He participado en actividades de ocio,
-                    dinámicas, campañas de temporada,
-                    actividades creativas y diferentes
-                    propuestas para los participantes.
-
-                </div>
-
-            </article>
-
-
-            <article class="faq-item reveal">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                    aria-expanded="false"
-                >
-
-                    ¿Dónde he realizado voluntariado?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    Entre las principales localizaciones
-                    están Moraira y Benicàssim.
-
-                </div>
-
-            </article>
-
-
-            <article class="faq-item reveal">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                    aria-expanded="false"
-                >
-
-                    ¿Por qué seguir haciendo voluntariado?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    Porque cada experiencia es diferente.
-                    Permite aprender de otras personas,
-                    aportar tiempo y seguir desarrollando
-                    nuevas habilidades.
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta">
-
-    <div class="cta-box reveal">
-
-        <span class="eyebrow" style="color:#f4a11a;">
-            ¿Te interesa el voluntariado?
-        </span>
-
-        <h2>
-            Anímate a participar
-        </h2>
-
-        <p>
-            El voluntariado puede ser una forma de ayudar,
-            aprender y descubrir nuevas experiencias.
-        </p>
-
-        <a
-            href="https://ivaj.gva.es/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-        >
-            Conocer oportunidades →
-        </a>
-
-        <p class="cta-note">
-            Enlace a la web oficial del IVAJ.
-        </p>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <p>
-        © 2026 Mi experiencia de voluntariado
-    </p>
-
-    <p>
-        Hecho con HTML, CSS y JavaScript.
-    </p>
-
-</footer>
-
-
-<!-- =========================================================
-     LIGHTBOX / MODAL
-========================================================= -->
-
-<div
-    class="modal"
-    id="imageModal"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Visor de imágenes"
-    aria-hidden="true"
->
-
-    <div class="modal-content">
-
-        <button
-            class="modal-close"
-            id="modalClose"
-            type="button"
-            aria-label="Cerrar"
-        >
-            ×
-        </button>
-
-
-        <button
-            class="modal-prev"
-            id="modalPrev"
-            type="button"
-            aria-label="Imagen anterior"
-        >
-            ‹
-        </button>
-
-
-        <img
-            src=""
-            alt=""
-            class="modal-image"
-            id="modalImage"
-        >
-
-
-        <button
-            class="modal-next"
-            id="modalNext"
-            type="button"
-            aria-label="Imagen siguiente"
-        >
-            ›
-        </button>
-
-
-        <div
-            class="modal-caption"
-            id="modalCaption"
-        ></div>
-
-
-        <div class="modal-actions">
-
-            <a
-                class="btn btn-primary"
-                id="downloadImage"
-                href="#"
-                download
-            >
-                ⬇ Descargar
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     TOASTS
-========================================================= -->
-
-<div
-    class="toast-container"
-    id="toastContainer"
-    aria-live="polite"
-></div>
-
-
-<!-- =========================================================
-     BACK TO TOP
-========================================================= -->
-
-<button
-    class="back-top"
-    id="backTop"
-    type="button"
-    aria-label="Volver arriba"
->
-    ↑
-</button>
-
-
-<script>
-
-    /* =========================================================
-       VARIABLES
-    ========================================================= */
-
-    const html = document.documentElement;
-    const body = document.body;
-
-
-    /* =========================================================
-       THEME
-    ========================================================= */
-
-    const themeToggle = document.getElementById("themeToggle");
-
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "dark") {
-        html.classList.add("dark");
-    }
-
-    updateThemeIcon();
-
-
-    themeToggle.addEventListener("click", () => {
-
-        html.classList.toggle("dark");
-
-        const theme = html.classList.contains("dark")
-            ? "dark"
-            : "light";
-
-        localStorage.setItem(
-            "portfolio-theme",
-            theme
-        );
-
-        updateThemeIcon();
-
-    });
-
-
-    function updateThemeIcon() {
-
-        themeToggle.textContent =
-            html.classList.contains("dark")
-                ? "☀️"
-                : "🌙";
-
-    }
-
-
-    /* =========================================================
-       MOBILE MENU
-    ========================================================= */
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-
-    menuToggle.addEventListener("click", () => {
-
-        const isOpen =
-            navLinks.classList.toggle("open");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-
-        menuToggle.textContent =
-            isOpen ? "×" : "☰";
-
-    });
-
-
-    document.querySelectorAll(".nav-link")
-        .forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navLinks.classList.remove("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuToggle.textContent = "☰";
-
-            });
-
-        });
-
-
-    document.addEventListener("keydown", event => {
-
-        if (
-            event.key === "Escape" &&
-            navLinks.classList.contains("open")
+        function openModal(
+            items,
+            index
         ) {
 
-            navLinks.classList.remove("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.textContent = "☰";
-
-        }
-
-    });
-
-
-    /* =========================================================
-       ACTIVE NAVIGATION
-    ========================================================= */
-
-    const sections =
-        document.querySelectorAll("main section[id]");
-
-    const navItems =
-        document.querySelectorAll(".nav-link");
-
-
-    const navObserver = new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    navItems.forEach(item => {
-
-                        item.classList.remove("active");
-
-                    });
-
-                    const active =
-                        document.querySelector(
-                            `.nav-link[href="#${entry.target.id}"]`
-                        );
-
-                    if (active) {
-                        active.classList.add("active");
-                    }
-
-                }
-
-            });
-
-        },
-        {
-            threshold: .25
-        }
-    );
-
-
-    sections.forEach(section => {
-
-        navObserver.observe(section);
-
-    });
-
-
-    /* =========================================================
-       REVEAL
-    ========================================================= */
-
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("visible");
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: .12
-            }
-        );
-
-
-    revealElements.forEach(element => {
-
-        revealObserver.observe(element);
-
-    });
-
-
-    /* =========================================================
-       COUNTERS
-    ========================================================= */
-
-    const counters =
-        document.querySelectorAll("[data-counter]");
-
-
-    const counterObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    const element = entry.target;
-
-                    const target =
-                        Number(
-                            element.dataset.counter
-                        );
-
-                    const suffix =
-                        element.dataset.suffix || "";
-
-                    const duration = 1300;
-
-                    const startTime =
-                        performance.now();
-
-
-                    function animateCounter(time) {
-
-                        const progress =
-                            Math.min(
-                                (time - startTime) /
-                                duration,
-                                1
-                            );
-
-                        const eased =
-                            1 -
-                            Math.pow(
-                                1 - progress,
-                                3
-                            );
-
-                        const value =
-                            Math.floor(
-                                target * eased
-                            );
-
-                        element.textContent =
-                            value.toLocaleString("es-ES") +
-                            suffix;
-
-
-                        if (progress < 1) {
-
-                            requestAnimationFrame(
-                                animateCounter
-                            );
-
-                        }
-
-                    }
-
-
-                    requestAnimationFrame(
-                        animateCounter
-                    );
-
-                    counterObserver.unobserve(
-                        element
-                    );
-
-                });
-
-            }
-        );
-
-
-    counters.forEach(counter => {
-
-        counterObserver.observe(counter);
-
-    });
-
-
-    /* =========================================================
-       CAMPAIGN FILTER
-    ========================================================= */
-
-    const campaignCards =
-        document.querySelectorAll(".campaign-card");
-
-    const filterButtons =
-        document.querySelectorAll(
-            "#campaignFilters .filter-btn"
-        );
-
-    const campaignSearch =
-        document.getElementById("campaignSearch");
-
-    const campaignNoResults =
-        document.getElementById(
-            "campaignNoResults"
-        );
-
-
-    let activeCampaignFilter = "all";
-
-
-    filterButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            filterButtons.forEach(btn => {
-
-                btn.classList.remove("active");
-
-            });
-
-            button.classList.add("active");
-
-            activeCampaignFilter =
-                button.dataset.filter;
-
-            filterCampaigns();
-
-        });
-
-    });
-
-
-    campaignSearch.addEventListener(
-        "input",
-        filterCampaigns
-    );
-
-
-    function filterCampaigns() {
-
-        const search =
-            campaignSearch.value
-                .toLowerCase()
-                .trim();
-
-        let visible = 0;
-
-
-        campaignCards.forEach(card => {
-
-            const category =
-                card.dataset.category;
-
-            const searchable =
-                card.dataset.search.toLowerCase();
-
-            const matchesCategory =
-                activeCampaignFilter === "all" ||
-                category === activeCampaignFilter;
-
-            const matchesSearch =
-                !search ||
-                searchable.includes(search);
-
-
-            const show =
-                matchesCategory &&
-                matchesSearch;
-
-
-            card.style.display =
-                show ? "" : "none";
-
-
-            if (show) {
-                visible++;
+            if (!items.length) {
+                return;
             }
 
-        });
-
-
-        campaignNoResults.style.display =
-            visible === 0 ? "block" : "none";
-
-    }
-
-
-    /* =========================================================
-       CERTIFICATE SEARCH
-    ========================================================= */
-
-    const certificateCards =
-        document.querySelectorAll(
-            ".certificate-card"
-        );
-
-    const certificateSearch =
-        document.getElementById(
-            "certificateSearch"
-        );
-
-    const certificateNoResults =
-        document.getElementById(
-            "certificateNoResults"
-        );
-
-
-    certificateSearch.addEventListener(
-        "input",
-        () => {
-
-            const search =
-                certificateSearch.value
-                    .toLowerCase()
-                    .trim();
-
-            let visible = 0;
-
-
-            certificateCards.forEach(card => {
-
-                const searchable =
-                    card.dataset.search.toLowerCase();
-
-                const show =
-                    !search ||
-                    searchable.includes(search);
-
-                card.style.display =
-                    show ? "" : "none";
-
-                if (show) {
-                    visible++;
-                }
-
-            });
-
-
-            certificateNoResults.style.display =
-                visible === 0 ? "block" : "none";
-
-        }
-    );
-
-
-    /* =========================================================
-       MODAL / LIGHTBOX
-    ========================================================= */
-
-    const modal =
-        document.getElementById("imageModal");
-
-    const modalImage =
-        document.getElementById("modalImage");
-
-    const modalCaption =
-        document.getElementById("modalCaption");
-
-    const modalClose =
-        document.getElementById("modalClose");
-
-    const modalPrev =
-        document.getElementById("modalPrev");
-
-    const modalNext =
-        document.getElementById("modalNext");
-
-    const downloadImage =
-        document.getElementById(
-            "downloadImage"
-        );
-
-
-    const galleryItems =
-        Array.from(
-            document.querySelectorAll(
-                ".gallery-item"
-            )
-        );
-
-
-    const certificateButtons =
-        Array.from(
-            document.querySelectorAll(
-                "[data-image]"
-            )
-        );
-
-
-    let modalItems = [];
-    let currentModalIndex = 0;
-    let previousFocusedElement = null;
-
-
-    function openModal(items, index) {
-
-        modalItems = items;
-
-        currentModalIndex = index;
-
-        previousFocusedElement =
-            document.activeElement;
-
-        updateModal();
-
-
-        modal.classList.add("show");
-
-        modal.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-        body.classList.add("no-scroll");
-
-        modalClose.focus();
-
-    }
-
-
-    function updateModal() {
-
-        const item =
-            modalItems[currentModalIndex];
-
-        const image =
-            item.dataset.image;
-
-        const caption =
-            item.dataset.caption || "";
-
-
-        modalImage.src = image;
-
-        modalImage.alt = caption;
-
-        modalCaption.textContent =
-            caption;
-
-        downloadImage.href = image;
-
-        downloadImage.download =
-            image.split("/").pop();
-
-
-        const multiple =
-            modalItems.length > 1;
-
-        modalPrev.style.display =
-            multiple ? "grid" : "none";
-
-        modalNext.style.display =
-            multiple ? "grid" : "none";
-
-    }
-
-
-    function closeModal() {
-
-        modal.classList.remove("show");
-
-        modal.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-        body.classList.remove("no-scroll");
-
-        modalImage.src = "";
-
-        if (previousFocusedElement) {
-
-            previousFocusedElement.focus();
-
-        }
-
-    }
-
-
-    galleryItems.forEach((item, index) => {
-
-        item.addEventListener("click", () => {
-
-            openModal(
-                galleryItems,
-                index
-            );
-
-        });
-
-    });
-
-
-    certificateButtons.forEach(item => {
-
-        item.addEventListener("click", () => {
-
-            const certificateItems =
-                Array.from(
-                    document.querySelectorAll(
-                        ".certificate-image"
+            modalItems = items;
+
+            currentModalIndex =
+                Math.max(
+                    0,
+                    Math.min(
+                        index,
+                        items.length - 1
                     )
                 );
 
-            const clicked =
-                item.closest(".certificate-card")
-                    ?.querySelector(
-                        ".certificate-image"
-                    ) || item;
+            previousFocusedElement =
+                document.activeElement;
 
+            updateModal();
 
-            const index =
-                certificateItems.indexOf(
-                    clicked
-                );
+            modal.classList.add("show");
 
-
-            openModal(
-                certificateItems,
-                Math.max(index, 0)
+            modal.setAttribute(
+                "aria-hidden",
+                "false"
             );
 
-        });
+            body.classList.add(
+                "no-scroll"
+            );
 
-    });
+            modalClose.focus();
 
-
-    modalClose.addEventListener(
-        "click",
-        closeModal
-    );
-
-
-    modal.addEventListener("click", event => {
-
-        if (event.target === modal) {
-            closeModal();
         }
 
-    });
+
+        function updateModal() {
+
+            const item =
+                modalItems[
+                    currentModalIndex
+                ];
+
+            if (!item) {
+                return;
+            }
+
+            const image =
+                item.dataset.image;
+
+            const caption =
+                item.dataset.caption || "";
 
 
-    modalPrev.addEventListener(
-        "click",
-        () => {
+            modalImage.src = image;
+
+            modalImage.alt = caption;
+
+            modalCaption.textContent =
+                caption;
+
+
+            downloadImage.href =
+                image;
+
+            downloadImage.download =
+                image
+                    .split("/")
+                    .pop();
+
+
+            const multiple =
+                modalItems.length > 1;
+
+
+            modalPrev.style.display =
+                multiple
+                    ? "grid"
+                    : "none";
+
+            modalNext.style.display =
+                multiple
+                    ? "grid"
+                    : "none";
+
+        }
+
+
+        function closeModal() {
+
+            modal.classList.remove(
+                "show"
+            );
+
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            body.classList.remove(
+                "no-scroll"
+            );
+
+            modalImage.src = "";
+
+            modalCaption.textContent =
+                "";
+
+            if (
+                previousFocusedElement &&
+                typeof previousFocusedElement.focus ===
+                    "function"
+            ) {
+                previousFocusedElement.focus();
+            }
+
+        }
+
+
+        function showPrevious() {
+
+            if (!modalItems.length) {
+                return;
+            }
 
             currentModalIndex =
                 (
@@ -3970,12 +1628,13 @@
             updateModal();
 
         }
-    );
 
 
-    modalNext.addEventListener(
-        "click",
-        () => {
+        function showNext() {
+
+            if (!modalItems.length) {
+                return;
+            }
 
             currentModalIndex =
                 (
@@ -3987,433 +1646,148 @@
             updateModal();
 
         }
-    );
 
 
-    document.addEventListener(
-        "keydown",
-        event => {
+        certificateItems.forEach(
+            (item, index) => {
 
-            if (!modal.classList.contains("show")) {
-                return;
-            }
+                item.addEventListener(
+                    "click",
+                    () => {
 
-
-            if (event.key === "Escape") {
-
-                closeModal();
-
-            }
-
-
-            if (
-                event.key === "ArrowLeft" &&
-                modalItems.length > 1
-            ) {
-
-                modalPrev.click();
-
-            }
-
-
-            if (
-                event.key === "ArrowRight" &&
-                modalItems.length > 1
-            ) {
-
-                modalNext.click();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================================
-       FAQ
-    ========================================================= */
-
-    document.querySelectorAll(".faq-question")
-        .forEach(question => {
-
-            question.addEventListener(
-                "click",
-                () => {
-
-                    const item =
-                        question.closest(
-                            ".faq-item"
-                        );
-
-                    const isOpen =
-                        item.classList.toggle(
-                            "open"
-                        );
-
-                    question.setAttribute(
-                        "aria-expanded",
-                        isOpen
-                    );
-
-                }
-            );
-
-        });
-
-
-    /* =========================================================
-       SHARE
-    ========================================================= */
-
-    const shareButton =
-        document.getElementById(
-            "shareButton"
-        );
-
-
-    shareButton.addEventListener(
-        "click",
-        async () => {
-
-            const shareData = {
-
-                title:
-                    document.title,
-
-                text:
-                    "Mi experiencia de voluntariado",
-
-                url:
-                    window.location.href
-
-            };
-
-
-            try {
-
-                if (
-                    navigator.share
-                ) {
-
-                    await navigator.share(
-                        shareData
-                    );
-
-                    showToast(
-                        "¡Gracias por compartir!"
-                    );
-
-                } else {
-
-                    await navigator.clipboard.writeText(
-                        window.location.href
-                    );
-
-                    showToast(
-                        "Enlace copiado al portapapeles."
-                    );
-
-                }
-
-            } catch (error) {
-
-                if (
-                    error.name !==
-                    "AbortError"
-                ) {
-
-                    try {
-
-                        await navigator.clipboard.writeText(
-                            window.location.href
-                        );
-
-                        showToast(
-                            "Enlace copiado."
-                        );
-
-                    } catch {
-
-                        showToast(
-                            "No se ha podido compartir."
+                        openModal(
+                            certificateItems,
+                            index
                         );
 
                     }
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /* =========================================================
-       TOAST
-    ========================================================= */
-
-    const toastContainer =
-        document.getElementById(
-            "toastContainer"
-        );
-
-
-    function showToast(message) {
-
-        const toast =
-            document.createElement("div");
-
-        toast.className = "toast";
-
-        toast.textContent = message;
-
-        toastContainer.appendChild(toast);
-
-
-        setTimeout(() => {
-
-            toast.remove();
-
-        }, 3000);
-
-    }
-
-
-    /* =========================================================
-       READING PROGRESS
-    ========================================================= */
-
-    const progress =
-        document.getElementById(
-            "readingProgress"
-        );
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            const scrollTop =
-                window.scrollY;
-
-            const documentHeight =
-                document.documentElement
-                    .scrollHeight -
-                window.innerHeight;
-
-
-            const percentage =
-                documentHeight > 0
-                    ? (
-                        scrollTop /
-                        documentHeight
-                    ) * 100
-                    : 0;
-
-
-            progress.style.width =
-                `${percentage}%`;
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    /* =========================================================
-       BACK TO TOP
-    ========================================================= */
-
-    const backTop =
-        document.getElementById(
-            "backTop"
-        );
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (window.scrollY > 500) {
-
-                backTop.classList.add("show");
-
-            } else {
-
-                backTop.classList.remove("show");
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    backTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-
-    /* =========================================================
-       LANGUAGE SELECTOR
-    ========================================================= */
-
-    const languageSelect =
-        document.getElementById(
-            "languageSelect"
-        );
-
-
-    const translations = {
-
-        es: {
-            title:
-                "Mi experiencia de voluntariado"
-        },
-
-        va: {
-            title:
-                "La meua experiència de voluntariat"
-        },
-
-        en: {
-            title:
-                "My volunteering experience"
-        }
-
-    };
-
-
-    const savedLanguage =
-        localStorage.getItem(
-            "portfolio-language"
-        );
-
-
-    if (
-        savedLanguage &&
-        translations[savedLanguage]
-    ) {
-
-        languageSelect.value =
-            savedLanguage;
-
-    }
-
-
-    languageSelect.addEventListener(
-        "change",
-        () => {
-
-            const language =
-                languageSelect.value;
-
-            localStorage.setItem(
-                "portfolio-language",
-                language
-            );
-
-
-            /*
-             * Aquí puedes ampliar fácilmente
-             * las traducciones de todos los textos.
-             */
-
-            if (
-                translations[language]
-            ) {
-
-                document.title =
-                    translations[
-                        language
-                    ].title;
-
-                showToast(
-                    language === "es"
-                        ? "Idioma cambiado a español."
-                        : language === "va"
-                            ? "Idioma canviat a valencià."
-                            : "Language changed to English."
                 );
 
             }
-
-        }
-    );
+        );
 
 
-    /* =========================================================
-       KEYBOARD ACCESSIBILITY
-    ========================================================= */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "/" &&
-                document.activeElement.tagName !==
-                    "INPUT" &&
-                document.activeElement.tagName !==
-                    "TEXTAREA"
-            ) {
-
-                event.preventDefault();
-
-                campaignSearch.focus();
-
-            }
-
-        }
-    );
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
 
 
-    /* =========================================================
-       ESCAPE MODAL
-    ========================================================= */
+        modalPrev.addEventListener(
+            "click",
+            showPrevious
+        );
 
-    document.addEventListener(
-        "keydown",
-        event => {
 
-            if (
-                event.key === "Escape" &&
-                modal.classList.contains("show")
-            ) {
+        modalNext.addEventListener(
+            "click",
+            showNext
+        );
 
-                closeModal();
+
+        modal.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target === modal
+                ) {
+                    closeModal();
+                }
 
             }
-
-        }
-    );
+        );
 
 
-    /* =========================================================
-       INITIALIZATION
-    ========================================================= */
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        () => {
+                if (
+                    !modal.classList.contains(
+                        "show"
+                    )
+                ) {
+                    return;
+                }
 
-            filterCampaigns();
 
-        }
-    );
+                if (
+                    event.key === "Escape"
+                ) {
+                    closeModal();
+                }
 
-</script>
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+                    showPrevious();
+                }
+
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+                    showNext();
+                }
+
+            }
+        );
+
+
+        /* =========================
+           REVEAL ANIMATION
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(
+            (element) => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
