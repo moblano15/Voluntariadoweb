@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi experiencia de voluntariado</title>
 
     <meta
         name="description"
-        content="Mi experiencia de voluntariado: campañas, actividades, fotografías y certificados."
+        content="Portfolio personal de experiencias de voluntariado, campañas, actividades y aprendizajes."
     >
 
+    <meta name="theme-color" content="#126782">
+
+    <meta property="og:title" content="Mi experiencia de voluntariado">
     <meta
-        name="theme-color"
-        content="#0b4d64"
+        property="og:description"
+        content="Descubre mis experiencias, campañas, actividades y aprendizajes como voluntario."
     >
+    <meta property="og:type" content="website">
 
-    <title>Mi experiencia de voluntariado | Proyecto personal</title>
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,47 +32,63 @@
     >
 
     <style>
+
         /* =========================================================
            VARIABLES
         ========================================================= */
 
         :root {
-            --primary: #0b607a;
-            --primary-dark: #073f52;
-            --primary-light: #e8f5f8;
+            --primary: #126782;
+            --primary-dark: #0b4d64;
+            --primary-light: #e9f5f8;
 
-            --accent: #d88400;
-            --accent-dark: #a96400;
-            --accent-light: #fff3dc;
+            --accent: #f4a11a;
+            --accent-dark: #d88600;
 
             --dark: #102f3a;
-            --text: #263842;
-            --muted: #526871;
+            --text: #294650;
+            --muted: #6b7f87;
 
-            --background: #f5f9fa;
-            --white: #ffffff;
+            --background: #f6fafb;
+            --surface: #ffffff;
+            --surface-2: #eef5f7;
 
-            --border: #d8e5e9;
-            --border-dark: #a9c1c9;
+            --border: #dce8eb;
 
-            --success: #176b45;
-
-            --shadow-sm:
-                0 6px 20px rgba(16, 47, 58, 0.07);
-
-            --shadow-md:
-                0 15px 40px rgba(16, 47, 58, 0.12);
-
-            --shadow-lg:
-                0 25px 70px rgba(16, 47, 58, 0.18);
+            --shadow-sm: 0 5px 20px rgba(16, 47, 58, .08);
+            --shadow-md: 0 15px 40px rgba(16, 47, 58, .12);
+            --shadow-lg: 0 25px 70px rgba(16, 47, 58, .18);
 
             --radius-sm: 10px;
             --radius-md: 18px;
-            --radius-lg: 26px;
+            --radius-lg: 28px;
 
-            --transition: 0.25s ease;
+            --container: 1180px;
 
-            --max-width: 1150px;
+            --transition: .3s ease;
+        }
+
+
+        /* =========================================================
+           DARK MODE
+        ========================================================= */
+
+        html.dark {
+            --dark: #f3f8fa;
+            --text: #d7e5e9;
+            --muted: #9eb2b9;
+
+            --background: #091c23;
+            --surface: #102a33;
+            --surface-2: #16343e;
+
+            --border: #284750;
+
+            --primary-light: #143c49;
+
+            --shadow-sm: 0 5px 20px rgba(0, 0, 0, .2);
+            --shadow-md: 0 15px 40px rgba(0, 0, 0, .25);
+            --shadow-lg: 0 25px 70px rgba(0, 0, 0, .35);
         }
 
 
@@ -90,32 +109,27 @@
 
         body {
             margin: 0;
-
-            font-family:
-                "DM Sans",
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: "DM Sans", sans-serif;
             background: var(--background);
             color: var(--text);
-
             line-height: 1.7;
-
-            overflow-x: hidden;
+            transition:
+                background var(--transition),
+                color var(--transition);
         }
 
-        body.modal-open {
+        body.no-scroll {
             overflow: hidden;
         }
 
         img {
-            display: block;
             max-width: 100%;
+            display: block;
         }
 
         button,
-        a {
+        input,
+        select {
             font: inherit;
         }
 
@@ -127,133 +141,1307 @@
             color: inherit;
         }
 
-        ::selection {
-            background: var(--accent);
-            color: white;
-        }
-
 
         /* =========================================================
-           ACCESIBILIDAD
+           ACCESSIBILITY
         ========================================================= */
 
         .skip-link {
             position: fixed;
+            top: -100px;
+            left: 20px;
             z-index: 9999;
-
-            top: 10px;
-            left: 10px;
 
             padding: 12px 18px;
 
-            border-radius: 8px;
+            background: var(--accent);
+            color: #111;
 
-            background: var(--dark);
-            color: white;
+            border-radius: 0 0 10px 10px;
 
             font-weight: 700;
-            text-decoration: none;
 
-            transform: translateY(-150%);
-
-            transition: transform var(--transition);
+            transition: top .2s;
         }
 
         .skip-link:focus {
-            transform: translateY(0);
+            top: 0;
         }
 
         :focus-visible {
-            outline: 3px solid #f2a900;
+            outline: 3px solid var(--accent);
             outline-offset: 4px;
         }
 
 
         /* =========================================================
-           UTILIDADES
+           PROGRESS BAR
         ========================================================= */
 
-        .container {
-            width: min(
-                var(--max-width),
-                calc(100% - 40px)
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+
+            width: 0%;
+            height: 4px;
+
+            background: var(--accent);
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: color-mix(
+                in srgb,
+                var(--surface) 94%,
+                transparent
             );
 
-            margin-inline: auto;
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
         }
+
+        .navbar {
+            max-width: var(--container);
+            margin: auto;
+
+            min-height: 76px;
+
+            padding: 10px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 3px solid var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            display: block;
+
+            padding: 10px 13px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            color: var(--text);
+
+            font-size: .92rem;
+            font-weight: 600;
+
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid var(--border);
+            border-radius: 50%;
+
+            background: var(--surface);
+            color: var(--text);
+
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .language-select {
+            padding: 8px 10px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 680px;
+
+            position: relative;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                linear-gradient(
+                    rgba(8, 45, 57, .72),
+                    rgba(8, 45, 57, .72)
+                ),
+                url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=2000&q=85")
+                center / cover;
+
+            color: white;
+        }
+
+        .hero-content {
+            width: min(900px, 92%);
+
+            text-align: center;
+
+            padding: 80px 20px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+
+            padding: 7px 15px;
+
+            margin-bottom: 22px;
+
+            border: 1px solid rgba(255,255,255,.35);
+            border-radius: 100px;
+
+            background: rgba(255,255,255,.12);
+
+            font-size: .85rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            margin: 0 0 25px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            line-height: .95;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+
+            font-size: clamp(1rem, 2vw, 1.3rem);
+
+            color: rgba(255,255,255,.88);
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 13px 22px;
+
+            border: 0;
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #16232a;
+        }
+
+        .btn-primary:hover {
+            background: #ffb52f;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,.45);
+            background: rgba(255,255,255,.08);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+
+        /* =========================================================
+           COMMON
+        ========================================================= */
 
         .section {
-            padding: 100px 0;
+            padding: 100px 20px;
         }
 
-        .section-header {
-            max-width: 760px;
+        .container {
+            max-width: var(--container);
+            margin: auto;
+        }
 
+        .section-heading {
+            max-width: 720px;
             margin: 0 auto 55px;
 
             text-align: center;
         }
 
         .eyebrow {
-            display: inline-flex;
-            align-items: center;
+            display: inline-block;
 
-            margin-bottom: 15px;
-            padding: 7px 13px;
+            margin-bottom: 10px;
 
-            border: 1px solid #c6e0e7;
-            border-radius: 999px;
+            color: var(--primary);
 
-            background: var(--primary-light);
-            color: var(--primary-dark);
-
-            font-size: 0.72rem;
-            font-weight: 800;
-
-            letter-spacing: 0.08em;
             text-transform: uppercase;
+            letter-spacing: 2px;
+
+            font-size: .75rem;
+            font-weight: 800;
         }
 
-        .section-title {
+        h2 {
             margin: 0 0 15px;
 
-            color: var(--primary-dark);
+            color: var(--dark);
 
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
+            font-family: "Playfair Display", serif;
 
-            font-size:
-                clamp(2.1rem, 4vw, 3.25rem);
-
+            font-size: clamp(2rem, 4vw, 3.2rem);
             line-height: 1.1;
-
-            letter-spacing: -0.025em;
         }
 
-        .section-description {
+        .section-heading p {
             margin: 0;
-
             color: var(--muted);
-
-            font-size: 1rem;
         }
 
 
         /* =========================================================
-           ANIMACIONES
+           STATS
+        ========================================================= */
+
+        .stats {
+            position: relative;
+            z-index: 5;
+
+            margin-top: -65px;
+            padding: 0 20px;
+        }
+
+        .stats-grid {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-lg);
+
+            overflow: hidden;
+        }
+
+        .stat {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat-number {
+            color: var(--primary);
+
+            font-size: 2.6rem;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .experience-image {
+            position: relative;
+        }
+
+        .experience-image img {
+            width: 100%;
+            min-height: 500px;
+
+            object-fit: cover;
+
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-badge {
+            position: absolute;
+
+            right: -20px;
+            bottom: 30px;
+
+            max-width: 220px;
+
+            padding: 20px;
+
+            background: var(--surface);
+
+            border-radius: 18px;
+
+            box-shadow: var(--shadow-md);
+        }
+
+        .experience-badge strong {
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 1.8rem;
+        }
+
+        .experience-content h3 {
+            margin-top: 0;
+
+            color: var(--dark);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 2rem;
+        }
+
+        .experience-list {
+            padding: 0;
+
+            list-style: none;
+        }
+
+        .experience-list li {
+            position: relative;
+
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+
+        .experience-list li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+
+            width: 22px;
+            height: 22px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            border-radius: 50%;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           CAMPAIGNS
+        ========================================================= */
+
+        .campaigns {
+            background: var(--surface-2);
+        }
+
+        .filter-bar {
+            max-width: 900px;
+
+            margin: 0 auto 35px;
+
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 17px;
+
+            border: 1px solid var(--border);
+            border-radius: 100px;
+
+            background: var(--surface);
+            color: var(--text);
+
+            font-weight: 700;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .search-box {
+            width: min(500px, 100%);
+
+            margin: 0 auto 35px;
+
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding: 15px 20px 15px 48px;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: var(--surface);
+            color: var(--text);
+
+            outline: none;
+        }
+
+        .search-box span {
+            position: absolute;
+
+            left: 17px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 1.1rem;
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .campaign-card {
+            overflow: hidden;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .campaign-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .campaign-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .5s ease;
+        }
+
+        .campaign-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .campaign-content {
+            padding: 25px;
+        }
+
+        .campaign-year {
+            color: var(--accent-dark);
+
+            font-size: .78rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .campaign-content h3 {
+            margin: 8px 0;
+
+            color: var(--dark);
+
+            font-family: "Playfair Display", serif;
+        }
+
+        .campaign-content p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           TIMELINE
+        ========================================================= */
+
+        .timeline {
+            position: relative;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+            left: 50%;
+
+            width: 3px;
+
+            transform: translateX(-50%);
+
+            background: var(--primary-light);
+        }
+
+        .timeline-item {
+            width: 50%;
+
+            position: relative;
+
+            padding: 20px 45px 45px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            top: 25px;
+            right: -9px;
+
+            width: 18px;
+            height: 18px;
+
+            border: 4px solid var(--background);
+            border-radius: 50%;
+
+            background: var(--accent);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -9px;
+        }
+
+        .timeline-card {
+            padding: 22px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-year {
+            color: var(--primary);
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills {
+            background: var(--surface-2);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+
+            margin: 0 auto 15px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--primary-light);
+
+            border-radius: 18px;
+
+            font-size: 1.7rem;
+        }
+
+        .skill-card h3 {
+            margin: 0 0 7px;
+            color: var(--dark);
+        }
+
+        .skill-card p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: .9rem;
+        }
+
+
+        /* =========================================================
+           GALLERY
+        ========================================================= */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 270px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 0;
+
+            border: 0;
+            border-radius: 16px;
+
+            background: transparent;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 20px;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.75)
+            );
+
+            opacity: 0;
+
+            transition: var(--transition);
+
+            color: white;
+
+            text-align: left;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover .gallery-overlay,
+        .gallery-item:focus .gallery-overlay {
+            opacity: 1;
+        }
+
+
+        /* =========================================================
+           CERTIFICATES
+        ========================================================= */
+
+        .certificates {
+            background: var(--surface-2);
+        }
+
+        .certificate-tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .certificate-search {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .certificate-card {
+            overflow: hidden;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .certificate-image {
+            height: 300px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .4s ease;
+        }
+
+        .certificate-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .certificate-info {
+            padding: 20px;
+        }
+
+        .certificate-info h3 {
+            margin: 0 0 5px;
+
+            color: var(--dark);
+
+            font-family: "Playfair Display", serif;
+        }
+
+        .certificate-info p {
+            margin: 0 0 15px;
+
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+
+        /* =========================================================
+           QUOTE
+        ========================================================= */
+
+        .quote-section {
+            padding: 110px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(18,103,130,.94),
+                    rgba(18,103,130,.94)
+                ),
+                url("./imag/verano.JPG")
+                center / cover;
+
+            color: white;
+        }
+
+        blockquote {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.25;
+        }
+
+        blockquote::before {
+            content: "“";
+
+            display: block;
+
+            margin-bottom: -20px;
+
+            font-size: 6rem;
+            line-height: 1;
+
+            opacity: .35;
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: var(--surface);
+
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 20px;
+
+            border: 0;
+
+            background: transparent;
+            color: var(--dark);
+
+            text-align: left;
+
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            display: none;
+
+            padding: 0 20px 20px;
+
+            color: var(--muted);
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform .3s;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            padding: 100px 20px;
+
+            text-align: center;
+
+            background: var(--surface);
+        }
+
+        .cta-box {
+            max-width: 850px;
+
+            margin: auto;
+            padding: 60px 30px;
+
+            border-radius: var(--radius-lg);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-dark)
+                );
+
+            color: white;
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-box h2 {
+            color: white;
+        }
+
+        .cta-note {
+            margin-top: 20px;
+
+            color: rgba(255,255,255,.72);
+
+            font-size: .85rem;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 40px 20px;
+
+            background: var(--dark);
+
+            color: white;
+
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px;
+            color: rgba(255,255,255,.7);
+        }
+
+
+        /* =========================================================
+           LIGHTBOX
+        ========================================================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9998;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(0,0,0,.88);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 1000px;
+            width: 100%;
+
+            position: relative;
+
+            text-align: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 75vh;
+
+            margin: auto;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+        }
+
+        .modal-close,
+        .modal-prev,
+        .modal-next {
+            position: absolute;
+
+            z-index: 2;
+
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.15);
+            color: white;
+
+            font-size: 1.5rem;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-close {
+            top: -60px;
+            right: 0;
+        }
+
+        .modal-prev {
+            left: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .modal-next {
+            right: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .modal-caption {
+            margin-top: 15px;
+            color: white;
+        }
+
+        .modal-actions {
+            margin-top: 15px;
+
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .toast-container {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            z-index: 10001;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            min-width: 250px;
+
+            padding: 14px 18px;
+
+            background: var(--dark);
+            color: white;
+
+            border-radius: 12px;
+
+            box-shadow: var(--shadow-md);
+
+            animation: toastIn .3s ease;
+        }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        .back-top {
+            position: fixed;
+
+            right: 20px;
+            bottom: 85px;
+
+            z-index: 900;
+
+            width: 45px;
+            height: 45px;
+
+            display: grid;
+            place-items: center;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: var(--primary);
+            color: white;
+
+            box-shadow: var(--shadow-md);
+
+            opacity: 0;
+            pointer-events: none;
+
+            transform: translateY(10px);
+
+            transition: var(--transition);
+        }
+
+        .back-top.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
         ========================================================= */
 
         .reveal {
             opacity: 0;
-
-            transform:
-                translateY(24px);
+            transform: translateY(25px);
 
             transition:
-                opacity 0.65s ease,
-                transform 0.65s ease;
+                opacity .7s ease,
+                transform .7s ease;
         }
 
         .reveal.visible {
@@ -263,1089 +1451,17 @@
 
 
         /* =========================================================
-           HEADER / NAV
+           NO RESULTS
         ========================================================= */
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            border-bottom:
-                1px solid rgba(216, 229, 233, 0.9);
-
-            background:
-                rgba(255, 255, 255, 0.94);
-
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        nav {
-            min-height: 76px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-
-            text-decoration: none;
-
-            border-radius: 10px;
-        }
-
-        .logo img {
-            width: 64px;
-            height: 52px;
-
-            object-fit: contain;
-
-            border-radius: 9px;
-        }
-
-        .menu {
-            display: flex;
-            align-items: center;
-
-            gap: 5px;
-
-            margin: 0;
-            padding: 0;
-
-            list-style: none;
-        }
-
-        .menu a {
-            position: relative;
-
-            display: block;
-
-            padding: 10px 13px;
-
-            border-radius: 8px;
-
-            color: #344b54;
-
-            font-size: 0.92rem;
-            font-weight: 700;
-
-            text-decoration: none;
-
-            transition:
-                color var(--transition),
-                background var(--transition);
-        }
-
-        .menu a:hover,
-        .menu a:focus-visible {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-        }
-
-        .menu a.active {
-            color: var(--primary-dark);
-        }
-
-        .menu a.active::after {
-            content: "";
-
-            position: absolute;
-
-            right: 13px;
-            bottom: 5px;
-            left: 13px;
-
-            height: 3px;
-
-            border-radius: 999px;
-
-            background: var(--accent);
-        }
-
-        .menu-button {
+        .no-results {
             display: none;
 
-            width: 44px;
-            height: 44px;
-
-            align-items: center;
-            justify-content: center;
-
-            border: 1px solid var(--border);
-            border-radius: 10px;
-
-            background: white;
-            color: var(--primary-dark);
-
-            font-size: 1.35rem;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            position: relative;
-
-            min-height:
-                calc(100svh - 76px);
-
-            display: flex;
-            align-items: center;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    105deg,
-                    rgba(4, 39, 51, 0.96) 0%,
-                    rgba(7, 65, 82, 0.86) 52%,
-                    rgba(7, 65, 82, 0.56) 100%
-                ),
-                url("./imag/verano.JPG")
-                center / cover;
-        }
-
-        .hero::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 85% 25%,
-                    rgba(216, 132, 0, 0.2),
-                    transparent 30%
-                );
-
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-
-            padding: 90px 0;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-
-            margin-bottom: 22px;
-            padding: 8px 14px;
-
-            border: 1px solid
-                rgba(255, 255, 255, 0.24);
-
-            border-radius: 999px;
-
-            background:
-                rgba(255, 255, 255, 0.08);
-
-            color: white;
-
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-        .hero-badge span {
-            margin-right: 8px;
-            color: #ffc45c;
-        }
-
-        .hero h1 {
-            max-width: 850px;
-
-            margin: 0 0 25px;
-
-            color: white;
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size:
-                clamp(3rem, 7vw, 6rem);
-
-            line-height: 0.98;
-
-            letter-spacing: -0.045em;
-        }
-
-        .hero h1 strong {
-            color: #ffc45c;
-        }
-
-        .hero p {
-            max-width: 720px;
-
-            margin: 0 0 32px;
-
-            color:
-                rgba(255, 255, 255, 0.91);
-
-            font-size:
-                clamp(1rem, 2vw, 1.18rem);
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-
-            gap: 14px;
-        }
-
-        .button {
-            min-height: 50px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 9px;
-
-            padding: 12px 22px;
-
-            border: 2px solid transparent;
-            border-radius: 999px;
-
-            background: var(--accent);
-            color: white;
-
-            font-size: 0.9rem;
-            font-weight: 800;
-
-            text-decoration: none;
-
-            box-shadow:
-                0 8px 22px
-                rgba(216, 132, 0, 0.25);
-
-            transition:
-                transform var(--transition),
-                background var(--transition),
-                box-shadow var(--transition);
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-
-            background: var(--accent-dark);
-
-            box-shadow:
-                0 12px 28px
-                rgba(216, 132, 0, 0.3);
-        }
-
-        .button.secondary {
-            border-color:
-                rgba(255, 255, 255, 0.45);
-
-            background:
-                rgba(255, 255, 255, 0.08);
-
-            box-shadow: none;
-        }
-
-        .button.secondary:hover {
-            background:
-                rgba(255, 255, 255, 0.17);
-        }
-
-        .hero-scroll {
-            position: absolute;
-            z-index: 2;
-
-            bottom: 24px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            color:
-                rgba(255, 255, 255, 0.72);
-
-            font-size: 0.72rem;
-            font-weight: 800;
-
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .hero-scroll::after {
-            content: "↓";
-
-            display: block;
-
-            margin-top: 2px;
-
-            color: #ffc45c;
-
-            font-size: 1.1rem;
+            padding: 40px;
 
             text-align: center;
-        }
-
-
-        /* =========================================================
-           CONTADORES
-        ========================================================= */
-
-        .counter-section {
-            padding: 95px 0;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #073f52,
-                    #0b607a 60%,
-                    #08738d
-                );
-
-            color: white;
-        }
-
-        .counter-section .section-title {
-            color: white;
-        }
-
-        .counter-section .section-description {
-            color:
-                rgba(255, 255, 255, 0.82);
-        }
-
-        .counters {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 18px;
-        }
-
-        .counter-card {
-            padding: 30px 20px;
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.2);
-
-            border-radius: 20px;
-
-            background:
-                rgba(255, 255, 255, 0.08);
-
-            text-align: center;
-
-            transition:
-                transform var(--transition),
-                background var(--transition);
-        }
-
-        .counter-card:hover {
-            transform: translateY(-5px);
-
-            background:
-                rgba(255, 255, 255, 0.13);
-        }
-
-        .counter-icon {
-            width: 50px;
-            height: 50px;
-
-            display: grid;
-            place-items: center;
-
-            margin: 0 auto 16px;
-
-            border-radius: 14px;
-
-            background:
-                rgba(255, 255, 255, 0.1);
-
-            font-size: 1.35rem;
-        }
-
-        .counter-number {
-            margin-bottom: 5px;
-
-            color: #ffd071;
-
-            font-size:
-                clamp(2.3rem, 4vw, 3.4rem);
-
-            font-weight: 800;
-
-            line-height: 1;
-        }
-
-        .counter-label {
-            color:
-                rgba(255, 255, 255, 0.85);
-
-            font-size: 0.88rem;
-        }
-
-
-        /* =========================================================
-           CAMPAÑAS
-        ========================================================= */
-
-        .experiences {
-            background: white;
-        }
-
-        .experience-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 24px;
-        }
-
-        .experience-card {
-            overflow: hidden;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: var(--radius-lg);
-
-            background: white;
-
-            box-shadow: var(--shadow-sm);
-
-            transition:
-                transform var(--transition),
-                box-shadow var(--transition);
-        }
-
-        .experience-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .experience-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-card img {
-            width: 100%;
-            height: 270px;
-
-            object-fit: cover;
-
-            transition:
-                transform 0.5s ease;
-        }
-
-        .experience-card:hover img {
-            transform: scale(1.04);
-        }
-
-        .experience-season {
-            position: absolute;
-
-            top: 16px;
-            left: 16px;
-
-            padding: 6px 11px;
-
-            border-radius: 999px;
-
-            background: white;
-            color: var(--primary-dark);
-
-            font-size: 0.75rem;
-            font-weight: 800;
-
-            box-shadow:
-                0 5px 18px
-                rgba(0, 0, 0, 0.12);
-        }
-
-        .experience-content {
-            padding: 25px;
-        }
-
-        .experience-content h3 {
-            margin: 0 0 8px;
-
-            color: var(--primary-dark);
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size: 1.45rem;
-        }
-
-        .experience-content p {
-            margin: 0;
-
-            min-height: 90px;
 
             color: var(--muted);
-
-            font-size: 0.93rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-
-            margin-top: 16px;
-            padding: 6px 11px;
-
-            border-radius: 999px;
-
-            background: var(--primary-light);
-            color: var(--primary-dark);
-
-            font-size: 0.76rem;
-            font-weight: 800;
-        }
-
-
-        /* =========================================================
-           GALERÍA
-        ========================================================= */
-
-        .gallery {
-            background: #eef6f8;
-        }
-
-        .carousel {
-            position: relative;
-
-            overflow: hidden;
-
-            border-radius: 25px;
-
-            background: #092d38;
-
-            box-shadow: var(--shadow-lg);
-        }
-
-        .carousel-track {
-            display: flex;
-
-            transition:
-                transform 0.6s
-                cubic-bezier(0.77, 0, 0.18, 1);
-        }
-
-        .slide {
-            position: relative;
-
-            min-width: 100%;
-        }
-
-        .slide img {
-            width: 100%;
-
-            height:
-                min(62vw, 590px);
-
-            min-height: 350px;
-
-            object-fit: cover;
-        }
-
-        .slide::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0, 0, 0, 0.78),
-                    rgba(0, 0, 0, 0.04) 65%
-                );
-
-            pointer-events: none;
-        }
-
-        .slide-caption {
-            position: absolute;
-            z-index: 2;
-
-            right: 0;
-            bottom: 0;
-            left: 0;
-
-            padding: 42px;
-        }
-
-        .slide-caption h3 {
-            margin: 0 0 5px;
-
-            color: white;
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size:
-                clamp(1.5rem, 3vw, 2.2rem);
-        }
-
-        .slide-caption p {
-            max-width: 650px;
-
-            margin: 0;
-
-            color:
-                rgba(255, 255, 255, 0.88);
-
-            font-size: 0.95rem;
-        }
-
-        .carousel-button {
-            position: absolute;
-            z-index: 5;
-
-            top: 50%;
-
-            width: 50px;
-            height: 50px;
-
-            display: grid;
-            place-items: center;
-
-            transform: translateY(-50%);
-
-            border:
-                2px solid
-                rgba(255, 255, 255, 0.7);
-
-            border-radius: 50%;
-
-            background: rgba(255, 255, 255, 0.94);
-            color: var(--primary-dark);
-
-            font-size: 1.15rem;
-            font-weight: 800;
-
-            box-shadow:
-                0 7px 20px
-                rgba(0, 0, 0, 0.2);
-        }
-
-        .carousel-button:hover {
-            background: white;
-        }
-
-        .prev {
-            left: 18px;
-        }
-
-        .next {
-            right: 18px;
-        }
-
-        .carousel-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 18px;
-
-            margin-top: 18px;
-        }
-
-        .dots {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 7px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-
-            padding: 0;
-
-            border: 0;
-            border-radius: 999px;
-
-            background: #9dbfc8;
-        }
-
-        .dot.active {
-            width: 30px;
-
-            background: var(--accent);
-        }
-
-        .carousel-status {
-            color: var(--muted);
-
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           CERTIFICADOS
-        ========================================================= */
-
-        .certificates {
-            background: white;
-        }
-
-        .certificate-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 24px;
-        }
-
-        .certificate-card {
-            overflow: hidden;
-
-            padding: 9px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 21px;
-
-            background: white;
-
-            box-shadow: var(--shadow-sm);
-
-            cursor: zoom-in;
-
-            transition:
-                transform var(--transition),
-                box-shadow var(--transition);
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .certificate-image-wrapper {
-            position: relative;
-            overflow: hidden;
-
-            border-radius: 15px;
-
-            background: #f5f8f9;
-        }
-
-        .certificate-image-wrapper::after {
-            content: "Ampliar certificado";
-
-            position: absolute;
-            inset: 0;
-
-            display: grid;
-            place-items: center;
-
-            background:
-                rgba(7, 63, 82, 0.78);
-
-            color: white;
-
-            font-size: 0.88rem;
-            font-weight: 800;
-
-            opacity: 0;
-
-            transition: opacity var(--transition);
-        }
-
-        .certificate-card:hover
-        .certificate-image-wrapper::after,
-        .certificate-card:focus-visible
-        .certificate-image-wrapper::after {
-            opacity: 1;
-        }
-
-        .certificate-card img {
-            width: 100%;
-            height: 350px;
-
-            object-fit: contain;
-        }
-
-        .certificate-info {
-            padding: 17px 8px 9px;
-
-            text-align: center;
-        }
-
-        .certificate-info h3 {
-            margin: 0 0 5px;
-
-            color: var(--primary-dark);
-
-            font-size: 0.98rem;
-            line-height: 1.4;
-        }
-
-        .certificate-info p {
-            margin: 0;
-
-            color: var(--muted);
-
-            font-size: 0.83rem;
-        }
-
-
-        /* =========================================================
-           MODAL
-        ========================================================= */
-
-        .modal {
-            position: fixed;
-            z-index: 3000;
-            inset: 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 25px;
-
-            background:
-                rgba(4, 23, 29, 0.94);
-
-            backdrop-filter: blur(7px);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition:
-                opacity 0.25s ease,
-                visibility 0.25s ease;
-        }
-
-        .modal.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal img {
-            max-width: min(1100px, 94vw);
-            max-height: 86vh;
-
-            object-fit: contain;
-
-            border-radius: 10px;
-
-            box-shadow:
-                0 25px 80px
-                rgba(0, 0, 0, 0.55);
-        }
-
-        .modal-close {
-            position: absolute;
-
-            top: 18px;
-            right: 20px;
-
-            width: 48px;
-            height: 48px;
-
-            display: grid;
-            place-items: center;
-
-            border: 2px solid white;
-            border-radius: 50%;
-
-            background: white;
-            color: var(--primary-dark);
-
-            font-size: 1.7rem;
-            line-height: 1;
-        }
-
-        .modal-title {
-            position: absolute;
-
-            left: 20px;
-            bottom: 20px;
-
-            max-width: calc(100% - 100px);
-
-            padding: 8px 12px;
-
-            border-radius: 8px;
-
-            background:
-                rgba(0, 0, 0, 0.55);
-
-            color: white;
-
-            font-size: 0.82rem;
-        }
-
-
-        /* =========================================================
-           FRASE
-        ========================================================= */
-
-        .quote-section {
-            padding: 105px 0;
-
-            background: #f7fafb;
-
-            text-align: center;
-        }
-
-        .quote-mark {
-            margin-bottom: 10px;
-
-            color: var(--accent);
-
-            font-family: Georgia, serif;
-
-            font-size: 4.5rem;
-
-            line-height: 0.5;
-        }
-
-        .quote {
-            max-width: 850px;
-
-            margin: auto;
-
-            color: var(--primary-dark);
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size:
-                clamp(1.3rem, 4vw, 2.6rem);
-
-            font-style: italic;
-
-            line-height: 1.35;
-        }
-
-        .quote-author {
-            margin-top: 24px;
-
-            color: var(--muted);
-
-            font-size: 0.8rem;
-            font-weight: 800;
-
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-
-        /* =========================================================
-           CTA
-        ========================================================= */
-
-        .cta {
-            padding: 90px 0;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #073f52,
-                    #0b607a
-                );
-
-            color: white;
-
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 800px;
-        }
-
-        .cta .eyebrow {
-            border-color:
-                rgba(255, 255, 255, 0.2);
-
-            background:
-                rgba(255, 255, 255, 0.08);
-
-            color: white;
-        }
-
-        .cta h2 {
-            margin: 0 0 15px;
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size:
-                clamp(2rem, 5vw, 3.5rem);
-
-            line-height: 1.1;
-        }
-
-        .cta p {
-            max-width: 720px;
-
-            margin: 0 auto 28px;
-
-            color:
-                rgba(255, 255, 255, 0.84);
-
-            font-size: 0.95rem;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            padding: 30px 20px;
-
-            background: #062a35;
-
-            color: #a8bec5;
-
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-        footer p + p {
-            margin-top: 4px;
-
-            font-size: 0.8rem;
         }
 
 
@@ -1355,202 +1471,226 @@
 
         @media (max-width: 1000px) {
 
-            .counters {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .nav-links {
+                position: fixed;
+
+                top: 76px;
+                left: 0;
+                right: 0;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                background: var(--surface);
+
+                border-bottom: 1px solid var(--border);
+
+                transform: translateY(-120%);
+
+                transition: transform .3s ease;
+
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+            }
+
+            .nav-links li,
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: grid;
+            }
+
+            .language-select {
+                display: none;
             }
 
             .experience-grid {
                 grid-template-columns: 1fr;
+            }
 
-                max-width: 650px;
+            .campaign-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-                margin-inline: auto;
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .certificate-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
 
-        @media (max-width: 720px) {
-
-            html {
-                scroll-padding-top: 75px;
-            }
-
-            .container {
-                width:
-                    min(
-                        100% - 30px,
-                        var(--max-width)
-                    );
-            }
-
-            .section {
-                padding: 75px 0;
-            }
-
-            nav {
-                min-height: 70px;
-            }
-
-            .menu-button {
-                display: flex;
-            }
-
-            .menu {
-                position: absolute;
-
-                top: 70px;
-                left: 15px;
-                right: 15px;
-
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-
-                padding: 8px;
-
-                border:
-                    1px solid var(--border);
-
-                border-radius: 15px;
-
-                background:
-                    rgba(255, 255, 255, 0.98);
-
-                box-shadow: var(--shadow-md);
-
-                opacity: 0;
-                visibility: hidden;
-
-                transform: translateY(-8px);
-
-                transition:
-                    opacity 0.2s ease,
-                    visibility 0.2s ease,
-                    transform 0.2s ease;
-            }
-
-            .menu.open {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            .menu a {
-                padding: 13px;
-            }
-
-            .menu a.active::after {
-                display: none;
-            }
+        @media (max-width: 700px) {
 
             .hero {
-                min-height:
-                    calc(100svh - 70px);
+                min-height: 620px;
             }
 
-            .hero-content {
-                padding: 70px 0 90px;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero h1 {
-                font-size:
-                    clamp(2.8rem, 14vw, 4.5rem);
+            .stat:nth-child(2) {
+                border-right: 0;
             }
 
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
             }
 
-            .hero-actions .button {
+            .campaign-grid,
+            .certificate-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
                 width: 100%;
+                left: 0;
+
+                padding-left: 50px;
+                padding-right: 0;
+
+                text-align: left;
             }
 
-            .counters {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 6px;
+                right: auto;
             }
 
-            .certificate-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certificate-card img {
-                height: 390px;
-            }
-
-            .slide img {
-                height: 470px;
-            }
-
-            .slide-caption {
-                padding: 32px 24px 28px;
-            }
-
-            .carousel-button {
-                width: 44px;
-                height: 44px;
-            }
-
-            .prev {
-                left: 10px;
-            }
-
-            .next {
-                right: 10px;
-            }
-        }
-
-
-        @media (max-width: 480px) {
-
-            .counters {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-card img {
-                height: 230px;
-            }
-
-            .experience-content p {
-                min-height: auto;
-            }
-
-            .certificate-card img {
-                height: 330px;
-            }
-
-            .slide img {
-                height: 390px;
-                min-height: 390px;
-            }
-
-            .slide-caption h3 {
-                font-size: 1.4rem;
-            }
-
-            .slide-caption p {
-                font-size: 0.84rem;
+            .experience-badge {
+                right: 15px;
             }
 
             .modal {
-                padding: 12px;
+                padding: 15px;
             }
 
-            .modal img {
-                max-width: 96vw;
+            .modal-prev,
+            .modal-next {
+                top: auto;
+                bottom: -60px;
+
+                transform: none;
+            }
+
+            .modal-prev {
+                left: calc(50% - 60px);
+            }
+
+            .modal-next {
+                right: calc(50% - 60px);
+            }
+        }
+
+
+        @media (max-width: 450px) {
+
+            .navbar {
+                padding-inline: 12px;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat,
+            .stat:nth-child(2) {
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
 
 
         /* =========================================================
-           REDUCIR MOVIMIENTO
+           PRINT
+        ========================================================= */
+
+        @media print {
+
+            header,
+            .hero-buttons,
+            .filter-bar,
+            .search-box,
+            .certificate-tools,
+            .back-top,
+            .toast-container,
+            .reading-progress,
+            .modal {
+                display: none !important;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding: 50px;
+
+                background: none;
+
+                color: black;
+            }
+
+            .hero p {
+                color: black;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
         ========================================================= */
 
         @media (prefers-reduced-motion: reduce) {
@@ -1562,9 +1702,9 @@
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
+                animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                transition-duration: .01ms !important;
             }
 
             .reveal {
@@ -1572,2075 +1712,2708 @@
                 transform: none;
             }
         }
+
     </style>
 </head>
 
 
 <body>
 
-    <a
-        href="#contenido"
-        class="skip-link"
-    >
-        Saltar al contenido principal
-    </a>
+<a href="#main-content" class="skip-link">
+    Saltar al contenido
+</a>
+
+<div class="reading-progress" id="readingProgress"></div>
 
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    <header>
+<header>
 
-        <nav
-            class="container"
-            aria-label="Navegación principal"
-        >
+    <nav class="navbar" aria-label="Navegación principal">
 
-            <a
-                href="#inicio"
-                class="logo"
-                aria-label="Ir al inicio"
+        <a href="#inicio" class="logo">
+
+            <img
+                src="./imag/logo.jpg"
+                alt="Logo del portfolio"
             >
 
-                <img
-                    src="./imag/logo.jpg"
-                    alt="Logo del proyecto de voluntariado"
-                    width="64"
-                    height="52"
-                >
+            <span>Mi voluntariado</span>
 
-            </a>
+        </a>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#inicio" class="nav-link active">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="#experiencia" class="nav-link">
+                    Experiencia
+                </a>
+            </li>
+
+            <li>
+                <a href="#campanas" class="nav-link">
+                    Campañas
+                </a>
+            </li>
+
+            <li>
+                <a href="#timeline" class="nav-link">
+                    Trayectoria
+                </a>
+            </li>
+
+            <li>
+                <a href="#galeria" class="nav-link">
+                    Galería
+                </a>
+            </li>
+
+            <li>
+                <a href="#certificados" class="nav-link">
+                    Certificados
+                </a>
+            </li>
+
+            <li>
+                <a href="#faq" class="nav-link">
+                    FAQ
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <select
+                id="languageSelect"
+                class="language-select"
+                aria-label="Seleccionar idioma"
+            >
+                <option value="es">ES</option>
+                <option value="va">VA</option>
+                <option value="en">EN</option>
+            </select>
 
 
             <button
-                class="menu-button"
-                id="menuButton"
+                class="icon-btn"
+                id="themeToggle"
                 type="button"
-                aria-label="Abrir menú de navegación"
-                aria-expanded="false"
-                aria-controls="menu"
+                aria-label="Cambiar tema"
+                title="Cambiar tema"
             >
-                <span aria-hidden="true">☰</span>
+                🌙
             </button>
 
 
-            <ul
-                class="menu"
-                id="menu"
+            <button
+                class="icon-btn menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
             >
+                ☰
+            </button>
 
-                <li>
-                    <a
-                        href="#inicio"
-                        class="active"
-                        aria-current="page"
-                    >
-                        Inicio
-                    </a>
-                </li>
+        </div>
 
-                <li>
-                    <a href="#contador">
-                        Experiencia
-                    </a>
-                </li>
+    </nav>
 
-                <li>
-                    <a href="#campanas">
-                        Campañas
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#galeria">
-                        Galería
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#certificados">
-                        Certificados
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </header>
+</header>
 
 
-    <main id="contenido">
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
-        <section
-            class="hero"
-            id="inicio"
-            aria-labelledby="hero-title"
-        >
-
-            <div class="container hero-content">
-
-                <div class="hero-badge">
-                    <span aria-hidden="true">✦</span>
-                    Una experiencia que transforma
-                </div>
+<main id="main-content">
 
 
-                <h1 id="hero-title">
-                    Experiencias que
-                    <strong>dejan huella.</strong>
-                </h1>
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content reveal">
+
+        <span class="hero-tag">
+            ✦ Experiencia personal
+        </span>
+
+        <h1>
+            Mi experiencia<br>
+            de voluntariado
+        </h1>
+
+        <p>
+            Un recorrido por las experiencias, personas, campañas
+            y aprendizajes que han marcado mi camino como voluntario.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#experiencia"
+                class="btn btn-primary"
+            >
+                Conocer mi experiencia ↓
+            </a>
+
+            <button
+                class="btn btn-outline"
+                id="shareButton"
+                type="button"
+            >
+                🔗 Compartir
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-                <p>
-                    Años compartiendo tiempo, juegos,
-                    actividades y momentos especiales
-                    con niños y niñas tutelados de 9 a 12 años.
-                </p>
+<!-- =========================================================
+     STATS
+========================================================= -->
 
+<section class="stats" aria-label="Estadísticas">
 
-                <div class="hero-actions">
+    <div class="stats-grid">
 
-                    <a
-                        href="#contador"
-                        class="button"
-                    >
-                        Conoce mi experiencia
-                        <span aria-hidden="true">→</span>
-                    </a>
-
-                    <a
-                        href="#galeria"
-                        class="button secondary"
-                    >
-                        Ver fotografías
-                    </a>
-
-                </div>
-
-            </div>
-
-
+        <div class="stat">
             <div
-                class="hero-scroll"
-                aria-hidden="true"
+                class="stat-number"
+                data-counter="8"
             >
-                Descubre
+                0
             </div>
 
-        </section>
+            <div class="stat-label">
+                Experiencias
+            </div>
+        </div>
 
 
-        <!-- =====================================================
-             CONTADORES
-        ====================================================== -->
-
-        <section
-            class="counter-section"
-            id="contador"
-            aria-labelledby="contador-title"
-        >
-
-            <div class="container">
-
-                <div class="section-header reveal">
-
-                    <div class="eyebrow">
-                        Mi trayectoria
-                    </div>
-
-                    <h2
-                        class="section-title"
-                        id="contador-title"
-                    >
-                        Mi experiencia en números
-                    </h2>
-
-                    <p class="section-description">
-                        Cada número representa días, actividades,
-                        aprendizajes y recuerdos compartidos.
-                    </p>
-
-                </div>
-
-
-                <div class="counters">
-
-                    <article class="counter-card reveal">
-
-                        <div
-                            class="counter-icon"
-                            aria-hidden="true"
-                        >
-                            ❤️
-                        </div>
-
-                        <div
-                            class="counter-number"
-                            data-target="8"
-                            aria-label="8 experiencias de voluntariado"
-                        >
-                            0
-                        </div>
-
-                        <div class="counter-label">
-                            Experiencias de voluntariado
-                        </div>
-
-                    </article>
-
-
-                    <article class="counter-card reveal">
-
-                        <div
-                            class="counter-icon"
-                            aria-hidden="true"
-                        >
-                            📅
-                        </div>
-
-                        <div
-                            class="counter-number"
-                            data-target="1000"
-                            aria-label="Más de 1000 horas de convivencia"
-                        >
-                            0
-                        </div>
-
-                        <div class="counter-label">
-                            Horas de convivencia
-                        </div>
-
-                    </article>
-
-
-                    <article class="counter-card reveal">
-
-                        <div
-                            class="counter-icon"
-                            aria-hidden="true"
-                        >
-                            🎲
-                        </div>
-
-                        <div
-                            class="counter-number"
-                            data-target="50"
-                            data-suffix="+"
-                            aria-label="Más de 50 actividades compartidas"
-                        >
-                            0
-                        </div>
-
-                        <div class="counter-label">
-                            Actividades compartidas
-                        </div>
-
-                    </article>
-
-
-                    <article class="counter-card reveal">
-
-                        <div
-                            class="counter-icon"
-                            aria-hidden="true"
-                        >
-                            🏆
-                        </div>
-
-                        <div
-                            class="counter-number"
-                            data-target="3"
-                            aria-label="3 campañas principales"
-                        >
-                            0
-                        </div>
-
-                        <div class="counter-label">
-                            Campañas principales
-                        </div>
-
-                    </article>
-
-                </div>
-
+        <div class="stat">
+            <div
+                class="stat-number"
+                data-counter="1000"
+                data-suffix="+"
+            >
+                0
             </div>
 
-        </section>
+            <div class="stat-label">
+                Horas
+            </div>
+        </div>
 
 
-        <!-- =====================================================
-             CAMPAÑAS
-        ====================================================== -->
-
-        <section
-            class="section experiences"
-            id="campanas"
-            aria-labelledby="campanas-title"
-        >
-
-            <div class="container">
-
-                <div class="section-header reveal">
-
-                    <div class="eyebrow">
-                        Momentos especiales
-                    </div>
-
-                    <h2
-                        class="section-title"
-                        id="campanas-title"
-                    >
-                        Mis campañas
-                    </h2>
-
-                    <p class="section-description">
-                        Navidad, Semana Santa y verano han sido
-                        algunos de los momentos en los que he podido
-                        vivir estas experiencias.
-                    </p>
-
-                </div>
-
-
-                <div class="experience-grid">
-
-                    <article class="experience-card reveal">
-
-                        <div class="experience-image">
-
-                            <img
-                                src="./imag/navidad.jpg"
-                                alt="Actividad de voluntariado durante la campaña de Navidad"
-                                loading="lazy"
-                                width="800"
-                                height="540"
-                            >
-
-                            <span class="experience-season">
-                                Invierno
-                            </span>
-
-                        </div>
-
-
-                        <div class="experience-content">
-
-                            <h3>
-                                <span aria-hidden="true">🎄</span>
-                                Navidad
-                            </h3>
-
-                            <p>
-                                Días llenos de juegos, actividades
-                                realizadas por los voluntarios,
-                                talleres y convivencia con los niños.
-                            </p>
-
-                            <span class="badge">
-                                10 días
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="experience-card reveal">
-
-                        <div class="experience-image">
-
-                            <img
-                                src="./imag/semanasanta.jpg"
-                                alt="Actividad de voluntariado durante Semana Santa"
-                                loading="lazy"
-                                width="800"
-                                height="540"
-                            >
-
-                            <span class="experience-season">
-                                Primavera
-                            </span>
-
-                        </div>
-
-
-                        <div class="experience-content">
-
-                            <h3>
-                                <span aria-hidden="true">🌱</span>
-                                Semana Santa
-                            </h3>
-
-                            <p>
-                                Excursiones, naturaleza, juegos y
-                                actividades para aprovechar las
-                                vacaciones.
-                            </p>
-
-                            <span class="badge">
-                                5 días
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="experience-card reveal">
-
-                        <div class="experience-image">
-
-                            <img
-                                src="./imag/verano.JPG"
-                                alt="Actividad de voluntariado durante el verano"
-                                loading="lazy"
-                                width="800"
-                                height="540"
-                            >
-
-                            <span class="experience-season">
-                                Verano
-                            </span>
-
-                        </div>
-
-
-                        <div class="experience-content">
-
-                            <h3>
-                                <span aria-hidden="true">☀️</span>
-                                Verano
-                            </h3>
-
-                            <p>
-                                Convivencia, playa, piscina,
-                                naturaleza, deporte y muchas
-                                actividades.
-                            </p>
-
-                            <span class="badge">
-                                15 días
-                            </span>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
+        <div class="stat">
+            <div
+                class="stat-number"
+                data-counter="50"
+                data-suffix="+"
+            >
+                0
             </div>
 
-        </section>
+            <div class="stat-label">
+                Actividades
+            </div>
+        </div>
 
 
-        <!-- =====================================================
-             GALERÍA
-        ====================================================== -->
-
-        <section
-            class="section gallery"
-            id="galeria"
-            aria-labelledby="galeria-title"
-        >
-
-            <div class="container">
-
-                <div class="section-header reveal">
-
-                    <div class="eyebrow">
-                        Recuerdos
-                    </div>
-
-                    <h2
-                        class="section-title"
-                        id="galeria-title"
-                    >
-                        Voluntarios y momentos compartidos
-                    </h2>
-
-                    <p class="section-description">
-                        Una recopilación de fotografías de los
-                        voluntarios, actividades, convivencia y
-                        momentos especiales.
-                    </p>
-
-                </div>
-
-
-                <div class="carousel-wrapper reveal">
-
-                    <div
-                        class="carousel"
-                        id="carousel"
-                        role="region"
-                        aria-roledescription="carrusel"
-                        aria-label="Galería de fotografías"
-                    >
-
-                        <div
-                            class="carousel-track"
-                            id="carouselTrack"
-                        >
-
-                            <article
-                                class="slide"
-                                aria-roledescription="diapositiva"
-                                aria-label="1 de 4"
-                            >
-
-                                <img
-                                    src="./imag/verano.JPG"
-                                    alt="Grupo de voluntarios juntos durante el verano"
-                                    width="1200"
-                                    height="700"
-                                >
-
-                                <div class="slide-caption">
-
-                                    <h3>
-                                        <span aria-hidden="true">👥</span>
-                                        Voluntarios juntos
-                                    </h3>
-
-                                    <p>
-                                        Compartiendo tiempo y
-                                        preparando nuevas actividades.
-                                    </p>
-
-                                </div>
-
-                            </article>
-
-
-                            <article
-                                class="slide"
-                                aria-roledescription="diapositiva"
-                                aria-label="2 de 4"
-                            >
-
-                                <img
-                                    src="./imag/voluntariado.jpg"
-                                    alt="Grupo de voluntarios participando en una actividad"
-                                    loading="lazy"
-                                    width="1200"
-                                    height="700"
-                                >
-
-                                <div class="slide-caption">
-
-                                    <h3>
-                                        <span aria-hidden="true">🤝</span>
-                                        Trabajo en equipo
-                                    </h3>
-
-                                    <p>
-                                        La colaboración entre
-                                        voluntarios hace posible
-                                        cada experiencia.
-                                    </p>
-
-                                </div>
-
-                            </article>
-
-
-                            <article
-                                class="slide"
-                                aria-roledescription="diapositiva"
-                                aria-label="3 de 4"
-                            >
-
-                                <img
-                                    src="./imag/escritura.jpg"
-                                    alt="Actividad de escritura realizada durante el voluntariado"
-                                    loading="lazy"
-                                    width="1200"
-                                    height="700"
-                                >
-
-                                <div class="slide-caption">
-
-                                    <h3>
-                                        <span aria-hidden="true">📖</span>
-                                        Escrituras compartidas
-                                    </h3>
-
-                                    <p>
-                                        Recuerdos y reflexiones
-                                        creados durante el
-                                        voluntariado.
-                                    </p>
-
-                                </div>
-
-                            </article>
-
-
-                            <article
-                                class="slide"
-                                aria-roledescription="diapositiva"
-                                aria-label="4 de 4"
-                            >
-
-                                <img
-                                    src="./imag/actividadesmonis.jpg"
-                                    alt="Voluntarios realizando una actividad"
-                                    loading="lazy"
-                                    width="1200"
-                                    height="700"
-                                >
-
-                                <div class="slide-caption">
-
-                                    <h3>
-                                        <span aria-hidden="true">🎲</span>
-                                        Actividades
-                                    </h3>
-
-                                    <p>
-                                        Cada actividad se convierte
-                                        en una oportunidad para
-                                        aprender.
-                                    </p>
-
-                                </div>
-
-                            </article>
-
-                        </div>
-
-
-                        <button
-                            class="carousel-button prev"
-                            id="prev"
-                            type="button"
-                            aria-label="Fotografía anterior"
-                        >
-                            <span aria-hidden="true">❮</span>
-                        </button>
-
-
-                        <button
-                            class="carousel-button next"
-                            id="next"
-                            type="button"
-                            aria-label="Fotografía siguiente"
-                        >
-                            <span aria-hidden="true">❯</span>
-                        </button>
-
-                    </div>
-
-
-                    <div class="carousel-controls">
-
-                        <div
-                            class="dots"
-                            id="dots"
-                            role="group"
-                            aria-label="Seleccionar fotografía"
-                        ></div>
-
-                        <span
-                            class="carousel-status"
-                            id="carouselStatus"
-                            aria-live="polite"
-                        >
-                            1 de 4
-                        </span>
-
-                    </div>
-
-                </div>
-
+        <div class="stat">
+            <div
+                class="stat-number"
+                data-counter="3"
+            >
+                0
             </div>
 
-        </section>
-
-
-        <!-- =====================================================
-             CERTIFICADOS
-        ====================================================== -->
-
-        <section
-            class="section certificates"
-            id="certificados"
-            aria-labelledby="certificados-title"
-        >
-
-            <div class="container">
-
-                <div class="section-header reveal">
-
-                    <div class="eyebrow">
-                        Reconocimientos
-                    </div>
-
-                    <h2
-                        class="section-title"
-                        id="certificados-title"
-                    >
-                        <span aria-hidden="true">🏆</span>
-                        Mis certificados
-                    </h2>
-
-                    <p class="section-description">
-                        Algunos de los certificados y
-                        reconocimientos obtenidos durante mis
-                        experiencias de voluntariado.
-                        Selecciona una imagen para verla
-                        en grande.
-                    </p>
-
-                </div>
-
-
-                <div class="certificate-grid">
-
-                    <article
-                        class="certificate-card reveal"
-                        data-image="./imag/certificado1.png"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Ampliar certificado de voluntariado de verano 2023"
-                    >
-
-                        <div class="certificate-image-wrapper">
-
-                            <img
-                                src="./imag/certificado1.png"
-                                alt="Certificado de voluntariado Diviertet, verano 2023, Moraira"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="certificate-info">
-
-                            <h3>
-                                Voluntariado Diviertet
-                                — Verano 2023
-                            </h3>
-
-                            <p>
-                                Moraira
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="certificate-card reveal"
-                        data-image="./imag/certificado2.png"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Ampliar certificado de voluntariado de Navidad 2023-2024"
-                    >
-
-                        <div class="certificate-image-wrapper">
-
-                            <img
-                                src="./imag/certificado2.png"
-                                alt="Certificado de voluntariado durante Navidad 2023-2024 en Benicàssim"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="certificate-info">
-
-                            <h3>
-                                Voluntariado
-                                — Navidad 2023/24
-                            </h3>
-
-                            <p>
-                                Benicàssim
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="certificate-card reveal"
-                        data-image="./imag/certificado3.png"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Ampliar certificado de reconocimiento de Navidad"
-                    >
-
-                        <div class="certificate-image-wrapper">
-
-                            <img
-                                src="./imag/certificado3.png"
-                                alt="Certificado de reconocimiento de voluntariado durante la campaña de Navidad"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="certificate-info">
-
-                            <h3>
-                                Reconocimiento
-                            </h3>
-
-                            <p>
-                                Campaña de Navidad
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="certificate-card reveal"
-                        data-image="./imag/certificado4.png"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Ampliar certificado de voluntariado de verano 2024"
-                    >
-
-                        <div class="certificate-image-wrapper">
-
-                            <img
-                                src="./imag/certificado4.png"
-                                alt="Certificado de voluntariado durante el verano de 2024 en Moraira"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="certificate-info">
-
-                            <h3>
-                                Voluntariado
-                                — Verano 2024
-                            </h3>
-
-                            <p>
-                                Moraira
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="certificate-card reveal"
-                        data-image="./imag/certificado5.png"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Ampliar certificado de voluntariado de Navidad 2024-2025"
-                    >
-
-                        <div class="certificate-image-wrapper">
-
-                            <img
-                                src="./imag/certificado5.png"
-                                alt="Certificado de voluntariado durante Navidad 2024-2025 en Benicàssim"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="certificate-info">
-
-                            <h3>
-                                Voluntariado
-                                — Navidad 2024/25
-                            </h3>
-
-                            <p>
-                                Benicàssim
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="certificate-card reveal"
-                        data-image="./imag/certificado6.png"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Ampliar certificado de voluntariado de primavera 2025"
-                    >
-
-                        <div class="certificate-image-wrapper">
-
-                            <img
-                                src="./imag/certificado6.png"
-                                alt="Certificado de voluntariado durante primavera de 2025 en Benicàssim"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="certificate-info">
-
-                            <h3>
-                                Voluntariado
-                                — Primavera 2025
-                            </h3>
-
-                            <p>
-                                Benicàssim
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
+            <div class="stat-label">
+                Campañas principales
             </div>
+        </div>
 
-        </section>
+    </div>
+
+</section>
 
 
-        <!-- =====================================================
-             FRASE
-        ====================================================== -->
+<!-- =========================================================
+     EXPERIENCIA
+========================================================= -->
 
-        <section
-            class="quote-section"
-            aria-labelledby="quote-title"
-        >
+<section
+    class="section"
+    id="experiencia"
+>
 
-            <div class="container reveal">
+    <div class="container">
 
-                <div
-                    class="quote-mark"
-                    aria-hidden="true"
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Mi recorrido
+            </span>
+
+            <h2>
+                Mucho más que ayudar
+            </h2>
+
+            <p>
+                Cada experiencia de voluntariado me ha permitido
+                aprender, colaborar y descubrir nuevas formas de
+                aportar a los demás.
+            </p>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+            <div class="experience-image reveal">
+
+                <img
+                    src="./imag/voluntariado.jpg"
+                    alt="Actividad de voluntariado"
+                    loading="lazy"
+                    decoding="async"
                 >
-                    “
+
+                <div class="experience-badge">
+
+                    <strong>2023 → 2025</strong>
+
+                    <span>
+                        Años de experiencias,
+                        aprendizaje y compromiso.
+                    </span>
+
                 </div>
-
-                <blockquote
-                    class="quote"
-                    id="quote-title"
-                >
-                    No se trata solamente de ayudar,
-                    sino de compartir una parte de tu tiempo
-                    y aprender de cada persona que conoces.
-                </blockquote>
-
-                <p class="quote-author">
-                    Mi experiencia de voluntariado
-                </p>
 
             </div>
 
-        </section>
 
+            <div class="experience-content reveal">
 
-        <!-- =====================================================
-             CTA
-        ====================================================== -->
-
-        <section
-            class="cta"
-            aria-labelledby="cta-title"
-        >
-
-            <div class="container cta-content reveal">
-
-                <div class="eyebrow">
-                    Sigue descubriendo
-                </div>
-
-                <h2 id="cta-title">
-                    Una experiencia para recordar.
-                </h2>
+                <h3>
+                    Una experiencia que deja huella
+                </h3>
 
                 <p>
-                    Las campañas y condiciones concretas dependen
-                    de cada convocatoria. Consulta siempre la
-                    información oficial antes de participar.
+                    El voluntariado me ha permitido formar parte
+                    de diferentes campañas y actividades,
+                    conocer personas nuevas y asumir
+                    responsabilidades.
                 </p>
 
-                <a
-                    href="https://ivaj.gva.es/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button"
-                    aria-label="Consultar información oficial del IVAJ, se abre en una nueva ventana"
-                >
-                    Información IVAJ
-                    <span aria-hidden="true">↗</span>
-                </a>
+                <p>
+                    Durante este recorrido he aprendido que
+                    ayudar no consiste únicamente en dedicar
+                    tiempo, sino también en escuchar, colaborar,
+                    adaptarse y crecer junto a los demás.
+                </p>
+
+
+                <ul class="experience-list">
+
+                    <li>
+                        Trabajo en equipo
+                    </li>
+
+                    <li>
+                        Organización de actividades
+                    </li>
+
+                    <li>
+                        Comunicación y empatía
+                    </li>
+
+                    <li>
+                        Responsabilidad
+                    </li>
+
+                    <li>
+                        Creatividad
+                    </li>
+
+                </ul>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </div>
+
+</section>
 
 
-    <!-- =========================================================
-         MODAL
-    ========================================================== -->
+<!-- =========================================================
+     CAMPAÑAS
+========================================================= -->
 
-    <div
-        class="modal"
-        id="certificateModal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-        aria-hidden="true"
-    >
+<section
+    class="section campaigns"
+    id="campanas"
+>
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Experiencias
+            </span>
+
+            <h2>
+                Mis campañas
+            </h2>
+
+            <p>
+                Algunas de las campañas y periodos de voluntariado
+                más importantes de mi trayectoria.
+            </p>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <span>🔎</span>
+
+            <input
+                type="search"
+                id="campaignSearch"
+                placeholder="Buscar campañas..."
+                aria-label="Buscar campañas"
+            >
+
+        </div>
+
+
+        <div
+            class="filter-bar"
+            id="campaignFilters"
+        >
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+                type="button"
+            >
+                Todas
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="navidad"
+                type="button"
+            >
+                Navidad
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="semanasanta"
+                type="button"
+            >
+                Semana Santa
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="verano"
+                type="button"
+            >
+                Verano
+            </button>
+
+        </div>
+
+
+        <div
+            class="campaign-grid"
+            id="campaignGrid"
+        >
+
+
+            <article
+                class="campaign-card reveal"
+                data-category="navidad"
+                data-search="navidad campaña benicàssim invierno"
+            >
+
+                <div class="campaign-image">
+
+                    <img
+                        src="./imag/navidad.jpg"
+                        alt="Campaña de Navidad"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+                <div class="campaign-content">
+
+                    <span class="campaign-year">
+                        2023 / 24
+                    </span>
+
+                    <h3>
+                        Campaña de Navidad
+                    </h3>
+
+                    <p>
+                        Una experiencia llena de actividades,
+                        compañerismo y momentos especiales.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="campaign-card reveal"
+                data-category="semanasanta"
+                data-search="semana santa actividades primavera"
+            >
+
+                <div class="campaign-image">
+
+                    <img
+                        src="./imag/semanasanta.jpg"
+                        alt="Actividades de Semana Santa"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+                <div class="campaign-content">
+
+                    <span class="campaign-year">
+                        Primavera
+                    </span>
+
+                    <h3>
+                        Semana Santa
+                    </h3>
+
+                    <p>
+                        Participación en actividades y
+                        dinámicas durante el periodo vacacional.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="campaign-card reveal"
+                data-category="verano"
+                data-search="verano moraira diviertet actividades monitores"
+            >
+
+                <div class="campaign-image">
+
+                    <img
+                        src="./imag/verano.JPG"
+                        alt="Campaña de verano"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                </div>
+
+                <div class="campaign-content">
+
+                    <span class="campaign-year">
+                        2023 / 2024
+                    </span>
+
+                    <h3>
+                        Campaña de verano
+                    </h3>
+
+                    <p>
+                        Actividades de ocio, convivencia,
+                        creatividad y trabajo en equipo.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div
+            class="no-results"
+            id="campaignNoResults"
+        >
+            No se han encontrado campañas.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TIMELINE
+========================================================= -->
+
+<section
+    class="section"
+    id="timeline"
+>
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Mi trayectoria
+            </span>
+
+            <h2>
+                Una línea temporal
+            </h2>
+
+            <p>
+                Así ha evolucionado mi experiencia de voluntariado.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-year">
+                        2023
+                    </span>
+
+                    <h3>
+                        Primeras experiencias
+                    </h3>
+
+                    <p>
+                        Inicio de mi recorrido con actividades
+                        de verano en Moraira.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-year">
+                        2023 / 24
+                    </span>
+
+                    <h3>
+                        Navidad
+                    </h3>
+
+                    <p>
+                        Participación en la campaña de Navidad
+                        en Benicàssim.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-year">
+                        2024
+                    </span>
+
+                    <h3>
+                        Verano
+                    </h3>
+
+                    <p>
+                        Nueva experiencia de voluntariado
+                        durante el verano en Moraira.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-year">
+                        2024 / 25
+                    </span>
+
+                    <h3>
+                        Navidad
+                    </h3>
+
+                    <p>
+                        Regreso a la campaña de Navidad
+                        en Benicàssim.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-year">
+                        2025
+                    </span>
+
+                    <h3>
+                        Primavera
+                    </h3>
+
+                    <p>
+                        Participación en nuevas actividades
+                        y consolidación de todo lo aprendido.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section class="section skills">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Lo que he aprendido
+            </span>
+
+            <h2>
+                Habilidades desarrolladas
+            </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Trabajo en equipo
+                </h3>
+
+                <p>
+                    Colaborar con diferentes personas
+                    para conseguir objetivos comunes.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Comunicación
+                </h3>
+
+                <p>
+                    Escuchar, explicar ideas y relacionarme
+                    con diferentes perfiles.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Creatividad
+                </h3>
+
+                <p>
+                    Crear actividades y buscar soluciones
+                    ante diferentes situaciones.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Empatía
+                </h3>
+
+                <p>
+                    Comprender las necesidades de las personas
+                    y acompañarlas.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALERÍA
+========================================================= -->
+
+<section
+    class="section"
+    id="galeria"
+>
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Momentos
+            </span>
+
+            <h2>
+                Galería
+            </h2>
+
+            <p>
+                Algunos momentos de las experiencias vividas.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+            <button
+                class="gallery-item reveal"
+                type="button"
+                data-image="./imag/verano.JPG"
+                data-caption="Experiencia de voluntariado durante el verano"
+            >
+
+                <img
+                    src="./imag/verano.JPG"
+                    alt="Voluntariado durante el verano"
+                    loading="lazy"
+                >
+
+                <span class="gallery-overlay">
+                    Ver imagen →
+                </span>
+
+            </button>
+
+
+            <button
+                class="gallery-item reveal"
+                type="button"
+                data-image="./imag/voluntariado.jpg"
+                data-caption="Actividad de voluntariado"
+            >
+
+                <img
+                    src="./imag/voluntariado.jpg"
+                    alt="Actividad de voluntariado"
+                    loading="lazy"
+                >
+
+                <span class="gallery-overlay">
+                    Ver imagen →
+                </span>
+
+            </button>
+
+
+            <button
+                class="gallery-item reveal"
+                type="button"
+                data-image="./imag/escritura.jpg"
+                data-caption="Actividad de escritura"
+            >
+
+                <img
+                    src="./imag/escritura.jpg"
+                    alt="Actividad de escritura"
+                    loading="lazy"
+                >
+
+                <span class="gallery-overlay">
+                    Ver imagen →
+                </span>
+
+            </button>
+
+
+            <button
+                class="gallery-item reveal"
+                type="button"
+                data-image="./imag/actividadesmonis.jpg"
+                data-caption="Actividades con monitores"
+            >
+
+                <img
+                    src="./imag/actividadesmonis.jpg"
+                    alt="Actividades con monitores"
+                    loading="lazy"
+                >
+
+                <span class="gallery-overlay">
+                    Ver imagen →
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CERTIFICADOS
+========================================================= -->
+
+<section
+    class="section certificates"
+    id="certificados"
+>
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Reconocimientos
+            </span>
+
+            <h2>
+                Mis certificados
+            </h2>
+
+            <p>
+                Una recopilación de los certificados y
+                reconocimientos obtenidos.
+            </p>
+
+        </div>
+
+
+        <div class="certificate-tools">
+
+            <div class="search-box certificate-search">
+
+                <span>🔎</span>
+
+                <input
+                    type="search"
+                    id="certificateSearch"
+                    placeholder="Buscar certificado..."
+                    aria-label="Buscar certificados"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="certificate-grid"
+            id="certificateGrid"
+        >
+
+
+            <article
+                class="certificate-card reveal"
+                data-search="diviertet verano 2023 moraira voluntariado"
+            >
+
+                <button
+                    class="certificate-image"
+                    type="button"
+                    data-image="./imag/certificado1.png"
+                    data-caption="Voluntariado Diviertet — Verano 2023, Moraira"
+                >
+
+                    <img
+                        src="./imag/certificado1.png"
+                        alt="Certificado de voluntariado Diviertet"
+                        loading="lazy"
+                    >
+
+                </button>
+
+                <div class="certificate-info">
+
+                    <h3>
+                        Voluntariado Diviertet
+                    </h3>
+
+                    <p>
+                        Verano 2023 · Moraira
+                    </p>
+
+                    <button
+                        class="btn btn-primary certificate-view"
+                        type="button"
+                        data-image="./imag/certificado1.png"
+                        data-caption="Voluntariado Diviertet — Verano 2023, Moraira"
+                    >
+                        Ver certificado
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="certificate-card reveal"
+                data-search="navidad 2023 2024 benicassim voluntariado"
+            >
+
+                <button
+                    class="certificate-image"
+                    type="button"
+                    data-image="./imag/certificado2.png"
+                    data-caption="Voluntariado — Navidad 2023/24, Benicàssim"
+                >
+
+                    <img
+                        src="./imag/certificado2.png"
+                        alt="Certificado de voluntariado Navidad 2023"
+                        loading="lazy"
+                    >
+
+                </button>
+
+                <div class="certificate-info">
+
+                    <h3>
+                        Voluntariado
+                    </h3>
+
+                    <p>
+                        Navidad 2023/24 · Benicàssim
+                    </p>
+
+                    <button
+                        class="btn btn-primary certificate-view"
+                        type="button"
+                        data-image="./imag/certificado2.png"
+                        data-caption="Voluntariado — Navidad 2023/24, Benicàssim"
+                    >
+                        Ver certificado
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="certificate-card reveal"
+                data-search="reconocimiento navidad benicassim"
+            >
+
+                <button
+                    class="certificate-image"
+                    type="button"
+                    data-image="./imag/certificado3.png"
+                    data-caption="Reconocimiento — Campaña de Navidad, Benicàssim"
+                >
+
+                    <img
+                        src="./imag/certificado3.png"
+                        alt="Reconocimiento de campaña de Navidad"
+                        loading="lazy"
+                    >
+
+                </button>
+
+                <div class="certificate-info">
+
+                    <h3>
+                        Reconocimiento
+                    </h3>
+
+                    <p>
+                        Campaña de Navidad · Benicàssim
+                    </p>
+
+                    <button
+                        class="btn btn-primary certificate-view"
+                        type="button"
+                        data-image="./imag/certificado3.png"
+                        data-caption="Reconocimiento — Campaña de Navidad, Benicàssim"
+                    >
+                        Ver certificado
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="certificate-card reveal"
+                data-search="verano 2024 moraira voluntariado"
+            >
+
+                <button
+                    class="certificate-image"
+                    type="button"
+                    data-image="./imag/certificado4.png"
+                    data-caption="Voluntariado — Verano 2024, Moraira"
+                >
+
+                    <img
+                        src="./imag/certificado4.png"
+                        alt="Certificado de voluntariado verano 2024"
+                        loading="lazy"
+                    >
+
+                </button>
+
+                <div class="certificate-info">
+
+                    <h3>
+                        Voluntariado
+                    </h3>
+
+                    <p>
+                        Verano 2024 · Moraira
+                    </p>
+
+                    <button
+                        class="btn btn-primary certificate-view"
+                        type="button"
+                        data-image="./imag/certificado4.png"
+                        data-caption="Voluntariado — Verano 2024, Moraira"
+                    >
+                        Ver certificado
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="certificate-card reveal"
+                data-search="navidad 2024 2025 benicassim"
+            >
+
+                <button
+                    class="certificate-image"
+                    type="button"
+                    data-image="./imag/certificado5.png"
+                    data-caption="Voluntariado — Navidad 2024/25, Benicàssim"
+                >
+
+                    <img
+                        src="./imag/certificado5.png"
+                        alt="Certificado Navidad 2024 2025"
+                        loading="lazy"
+                    >
+
+                </button>
+
+                <div class="certificate-info">
+
+                    <h3>
+                        Voluntariado
+                    </h3>
+
+                    <p>
+                        Navidad 2024/25 · Benicàssim
+                    </p>
+
+                    <button
+                        class="btn btn-primary certificate-view"
+                        type="button"
+                        data-image="./imag/certificado5.png"
+                        data-caption="Voluntariado — Navidad 2024/25, Benicàssim"
+                    >
+                        Ver certificado
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="certificate-card reveal"
+                data-search="primavera 2025 benicassim voluntariado"
+            >
+
+                <button
+                    class="certificate-image"
+                    type="button"
+                    data-image="./imag/certificado6.png"
+                    data-caption="Voluntariado — Primavera 2025, Benicàssim"
+                >
+
+                    <img
+                        src="./imag/certificado6.png"
+                        alt="Certificado de voluntariado primavera 2025"
+                        loading="lazy"
+                    >
+
+                </button>
+
+                <div class="certificate-info">
+
+                    <h3>
+                        Voluntariado
+                    </h3>
+
+                    <p>
+                        Primavera 2025 · Benicàssim
+                    </p>
+
+                    <button
+                        class="btn btn-primary certificate-view"
+                        type="button"
+                        data-image="./imag/certificado6.png"
+                        data-caption="Voluntariado — Primavera 2025, Benicàssim"
+                    >
+                        Ver certificado
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div
+            class="no-results"
+            id="certificateNoResults"
+        >
+            No se han encontrado certificados.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUOTE
+========================================================= -->
+
+<section class="quote-section">
+
+    <blockquote>
+
+        No se trata solamente de ayudar,
+        sino de compartir una parte de tu tiempo
+        y aprender de cada persona que conoces.
+
+    </blockquote>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section
+    class="section"
+    id="faq"
+>
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Preguntas
+            </span>
+
+            <h2>
+                Sobre mi experiencia
+            </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+
+            <article class="faq-item reveal">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    ¿Qué me ha aportado el voluntariado?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    Principalmente experiencia,
+                    responsabilidad, capacidad de trabajar
+                    en equipo, comunicación y nuevas
+                    relaciones personales.
+
+                </div>
+
+            </article>
+
+
+            <article class="faq-item reveal">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    ¿Qué tipo de actividades he realizado?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    He participado en actividades de ocio,
+                    dinámicas, campañas de temporada,
+                    actividades creativas y diferentes
+                    propuestas para los participantes.
+
+                </div>
+
+            </article>
+
+
+            <article class="faq-item reveal">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    ¿Dónde he realizado voluntariado?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    Entre las principales localizaciones
+                    están Moraira y Benicàssim.
+
+                </div>
+
+            </article>
+
+
+            <article class="faq-item reveal">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    ¿Por qué seguir haciendo voluntariado?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    Porque cada experiencia es diferente.
+                    Permite aprender de otras personas,
+                    aportar tiempo y seguir desarrollando
+                    nuevas habilidades.
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="cta-box reveal">
+
+        <span class="eyebrow" style="color:#f4a11a;">
+            ¿Te interesa el voluntariado?
+        </span>
+
+        <h2>
+            Anímate a participar
+        </h2>
+
+        <p>
+            El voluntariado puede ser una forma de ayudar,
+            aprender y descubrir nuevas experiencias.
+        </p>
+
+        <a
+            href="https://ivaj.gva.es/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+        >
+            Conocer oportunidades →
+        </a>
+
+        <p class="cta-note">
+            Enlace a la web oficial del IVAJ.
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 Mi experiencia de voluntariado
+    </p>
+
+    <p>
+        Hecho con HTML, CSS y JavaScript.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     LIGHTBOX / MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="imageModal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visor de imágenes"
+    aria-hidden="true"
+>
+
+    <div class="modal-content">
 
         <button
             class="modal-close"
             id="modalClose"
             type="button"
-            aria-label="Cerrar certificado"
+            aria-label="Cerrar"
         >
-            <span aria-hidden="true">×</span>
+            ×
+        </button>
+
+
+        <button
+            class="modal-prev"
+            id="modalPrev"
+            type="button"
+            aria-label="Imagen anterior"
+        >
+            ‹
         </button>
 
 
         <img
-            id="modalImage"
             src=""
             alt=""
+            class="modal-image"
+            id="modalImage"
         >
 
 
-        <p
-            class="modal-title"
-            id="modalTitle"
-        ></p>
+        <button
+            class="modal-next"
+            id="modalNext"
+            type="button"
+            aria-label="Imagen siguiente"
+        >
+            ›
+        </button>
+
+
+        <div
+            class="modal-caption"
+            id="modalCaption"
+        ></div>
+
+
+        <div class="modal-actions">
+
+            <a
+                class="btn btn-primary"
+                id="downloadImage"
+                href="#"
+                download
+            >
+                ⬇ Descargar
+            </a>
+
+        </div>
 
     </div>
 
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <p>
-            © 2026
-            <strong>
-                Mi experiencia de voluntariado
-            </strong>
-        </p>
-
-        <p>
-            Proyecto personal
-        </p>
-
-    </footer>
+</div>
 
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+<!-- =========================================================
+     TOASTS
+========================================================= -->
 
-    <script>
-
-        "use strict";
-
-
-        /* =====================================================
-           MENÚ MÓVIL
-        ====================================================== */
-
-        const menuButton =
-            document.getElementById("menuButton");
-
-        const menu =
-            document.getElementById("menu");
+<div
+    class="toast-container"
+    id="toastContainer"
+    aria-live="polite"
+></div>
 
 
-        function closeMenu() {
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
 
-            menu.classList.remove("open");
+<button
+    class="back-top"
+    id="backTop"
+    type="button"
+    aria-label="Volver arriba"
+>
+    ↑
+</button>
 
-            menuButton.setAttribute(
+
+<script>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    const html = document.documentElement;
+    const body = document.body;
+
+
+    /* =========================================================
+       THEME
+    ========================================================= */
+
+    const themeToggle = document.getElementById("themeToggle");
+
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "dark") {
+        html.classList.add("dark");
+    }
+
+    updateThemeIcon();
+
+
+    themeToggle.addEventListener("click", () => {
+
+        html.classList.toggle("dark");
+
+        const theme = html.classList.contains("dark")
+            ? "dark"
+            : "light";
+
+        localStorage.setItem(
+            "portfolio-theme",
+            theme
+        );
+
+        updateThemeIcon();
+
+    });
+
+
+    function updateThemeIcon() {
+
+        themeToggle.textContent =
+            html.classList.contains("dark")
+                ? "☀️"
+                : "🌙";
+
+    }
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+            navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+        menuToggle.textContent =
+            isOpen ? "×" : "☰";
+
+    });
+
+
+    document.querySelectorAll(".nav-link")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+
+    document.addEventListener("keydown", event => {
+
+        if (
+            event.key === "Escape" &&
+            navLinks.classList.contains("open")
+        ) {
+
+            navLinks.classList.remove("open");
+
+            menuToggle.setAttribute(
                 "aria-expanded",
                 "false"
             );
 
-            menuButton.setAttribute(
-                "aria-label",
-                "Abrir menú de navegación"
-            );
-
-            menuButton.innerHTML =
-                '<span aria-hidden="true">☰</span>';
+            menuToggle.textContent = "☰";
 
         }
 
+    });
 
-        menuButton.addEventListener(
-            "click",
-            () => {
 
-                const isOpen =
-                    menu.classList.toggle("open");
+    /* =========================================================
+       ACTIVE NAVIGATION
+    ========================================================= */
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
+    const sections =
+        document.querySelectorAll("main section[id]");
 
-                menuButton.setAttribute(
-                    "aria-label",
-                    isOpen
-                        ? "Cerrar menú de navegación"
-                        : "Abrir menú de navegación"
-                );
+    const navItems =
+        document.querySelectorAll(".nav-link");
 
-                menuButton.innerHTML =
-                    isOpen
-                        ? '<span aria-hidden="true">×</span>'
-                        : '<span aria-hidden="true">☰</span>';
+
+    const navObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    navItems.forEach(item => {
+
+                        item.classList.remove("active");
+
+                    });
+
+                    const active =
+                        document.querySelector(
+                            `.nav-link[href="#${entry.target.id}"]`
+                        );
+
+                    if (active) {
+                        active.classList.add("active");
+                    }
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .25
+        }
+    );
+
+
+    sections.forEach(section => {
+
+        navObserver.observe(section);
+
+    });
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: .12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    /* =========================================================
+       COUNTERS
+    ========================================================= */
+
+    const counters =
+        document.querySelectorAll("[data-counter]");
+
+
+    const counterObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const element = entry.target;
+
+                    const target =
+                        Number(
+                            element.dataset.counter
+                        );
+
+                    const suffix =
+                        element.dataset.suffix || "";
+
+                    const duration = 1300;
+
+                    const startTime =
+                        performance.now();
+
+
+                    function animateCounter(time) {
+
+                        const progress =
+                            Math.min(
+                                (time - startTime) /
+                                duration,
+                                1
+                            );
+
+                        const eased =
+                            1 -
+                            Math.pow(
+                                1 - progress,
+                                3
+                            );
+
+                        const value =
+                            Math.floor(
+                                target * eased
+                            );
+
+                        element.textContent =
+                            value.toLocaleString("es-ES") +
+                            suffix;
+
+
+                        if (progress < 1) {
+
+                            requestAnimationFrame(
+                                animateCounter
+                            );
+
+                        }
+
+                    }
+
+
+                    requestAnimationFrame(
+                        animateCounter
+                    );
+
+                    counterObserver.unobserve(
+                        element
+                    );
+
+                });
 
             }
         );
 
 
-        document
-            .querySelectorAll(".menu a")
-            .forEach(link => {
+    counters.forEach(counter => {
 
-                link.addEventListener(
-                    "click",
-                    closeMenu
-                );
+        counterObserver.observe(counter);
+
+    });
+
+
+    /* =========================================================
+       CAMPAIGN FILTER
+    ========================================================= */
+
+    const campaignCards =
+        document.querySelectorAll(".campaign-card");
+
+    const filterButtons =
+        document.querySelectorAll(
+            "#campaignFilters .filter-btn"
+        );
+
+    const campaignSearch =
+        document.getElementById("campaignSearch");
+
+    const campaignNoResults =
+        document.getElementById(
+            "campaignNoResults"
+        );
+
+
+    let activeCampaignFilter = "all";
+
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+            button.classList.add("active");
+
+            activeCampaignFilter =
+                button.dataset.filter;
+
+            filterCampaigns();
+
+        });
+
+    });
+
+
+    campaignSearch.addEventListener(
+        "input",
+        filterCampaigns
+    );
+
+
+    function filterCampaigns() {
+
+        const search =
+            campaignSearch.value
+                .toLowerCase()
+                .trim();
+
+        let visible = 0;
+
+
+        campaignCards.forEach(card => {
+
+            const category =
+                card.dataset.category;
+
+            const searchable =
+                card.dataset.search.toLowerCase();
+
+            const matchesCategory =
+                activeCampaignFilter === "all" ||
+                category === activeCampaignFilter;
+
+            const matchesSearch =
+                !search ||
+                searchable.includes(search);
+
+
+            const show =
+                matchesCategory &&
+                matchesSearch;
+
+
+            card.style.display =
+                show ? "" : "none";
+
+
+            if (show) {
+                visible++;
+            }
+
+        });
+
+
+        campaignNoResults.style.display =
+            visible === 0 ? "block" : "none";
+
+    }
+
+
+    /* =========================================================
+       CERTIFICATE SEARCH
+    ========================================================= */
+
+    const certificateCards =
+        document.querySelectorAll(
+            ".certificate-card"
+        );
+
+    const certificateSearch =
+        document.getElementById(
+            "certificateSearch"
+        );
+
+    const certificateNoResults =
+        document.getElementById(
+            "certificateNoResults"
+        );
+
+
+    certificateSearch.addEventListener(
+        "input",
+        () => {
+
+            const search =
+                certificateSearch.value
+                    .toLowerCase()
+                    .trim();
+
+            let visible = 0;
+
+
+            certificateCards.forEach(card => {
+
+                const searchable =
+                    card.dataset.search.toLowerCase();
+
+                const show =
+                    !search ||
+                    searchable.includes(search);
+
+                card.style.display =
+                    show ? "" : "none";
+
+                if (show) {
+                    visible++;
+                }
 
             });
 
 
-        document.addEventListener(
-            "keydown",
-            event => {
+            certificateNoResults.style.display =
+                visible === 0 ? "block" : "none";
 
-                if (
-                    event.key === "Escape"
-                ) {
-                    closeMenu();
-                }
+        }
+    );
 
-            }
+
+    /* =========================================================
+       MODAL / LIGHTBOX
+    ========================================================= */
+
+    const modal =
+        document.getElementById("imageModal");
+
+    const modalImage =
+        document.getElementById("modalImage");
+
+    const modalCaption =
+        document.getElementById("modalCaption");
+
+    const modalClose =
+        document.getElementById("modalClose");
+
+    const modalPrev =
+        document.getElementById("modalPrev");
+
+    const modalNext =
+        document.getElementById("modalNext");
+
+    const downloadImage =
+        document.getElementById(
+            "downloadImage"
         );
 
 
-        /* =====================================================
-           NAVEGACIÓN ACTIVA
-        ====================================================== */
-
-        const sections =
+    const galleryItems =
+        Array.from(
             document.querySelectorAll(
-                "main section[id]"
+                ".gallery-item"
+            )
+        );
+
+
+    const certificateButtons =
+        Array.from(
+            document.querySelectorAll(
+                "[data-image]"
+            )
+        );
+
+
+    let modalItems = [];
+    let currentModalIndex = 0;
+    let previousFocusedElement = null;
+
+
+    function openModal(items, index) {
+
+        modalItems = items;
+
+        currentModalIndex = index;
+
+        previousFocusedElement =
+            document.activeElement;
+
+        updateModal();
+
+
+        modal.classList.add("show");
+
+        modal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        body.classList.add("no-scroll");
+
+        modalClose.focus();
+
+    }
+
+
+    function updateModal() {
+
+        const item =
+            modalItems[currentModalIndex];
+
+        const image =
+            item.dataset.image;
+
+        const caption =
+            item.dataset.caption || "";
+
+
+        modalImage.src = image;
+
+        modalImage.alt = caption;
+
+        modalCaption.textContent =
+            caption;
+
+        downloadImage.href = image;
+
+        downloadImage.download =
+            image.split("/").pop();
+
+
+        const multiple =
+            modalItems.length > 1;
+
+        modalPrev.style.display =
+            multiple ? "grid" : "none";
+
+        modalNext.style.display =
+            multiple ? "grid" : "none";
+
+    }
+
+
+    function closeModal() {
+
+        modal.classList.remove("show");
+
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        body.classList.remove("no-scroll");
+
+        modalImage.src = "";
+
+        if (previousFocusedElement) {
+
+            previousFocusedElement.focus();
+
+        }
+
+    }
+
+
+    galleryItems.forEach((item, index) => {
+
+        item.addEventListener("click", () => {
+
+            openModal(
+                galleryItems,
+                index
             );
 
-        const navLinks =
-            document.querySelectorAll(
-                ".menu a"
+        });
+
+    });
+
+
+    certificateButtons.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            const certificateItems =
+                Array.from(
+                    document.querySelectorAll(
+                        ".certificate-image"
+                    )
+                );
+
+            const clicked =
+                item.closest(".certificate-card")
+                    ?.querySelector(
+                        ".certificate-image"
+                    ) || item;
+
+
+            const index =
+                certificateItems.indexOf(
+                    clicked
+                );
+
+
+            openModal(
+                certificateItems,
+                Math.max(index, 0)
             );
 
+        });
 
-        const activeSectionObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            !entry.isIntersecting
-                        ) {
-                            return;
-                        }
-
-                        navLinks.forEach(link => {
-
-                            link.classList.remove(
-                                "active"
-                            );
-
-                            link.removeAttribute(
-                                "aria-current"
-                            );
-
-                        });
+    });
 
 
-                        const activeLink =
-                            document.querySelector(
-                                `.menu a[href="#${entry.target.id}"]`
-                            );
+    modalClose.addEventListener(
+        "click",
+        closeModal
+    );
 
 
-                        if (activeLink) {
+    modal.addEventListener("click", event => {
 
-                            activeLink.classList.add(
-                                "active"
-                            );
+        if (event.target === modal) {
+            closeModal();
+        }
 
-                            activeLink.setAttribute(
-                                "aria-current",
-                                "page"
-                            );
+    });
 
-                        }
 
-                    });
+    modalPrev.addEventListener(
+        "click",
+        () => {
 
-                },
-                {
-                    rootMargin:
-                        "-35% 0px -55% 0px"
+            currentModalIndex =
+                (
+                    currentModalIndex -
+                    1 +
+                    modalItems.length
+                ) %
+                modalItems.length;
+
+            updateModal();
+
+        }
+    );
+
+
+    modalNext.addEventListener(
+        "click",
+        () => {
+
+            currentModalIndex =
+                (
+                    currentModalIndex +
+                    1
+                ) %
+                modalItems.length;
+
+            updateModal();
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (!modal.classList.contains("show")) {
+                return;
+            }
+
+
+            if (event.key === "Escape") {
+
+                closeModal();
+
+            }
+
+
+            if (
+                event.key === "ArrowLeft" &&
+                modalItems.length > 1
+            ) {
+
+                modalPrev.click();
+
+            }
+
+
+            if (
+                event.key === "ArrowRight" &&
+                modalItems.length > 1
+            ) {
+
+                modalNext.click();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    document.querySelectorAll(".faq-question")
+        .forEach(question => {
+
+            question.addEventListener(
+                "click",
+                () => {
+
+                    const item =
+                        question.closest(
+                            ".faq-item"
+                        );
+
+                    const isOpen =
+                        item.classList.toggle(
+                            "open"
+                        );
+
+                    question.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
+
                 }
-            );
-
-
-        sections.forEach(section => {
-
-            activeSectionObserver.observe(
-                section
             );
 
         });
 
 
-        /* =====================================================
-           REVEAL
-        ====================================================== */
+    /* =========================================================
+       SHARE
+    ========================================================= */
 
-        const revealElements =
-            document.querySelectorAll(
-                ".reveal"
-            );
-
-
-        const prefersReducedMotion =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
+    const shareButton =
+        document.getElementById(
+            "shareButton"
+        );
 
 
-        if (prefersReducedMotion) {
+    shareButton.addEventListener(
+        "click",
+        async () => {
 
-            revealElements.forEach(element => {
+            const shareData = {
 
-                element.classList.add(
-                    "visible"
-                );
+                title:
+                    document.title,
 
+                text:
+                    "Mi experiencia de voluntariado",
+
+                url:
+                    window.location.href
+
+            };
+
+
+            try {
+
+                if (
+                    navigator.share
+                ) {
+
+                    await navigator.share(
+                        shareData
+                    );
+
+                    showToast(
+                        "¡Gracias por compartir!"
+                    );
+
+                } else {
+
+                    await navigator.clipboard.writeText(
+                        window.location.href
+                    );
+
+                    showToast(
+                        "Enlace copiado al portapapeles."
+                    );
+
+                }
+
+            } catch (error) {
+
+                if (
+                    error.name !==
+                    "AbortError"
+                ) {
+
+                    try {
+
+                        await navigator.clipboard.writeText(
+                            window.location.href
+                        );
+
+                        showToast(
+                            "Enlace copiado."
+                        );
+
+                    } catch {
+
+                        showToast(
+                            "No se ha podido compartir."
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    const toastContainer =
+        document.getElementById(
+            "toastContainer"
+        );
+
+
+    function showToast(message) {
+
+        const toast =
+            document.createElement("div");
+
+        toast.className = "toast";
+
+        toast.textContent = message;
+
+        toastContainer.appendChild(toast);
+
+
+        setTimeout(() => {
+
+            toast.remove();
+
+        }, 3000);
+
+    }
+
+
+    /* =========================================================
+       READING PROGRESS
+    ========================================================= */
+
+    const progress =
+        document.getElementById(
+            "readingProgress"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const scrollTop =
+                window.scrollY;
+
+            const documentHeight =
+                document.documentElement
+                    .scrollHeight -
+                window.innerHeight;
+
+
+            const percentage =
+                documentHeight > 0
+                    ? (
+                        scrollTop /
+                        documentHeight
+                    ) * 100
+                    : 0;
+
+
+            progress.style.width =
+                `${percentage}%`;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    const backTop =
+        document.getElementById(
+            "backTop"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (window.scrollY > 500) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    backTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
             });
 
-        } else {
-
-            const revealObserver =
-                new IntersectionObserver(
-                    entries => {
-
-                        entries.forEach(entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                                revealObserver.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        });
-
-                    },
-                    {
-                        threshold: 0.12
-                    }
-                );
+        }
+    );
 
 
-            revealElements.forEach(element => {
+    /* =========================================================
+       LANGUAGE SELECTOR
+    ========================================================= */
 
-                revealObserver.observe(
-                    element
-                );
+    const languageSelect =
+        document.getElementById(
+            "languageSelect"
+        );
 
-            });
 
+    const translations = {
+
+        es: {
+            title:
+                "Mi experiencia de voluntariado"
+        },
+
+        va: {
+            title:
+                "La meua experiència de voluntariat"
+        },
+
+        en: {
+            title:
+                "My volunteering experience"
         }
 
+    };
 
-        /* =====================================================
-           CONTADORES
-        ====================================================== */
 
-        const counters =
-            document.querySelectorAll(
-                ".counter-number"
+    const savedLanguage =
+        localStorage.getItem(
+            "portfolio-language"
+        );
+
+
+    if (
+        savedLanguage &&
+        translations[savedLanguage]
+    ) {
+
+        languageSelect.value =
+            savedLanguage;
+
+    }
+
+
+    languageSelect.addEventListener(
+        "change",
+        () => {
+
+            const language =
+                languageSelect.value;
+
+            localStorage.setItem(
+                "portfolio-language",
+                language
             );
 
-        let countersStarted = false;
 
-
-        function animateCounters() {
+            /*
+             * Aquí puedes ampliar fácilmente
+             * las traducciones de todos los textos.
+             */
 
             if (
-                countersStarted ||
-                prefersReducedMotion
+                translations[language]
             ) {
 
-                counters.forEach(counter => {
-
-                    const target =
-                        Number(
-                            counter.dataset.target
-                        );
-
-                    const suffix =
-                        counter.dataset.suffix || "";
-
-                    counter.textContent =
-                        target.toLocaleString("es-ES")
-                        + suffix;
-
-                });
-
-                countersStarted = true;
-
-                return;
-
-            }
-
-
-            countersStarted = true;
-
-
-            counters.forEach(counter => {
-
-                const target =
-                    Number(
-                        counter.dataset.target
-                    );
-
-                const suffix =
-                    counter.dataset.suffix || "";
-
-                const duration = 1600;
-
-                const startTime =
-                    performance.now();
-
-
-                function updateCounter(
-                    currentTime
-                ) {
-
-                    const elapsed =
-                        currentTime -
-                        startTime;
-
-                    const progress =
-                        Math.min(
-                            elapsed / duration,
-                            1
-                        );
-
-                    const eased =
-                        1 -
-                        Math.pow(
-                            1 - progress,
-                            3
-                        );
-
-                    const current =
-                        Math.floor(
-                            eased * target
-                        );
-
-
-                    counter.textContent =
-                        current.toLocaleString("es-ES")
-                        + suffix;
-
-
-                    if (
-                        progress < 1
-                    ) {
-
-                        requestAnimationFrame(
-                            updateCounter
-                        );
-
-                    } else {
-
-                        counter.textContent =
-                            target.toLocaleString("es-ES")
-                            + suffix;
-
-                    }
-
-                }
-
-
-                requestAnimationFrame(
-                    updateCounter
-                );
-
-            });
-
-        }
-
-
-        const counterSection =
-            document.getElementById(
-                "contador"
-            );
-
-
-        const counterObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    if (
-                        entries.some(
-                            entry =>
-                                entry.isIntersecting
-                        )
-                    ) {
-
-                        animateCounters();
-
-                        counterObserver.disconnect();
-
-                    }
-
-                },
-                {
-                    threshold: 0.25
-                }
-            );
-
-
-        counterObserver.observe(
-            counterSection
-        );
-
-
-        /* =====================================================
-           CARRUSEL
-        ====================================================== */
-
-        const track =
-            document.getElementById(
-                "carouselTrack"
-            );
-
-        const slides =
-            document.querySelectorAll(
-                ".slide"
-            );
-
-        const next =
-            document.getElementById(
-                "next"
-            );
-
-        const prev =
-            document.getElementById(
-                "prev"
-            );
-
-        const dotsContainer =
-            document.getElementById(
-                "dots"
-            );
-
-        const carousel =
-            document.getElementById(
-                "carousel"
-            );
-
-        const carouselStatus =
-            document.getElementById(
-                "carouselStatus"
-            );
-
-
-        let currentSlide = 0;
-        let autoplay = null;
-
-
-        /* CREAR PUNTOS */
-
-        slides.forEach(
-            (slide, index) => {
-
-                const dot =
-                    document.createElement(
-                        "button"
-                    );
-
-                dot.className = "dot";
-                dot.type = "button";
-
-                dot.setAttribute(
-                    "aria-label",
-                    `Mostrar fotografía ${index + 1}`
-                );
-
-                dot.setAttribute(
-                    "aria-pressed",
-                    index === 0
-                        ? "true"
-                        : "false"
-                );
-
-
-                if (
-                    index === 0
-                ) {
-
-                    dot.classList.add(
-                        "active"
-                    );
-
-                }
-
-
-                dot.addEventListener(
-                    "click",
-                    () => {
-
-                        goToSlide(index);
-
-                        restartAutoplay();
-
-                    }
-                );
-
-
-                dotsContainer.appendChild(
-                    dot
+                document.title =
+                    translations[
+                        language
+                    ].title;
+
+                showToast(
+                    language === "es"
+                        ? "Idioma cambiado a español."
+                        : language === "va"
+                            ? "Idioma canviat a valencià."
+                            : "Language changed to English."
                 );
 
             }
-        );
-
-
-        const dots =
-            document.querySelectorAll(
-                ".dot"
-            );
-
-
-        function updateCarouselAccessibility() {
-
-            slides.forEach(
-                (slide, index) => {
-
-                    const active =
-                        index === currentSlide;
-
-                    slide.setAttribute(
-                        "aria-hidden",
-                        String(!active)
-                    );
-
-                }
-            );
-
-
-            dots.forEach(
-                (dot, index) => {
-
-                    dot.classList.toggle(
-                        "active",
-                        index === currentSlide
-                    );
-
-                    dot.setAttribute(
-                        "aria-pressed",
-                        index === currentSlide
-                            ? "true"
-                            : "false"
-                    );
-
-                }
-            );
-
-
-            carouselStatus.textContent =
-                `${currentSlide + 1} de ${slides.length}`;
 
         }
+    );
 
 
-        function goToSlide(index) {
+    /* =========================================================
+       KEYBOARD ACCESSIBILITY
+    ========================================================= */
 
-            currentSlide =
-                (index + slides.length)
-                % slides.length;
-
-
-            track.style.transform =
-                `translateX(-${currentSlide * 100}%)`;
-
-
-            updateCarouselAccessibility();
-
-        }
-
-
-        function nextSlide() {
-
-            goToSlide(
-                currentSlide + 1
-            );
-
-        }
-
-
-        function previousSlide() {
-
-            goToSlide(
-                currentSlide - 1
-            );
-
-        }
-
-
-        next.addEventListener(
-            "click",
-            () => {
-
-                nextSlide();
-                restartAutoplay();
-
-            }
-        );
-
-
-        prev.addEventListener(
-            "click",
-            () => {
-
-                previousSlide();
-                restartAutoplay();
-
-            }
-        );
-
-
-        /* AUTOPLAY */
-
-        function startAutoplay() {
+    document.addEventListener(
+        "keydown",
+        event => {
 
             if (
-                prefersReducedMotion
+                event.key === "/" &&
+                document.activeElement.tagName !==
+                    "INPUT" &&
+                document.activeElement.tagName !==
+                    "TEXTAREA"
             ) {
-                return;
-            }
 
+                event.preventDefault();
 
-            stopAutoplay();
-
-
-            autoplay =
-                setInterval(
-                    nextSlide,
-                    5500
-                );
-
-        }
-
-
-        function stopAutoplay() {
-
-            if (autoplay) {
-
-                clearInterval(
-                    autoplay
-                );
-
-                autoplay = null;
+                campaignSearch.focus();
 
             }
 
         }
+    );
 
 
-        function restartAutoplay() {
+    /* =========================================================
+       ESCAPE MODAL
+    ========================================================= */
 
-            stopAutoplay();
-            startAutoplay();
-
-        }
-
-
-        carousel.addEventListener(
-            "mouseenter",
-            stopAutoplay
-        );
-
-
-        carousel.addEventListener(
-            "mouseleave",
-            startAutoplay
-        );
-
-
-        carousel.addEventListener(
-            "focusin",
-            stopAutoplay
-        );
-
-
-        carousel.addEventListener(
-            "focusout",
-            startAutoplay
-        );
-
-
-        updateCarouselAccessibility();
-        startAutoplay();
-
-
-        /* TECLADO */
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.target.matches(
-                        "input, textarea, select"
-                    )
-                ) {
-                    return;
-                }
-
-
-                if (
-                    event.key === "ArrowRight"
-                ) {
-
-                    nextSlide();
-                    restartAutoplay();
-
-                }
-
-
-                if (
-                    event.key === "ArrowLeft"
-                ) {
-
-                    previousSlide();
-                    restartAutoplay();
-
-                }
-
-            }
-        );
-
-
-        /* SWIPE */
-
-        let touchStartX = 0;
-
-
-        carousel.addEventListener(
-            "touchstart",
-            event => {
-
-                touchStartX =
-                    event.changedTouches[0]
-                        .screenX;
-
-                stopAutoplay();
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        carousel.addEventListener(
-            "touchend",
-            event => {
-
-                const touchEndX =
-                    event.changedTouches[0]
-                        .screenX;
-
-                const difference =
-                    touchStartX -
-                    touchEndX;
-
-
-                if (
-                    Math.abs(difference) >= 50
-                ) {
-
-                    if (
-                        difference > 0
-                    ) {
-
-                        nextSlide();
-
-                    } else {
-
-                        previousSlide();
-
-                    }
-
-                }
-
-
-                startAutoplay();
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        /* =====================================================
-           MODAL DE CERTIFICADOS
-        ====================================================== */
-
-        const certificateCards =
-            document.querySelectorAll(
-                ".certificate-card"
-            );
-
-        const certificateModal =
-            document.getElementById(
-                "certificateModal"
-            );
-
-        const modalImage =
-            document.getElementById(
-                "modalImage"
-            );
-
-        const modalClose =
-            document.getElementById(
-                "modalClose"
-            );
-
-        const modalTitle =
-            document.getElementById(
-                "modalTitle"
-            );
-
-
-        let lastFocusedElement = null;
-
-
-        function openCertificate(card) {
-
-            const image =
-                card.dataset.image;
-
-
-            if (!image) {
-                return;
-            }
-
-
-            lastFocusedElement =
-                document.activeElement;
-
-
-            const originalImage =
-                card.querySelector(
-                    "img"
-                );
-
-
-            const title =
-                card.querySelector(
-                    ".certificate-info h3"
-                );
-
-
-            modalImage.src =
-                image;
-
-
-            modalImage.alt =
-                originalImage
-                    ? originalImage.alt
-                    : "Certificado ampliado";
-
-
-            modalTitle.textContent =
-                title
-                    ? title.textContent.trim()
-                    : "Certificado";
-
-
-            certificateModal.classList.add(
-                "open"
-            );
-
-
-            certificateModal.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-
-            modalClose.focus();
-
-        }
-
-
-        function closeCertificate() {
-
-            certificateModal.classList.remove(
-                "open"
-            );
-
-
-            certificateModal.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-
-            document.body.classList.remove(
-                "modal-open"
-            );
-
-
-            modalImage.src = "";
-
-
-            modalImage.alt = "";
-
-
-            modalTitle.textContent = "";
-
+    document.addEventListener(
+        "keydown",
+        event => {
 
             if (
-                lastFocusedElement
+                event.key === "Escape" &&
+                modal.classList.contains("show")
             ) {
 
-                lastFocusedElement.focus();
+                closeModal();
 
             }
 
         }
+    );
 
 
-        certificateCards.forEach(
-            card => {
+    /* =========================================================
+       INITIALIZATION
+    ========================================================= */
 
-                card.addEventListener(
-                    "click",
-                    () => {
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
 
-                        openCertificate(
-                            card
-                        );
+            filterCampaigns();
 
-                    }
-                );
+        }
+    );
 
-
-                card.addEventListener(
-                    "keydown",
-                    event => {
-
-                        if (
-                            event.key === "Enter" ||
-                            event.key === " "
-                        ) {
-
-                            event.preventDefault();
-
-                            openCertificate(
-                                card
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-        modalClose.addEventListener(
-            "click",
-            closeCertificate
-        );
-
-
-        certificateModal.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target ===
-                    certificateModal
-                ) {
-
-                    closeCertificate();
-
-                }
-
-            }
-        );
-
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.key === "Escape" &&
-                    certificateModal.classList.contains(
-                        "open"
-                    )
-                ) {
-
-                    closeCertificate();
-
-                }
-
-            }
-        );
-
-    </script>
+</script>
 
 </body>
 </html>
