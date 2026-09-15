@@ -1,0 +1,3178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Mi experiencia de voluntariado: campañas, actividades, fotografías y certificados."
+    >
+
+    <title>Mi experiencia de voluntariado</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --primary: #126782;
+            --primary-dark: #0b4d64;
+            --primary-light: #eaf6fa;
+
+            --accent: #f4a11a;
+            --accent-dark: #dc8b00;
+
+            --dark: #102f3a;
+            --text: #263842;
+            --muted: #687b83;
+
+            --background: #f6fafb;
+            --white: #ffffff;
+            --border: #e3ecef;
+
+            --shadow-sm: 0 8px 25px rgba(16, 47, 58, 0.07);
+            --shadow-md: 0 18px 45px rgba(16, 47, 58, 0.12);
+            --shadow-lg: 0 30px 80px rgba(16, 47, 58, 0.18);
+
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 30px;
+
+            --transition: 0.3s ease;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        a {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* =========================================================
+           UTILIDADES
+        ========================================================= */
+
+        .container {
+            width: min(1150px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 14px;
+            padding: 7px 14px;
+
+            border-radius: 999px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 15px;
+
+            color: var(--primary-dark);
+
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2.2rem, 4vw, 3.3rem);
+            line-height: 1.1;
+        }
+
+        .section-description {
+            color: var(--muted);
+            font-size: 1.0rem;
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(227, 236, 239, 0.8);
+        }
+
+        nav {
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+
+            color: var(--primary-dark);
+
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+
+            display: grid;
+            place-items: center;
+
+            margin-right: 5px;
+
+            border-radius: 11px;
+
+            background: var(--primary);
+            color: white;
+
+            font-size: 0.95rem;
+
+            box-shadow: 0 7px 18px rgba(18, 103, 130, 0.25);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            list-style: none;
+        }
+
+        .menu a {
+            position: relative;
+
+            display: block;
+
+            padding: 10px 13px;
+
+            color: #41545c;
+
+            font-size: 0.92rem;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: var(--transition);
+        }
+
+        .menu a::after {
+            content: "";
+
+            position: absolute;
+            left: 13px;
+            right: 13px;
+            bottom: 4px;
+
+            height: 2px;
+
+            border-radius: 10px;
+
+            background: var(--accent);
+
+            transform: scaleX(0);
+            transform-origin: center;
+
+            transition: var(--transition);
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            color: var(--primary);
+        }
+
+        .menu a:hover::after,
+        .menu a.active::after {
+            transform: scaleX(1);
+        }
+
+        .menu-button {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: white;
+            color: var(--primary-dark);
+
+            font-size: 1.3rem;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: calc(100vh - 76px);
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    105deg,
+                    rgba(7, 46, 59, 0.94) 0%,
+                    rgba(10, 69, 87, 0.78) 48%,
+                    rgba(10, 69, 87, 0.38) 100%
+                ),
+                url("https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=1800&q=85")
+                center / cover;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(244, 161, 26, 0.22),
+                    transparent 30%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            padding: 100px 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 24px;
+            padding: 9px 15px;
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+
+            color: #f8fbfc;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .hero-badge span {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            max-width: 900px;
+
+            margin-bottom: 25px;
+
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3.2rem, 7vw, 6.4rem);
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+        }
+
+        .hero h1 strong {
+            color: #ffc45c;
+        }
+
+        .hero p {
+            max-width: 720px;
+
+            margin-bottom: 34px;
+
+            color: rgba(255, 255, 255, 0.88);
+
+            font-size: clamp(1rem, 2vw, 1.18rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+
+            padding: 13px 23px;
+
+            border: none;
+            border-radius: 999px;
+
+            background: var(--accent);
+            color: white;
+
+            font-weight: 800;
+            text-decoration: none;
+
+            box-shadow: 0 12px 30px rgba(244, 161, 26, 0.24);
+
+            transition:
+                transform var(--transition),
+                background var(--transition),
+                box-shadow var(--transition);
+            font-size: small;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: var(--accent-dark);
+            box-shadow: 0 17px 35px rgba(244, 161, 26, 0.32);
+        }
+
+        .button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        .button.secondary:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero-scroll::after {
+            content: "↓";
+
+            margin-top: 3px;
+
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+
+        /* =========================================================
+           CONTADORES
+        ========================================================= */
+
+        .counter-section {
+            position: relative;
+            overflow: hidden;
+
+            padding: 100px 0;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(244, 161, 26, 0.12),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0b4d64,
+                    #126782 60%,
+                    #0f728e
+                );
+
+            color: white;
+        }
+
+        .counter-section .section-title {
+            color: white;
+        }
+
+        .counter-section .section-description {
+            color: rgba(255, 255, 255, 0.74);
+        }
+
+        .counters {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .counter-card {
+            position: relative;
+
+            padding: 32px 22px;
+
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 22px;
+
+            background: rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(12px);
+
+            text-align: center;
+
+            transition: var(--transition);
+        }
+
+        .counter-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .counter-icon {
+            width: 52px;
+            height: 52px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 17px;
+
+            border-radius: 16px;
+
+            background: rgba(255, 255, 255, 0.1);
+
+            font-size: 1.5rem;
+        }
+
+        .counter-number {
+            margin-bottom: 5px;
+
+            color: #ffc45c;
+
+            font-size: clamp(2.4rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .counter-label {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================================
+           CAMPAÑAS
+        ========================================================= */
+
+        .experiences {
+            background: white;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .experience-card {
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+
+            background: white;
+
+            box-shadow: var(--shadow-sm);
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-9px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .experience-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card img {
+            width: 100%;
+            height: 260px;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+        .experience-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .experience-season {
+            position: absolute;
+            top: 17px;
+            left: 17px;
+
+            padding: 7px 12px;
+
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--primary-dark);
+
+            font-size: 0.76rem;
+            font-weight: 800;
+
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-content {
+            padding: 27px;
+        }
+
+        .experience-content h3 {
+            margin-bottom: 9px;
+
+            color: var(--primary-dark);
+
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 1.5rem;
+        }
+
+        .experience-content p {
+            min-height: 90px;
+
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 17px;
+            padding: 7px 12px;
+
+            border-radius: 999px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .badge::before {
+            content: "●";
+            color: var(--accent);
+            font-size: 0.55rem;
+        }
+
+
+        /* =========================================================
+           GALERÍA
+        ========================================================= */
+
+        .gallery {
+            background:
+                linear-gradient(
+                    180deg,
+                    #f3f9fa,
+                    #edf6f8
+                );
+        }
+
+        .carousel-wrapper {
+            position: relative;
+        }
+
+        .carousel {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            background: #0d303b;
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .carousel-track {
+            display: flex;
+
+            transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
+        }
+
+        .slide {
+            position: relative;
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: min(62vw, 590px);
+
+            min-height: 350px;
+
+            object-fit: cover;
+        }
+
+        .slide::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.75),
+                    rgba(0, 0, 0, 0.04) 65%
+                );
+        }
+
+        .slide-caption {
+            position: absolute;
+            z-index: 2;
+
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            padding: 45px 45px 40px;
+
+            color: white;
+        }
+
+        .slide-caption h3 {
+            margin-bottom: 5px;
+
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+        }
+
+        .slide-caption p {
+            max-width: 650px;
+
+            color: rgba(255, 255, 255, 0.8);
+
+            font-size: 0.95rem;
+        }
+
+        .carousel-button {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+
+            width: 52px;
+            height: 52px;
+
+            display: grid;
+            place-items: center;
+
+            transform: translateY(-50%);
+
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.88);
+            color: var(--primary-dark);
+
+            font-size: 1.25rem;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+
+            transition: var(--transition);
+        }
+
+        .carousel-button:hover {
+            transform: translateY(-50%) scale(1.08);
+            background: white;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+
+            margin-top: 22px;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+
+            padding: 0;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #a9cbd3;
+
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            width: 28px;
+            border-radius: 20px;
+            background: var(--accent);
+        }
+
+
+        /* =========================================================
+           CERTIFICADOS
+        ========================================================= */
+
+        .certificates {
+            background: white;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .certificate-card {
+            overflow: hidden;
+
+            padding: 10px;
+
+            border: 1px solid var(--border);
+            border-radius: 23px;
+
+            background: white;
+
+            box-shadow: var(--shadow-sm);
+
+            cursor: zoom-in;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .certificate-image-wrapper {
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 17px;
+
+            background: #f5f8f9;
+        }
+
+        .certificate-image-wrapper::after {
+            content: "Ver certificado";
+
+            position: absolute;
+            inset: 0;
+
+            display: grid;
+            place-items: center;
+
+            background: rgba(11, 77, 100, 0.76);
+
+            color: white;
+
+            font-size: 0.9rem;
+            font-weight: 800;
+
+            opacity: 0;
+
+            transition: var(--transition);
+        }
+
+        .certificate-card:hover
+        .certificate-image-wrapper::after {
+            opacity: 1;
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: 360px;
+
+            object-fit: contain;
+
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover img {
+            transform: scale(1.025);
+        }
+
+        .certificate-info {
+            padding: 19px 8px 10px;
+            text-align: center;
+        }
+
+        .certificate-info h3 {
+            margin-bottom: 6px;
+
+            color: var(--primary);
+
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .certificate-info p {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        .modal {
+            position: fixed;
+            z-index: 3000;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(5, 22, 28, 0.92);
+            backdrop-filter: blur(8px);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal img {
+            max-width: min(1100px, 95vw);
+            max-height: 88vh;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+
+            transform: scale(0.94);
+            transition: transform 0.35s ease;
+        }
+
+        .modal.open img {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 22px;
+            right: 25px;
+
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            border: none;
+            border-radius: 50%;
+
+            background: white;
+            color: var(--primary-dark);
+
+            font-size: 1.8rem;
+            line-height: 1;
+
+            box-shadow: var(--shadow-md);
+        }
+
+
+        /* =========================================================
+           FRASE
+        ========================================================= */
+
+        .quote-section {
+            position: relative;
+
+            padding: 115px 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(18, 103, 130, 0.07),
+                    transparent 55%
+                ),
+                #f7fafb;
+
+            text-align: center;
+        }
+
+        .quote-mark {
+            margin-bottom: 15px;
+
+            color: var(--accent);
+
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            line-height: 0.5;
+        }
+
+        .quote {
+            max-width: 850px;
+
+            margin: auto;
+
+            color: var(--primary-dark);
+
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.0rem, 4vw, 2.7rem);
+            font-style: italic;
+            line-height: 1.35;
+        }
+
+        .quote-author {
+            margin-top: 25px;
+
+            color: var(--muted);
+
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            position: relative;
+            overflow: hidden;
+
+            padding: 100px 0;
+
+            background:
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(244, 161, 26, 0.18),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0b4d64,
+                    #126782
+                );
+
+            color: white;
+            text-align: center;
+        }
+
+        .cta::before {
+            content: "";
+
+            position: absolute;
+            width: 400px;
+            height: 400px;
+
+            left: -220px;
+            bottom: -250px;
+
+            border-radius: 50%;
+
+            border: 70px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            margin-bottom: 15px;
+
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.5rem, 5vw, 3.6rem);
+            line-height: 1.1;
+        }
+
+        .cta p {
+            max-width: 720px;
+
+            margin: 0 auto 30px;
+
+            color: rgba(255, 255, 255, 0.76);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 30px 20px;
+
+            background: #082934;
+
+            color: #9db5bd;
+
+            text-align: center;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer p + p {
+            margin-top: 3px;
+            font-size: 0.82rem;
+        }
+
+
+        /* =========================================================
+           FOCUS
+        ========================================================= */
+
+        :focus-visible {
+            outline: 3px solid rgba(244, 161, 26, 0.8);
+            outline-offset: 4px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .counters {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                margin-inline: auto;
+            }
+
+            .certificate-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-card img {
+                height: 300px;
+            }
+        }
+
+
+        @media (max-width: 720px) {
+
+            .container {
+                width: min(100% - 30px, 1150px);
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            nav {
+                min-height: 70px;
+            }
+
+            .menu-button {
+                display: grid;
+                place-items: center;
+            }
+
+            .menu {
+                position: absolute;
+                top: 70px;
+                left: 15px;
+                right: 15px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 3px;
+
+                padding: 10px;
+
+                border: 1px solid var(--border);
+                border-radius: 17px;
+
+                background: rgba(255, 255, 255, 0.97);
+                box-shadow: var(--shadow-md);
+
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+
+                transition:
+                    opacity 0.25s ease,
+                    visibility 0.25s ease,
+                    transform 0.25s ease;
+            }
+
+            .menu.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .menu a {
+                padding: 13px;
+                border-radius: 10px;
+            }
+
+            .menu a:hover {
+                background: var(--primary-light);
+            }
+
+            .menu a::after {
+                display: none;
+            }
+
+            .hero {
+                min-height: calc(100vh - 70px);
+            }
+
+            .hero-content {
+                padding: 75px 0 90px;
+                font-size: smaller;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 14vw, 4.5rem);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .counters {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .certificate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-card img {
+                height: 420px;
+            }
+
+            .slide img {
+                height: 480px;
+            }
+
+            .slide-caption {
+                padding: 35px 25px 30px;
+            }
+
+            .carousel-button {
+                width: 44px;
+                height: 44px;
+            }
+
+            .prev {
+                left: 12px;
+            }
+
+            .next {
+                right: 12px;
+            }
+
+            .quote-section {
+                padding: 85px 0;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .counters {
+                grid-template-columns: 1fr;
+            }
+
+            .counter-card {
+                padding: 25px 20px;
+            }
+
+            .experience-card img {
+                height: 230px;
+            }
+
+            .experience-content p {
+                min-height: auto;
+            }
+
+            .certificate-card img {
+                height: 330px;
+            }
+
+            .slide img {
+                height: 390px;
+                min-height: 390px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.45rem;
+            }
+
+            .slide-caption p {
+                font-size: 0.84rem;
+            }
+
+            .modal {
+                padding: 15px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCIR ANIMACIONES
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header>
+
+        <nav class="container">
+
+            <a
+                href="#inicio"
+                class="logo"
+                aria-label="Volver al inicio"
+            >
+                <img src="./imag/logo.jpg" alt="logo" width="80px">
+            </a>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu"
+            >
+                ☰
+            </button>
+
+
+            <ul class="menu" id="menu">
+
+                <li>
+                    <a href="#inicio" class="active">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contador">
+                        Experiencia
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#campanas">
+                        Campañas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#galeria">
+                        Galería
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#certificados">
+                        Certificados
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div class="container hero-content">
+
+                <div class="hero-badge">
+                    <span>✦</span>
+                    Una experiencia que transforma
+                </div>
+
+
+                <h1>
+                    Experiencias que
+                    <strong>dejan huella.</strong>
+                </h1>
+
+
+                <p>
+                    Años compartiendo tiempo, juegos, actividades y
+                    momentos especiales con niños y niñas tutelados
+                    de 9 a 12 años.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#contador"
+                        class="button"
+                    >
+                        Conoce mi experiencia
+                        <span>→</span>
+                    </a>
+
+                    <a
+                        href="#galeria"
+                        class="button secondary"
+                    >
+                        Ver fotografías
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-scroll">
+                Descubre
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTADORES
+        ====================================================== -->
+
+        <section
+            class="counter-section"
+            id="contador"
+        >
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="eyebrow">
+                        Mi trayectoria
+                    </div>
+
+                    <h2 class="section-title">
+                        Mi experiencia en números
+                    </h2>
+
+                    <p class="section-description">
+                        Cada número representa días, actividades,
+                        aprendizajes y recuerdos compartidos.
+                    </p>
+
+                </div>
+
+
+                <div class="counters">
+
+
+                    <div class="counter-card reveal">
+
+                        <div class="counter-icon">
+                            ❤️
+                        </div>
+
+                        <div
+                            class="counter-number"
+                            data-target="8"
+                        >
+                            0
+                        </div>
+
+                        <div class="counter-label">
+                            Experiencias de voluntariado
+                        </div>
+
+                    </div>
+
+
+                    <div class="counter-card reveal">
+
+                        <div class="counter-icon">
+                            📅
+                        </div>
+
+                        <div
+                            class="counter-number"
+                            data-target="1000"
+                        >
+                            0
+                        </div>
+
+                        <div class="counter-label">
+                            Horas de convivencia
+                        </div>
+
+                    </div>
+
+
+                    <div class="counter-card reveal">
+
+                        <div class="counter-icon">
+                            🎲
+                        </div>
+
+                        <div
+                            class="counter-number"
+                            data-target="50"
+                            data-suffix="+"
+                        >
+                            0
+                        </div>
+
+                        <div class="counter-label">
+                            Actividades compartidas
+                        </div>
+
+                    </div>
+
+
+                    <div class="counter-card reveal">
+
+                        <div class="counter-icon">
+                            🏆
+                        </div>
+
+                        <div
+                            class="counter-number"
+                            data-target="3"
+                        >
+                            0
+                        </div>
+
+                        <div class="counter-label">
+                            Campañas principales
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CAMPAÑAS
+        ====================================================== -->
+
+        <section
+            class="section experiences"
+            id="campanas"
+        >
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="eyebrow">
+                        Momentos especiales
+                    </div>
+
+                    <h2 class="section-title">
+                        Mis campañas
+                    </h2>
+
+                    <p class="section-description">
+                        Navidad, Semana Santa y verano han sido
+                        algunos de los momentos en los que he podido
+                        vivir estas experiencias.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+
+                    <article class="experience-card reveal">
+
+                        <div class="experience-image">
+
+                            <img
+                                src="./imag/navidad.jpg"
+                                alt="Campaña de Navidad"
+                                loading="lazy"
+                            >
+
+                            <span class="experience-season">
+                                Invierno
+                            </span>
+
+                        </div>
+
+
+                        <div class="experience-content">
+
+                            <h3>
+                                🎄 Navidad
+                            </h3>
+
+                            <p>
+                                Días llenos de juegos, actividades
+                                realizadas por los voluntarios,
+                                talleres y convivencia con los niños.
+                            </p>
+
+                            <span class="badge">
+                                10 días
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <div class="experience-image">
+
+                            <img
+                                src="./imag/semanasanta.jpg"
+                                alt="Campaña de Semana Santa"
+                                loading="lazy"
+                            >
+
+                            <span class="experience-season">
+                                Primavera
+                            </span>
+
+                        </div>
+
+
+                        <div class="experience-content">
+
+                            <h3>
+                                🌱 Semana Santa
+                            </h3>
+
+                            <p>
+                                Excursiones, naturaleza, juegos y
+                                actividades para aprovechar las
+                                vacaciones.
+                            </p>
+
+                            <span class="badge">
+                                5 días
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card reveal">
+
+                        <div class="experience-image">
+
+                            <img
+                                src="./imag/verano.JPG"
+                                alt="Campaña de verano"
+                                loading="lazy"
+                            >
+
+                            <span class="experience-season">
+                                Verano
+                            </span>
+
+                        </div>
+
+
+                        <div class="experience-content">
+
+                            <h3>
+                                ☀️ Verano
+                            </h3>
+
+                            <p>
+                                Convivencia, playa, piscina,
+                                naturaleza, deporte y muchas
+                                actividades.
+                            </p>
+
+                            <span class="badge">
+                                15 días
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GALERÍA
+        ====================================================== -->
+
+        <section
+            class="section gallery"
+            id="galeria"
+        >
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="eyebrow">
+                        Recuerdos
+                    </div>
+
+                    <h2 class="section-title">
+                        Voluntarios y momentos compartidos
+                    </h2>
+
+                    <p class="section-description">
+                        Una recopilación de fotografías de los
+                        voluntarios, actividades, convivencia y
+                        momentos especiales.
+                    </p>
+
+                </div>
+
+
+                <div class="carousel-wrapper reveal">
+
+                    <div
+                        class="carousel"
+                        id="carousel"
+                        aria-label="Galería de fotografías"
+                    >
+
+                        <div
+                            class="carousel-track"
+                            id="carouselTrack"
+                        >
+
+
+                            <div class="slide">
+
+                                <img
+                                    src="./imag/verano.JPG"
+                                    alt="Voluntarios juntos durante el verano"
+                                >
+
+                                <div class="slide-caption">
+
+                                    <h3>
+                                        👥 Voluntarios juntos
+                                    </h3>
+
+                                    <p>
+                                        Compartiendo tiempo y
+                                        preparando nuevas actividades.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="slide">
+
+                                <img
+                                    src="./imag/voluntariado.jpg"
+                                    alt="Grupo de voluntarios"
+                                    loading="lazy"
+                                >
+
+                                <div class="slide-caption">
+
+                                    <h3>
+                                        🤝 Trabajo en equipo
+                                    </h3>
+
+                                    <p>
+                                        La colaboración entre
+                                        voluntarios hace posible
+                                        cada experiencia.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="slide">
+
+                                <img
+                                    src="./imag/escritura.jpg"
+                                    alt="Actividad de escritura"
+                                    loading="lazy"
+                                >
+
+                                <div class="slide-caption">
+
+                                    <h3>
+                                        📖 Escrituras compartidas
+                                    </h3>
+
+                                    <p>
+                                        Recuerdos y reflexiones
+                                        creados durante el
+                                        voluntariado.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="slide">
+
+                                <img
+                                    src="./imag/actividadesmonis.jpg"
+                                    alt="Actividad de voluntariado"
+                                    loading="lazy"
+                                >
+
+                                <div class="slide-caption">
+
+                                    <h3>
+                                        🎲 Actividades
+                                    </h3>
+
+                                    <p>
+                                        Cada actividad se convierte
+                                        en una oportunidad para
+                                        aprender.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="carousel-button prev"
+                            id="prev"
+                            type="button"
+                            aria-label="Imagen anterior"
+                        >
+                            ❮
+                        </button>
+
+
+                        <button
+                            class="carousel-button next"
+                            id="next"
+                            type="button"
+                            aria-label="Imagen siguiente"
+                        >
+                            ❯
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="dots"
+                        id="dots"
+                        aria-label="Seleccionar imagen"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CERTIFICADOS
+        ====================================================== -->
+
+        <section
+            class="section certificates"
+            id="certificados"
+        >
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="eyebrow">
+                        Reconocimientos
+                    </div>
+
+                    <h2 class="section-title">
+                        🏆 Mis certificados
+                    </h2>
+
+                    <p class="section-description">
+                        Algunos de los certificados y
+                        reconocimientos obtenidos durante mis
+                        experiencias de voluntariado.
+                        Haz clic sobre una imagen para verla
+                        en grande.
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-grid">
+
+
+                    <article
+                        class="certificate-card reveal"
+                        data-image="./imag/certificado1.png"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Abrir certificado de verano 2023"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="./imag/certificado1.png"
+                                alt="Certificado de voluntariado Diviertet verano 2023 Moraira"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado Diviertet
+                                — Verano 2023
+                            </h3>
+
+                            <p>
+                                Moraira
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="certificate-card reveal"
+                        data-image="./imag/certificado2.png"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Abrir segundo certificado"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="./imag/certificado2.png"
+                                alt="Certificado de voluntariado Navidad 2023-2024 en Benicàssim"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                                — Navidad 2023/24
+                            </h3>
+
+                            <p>
+                                Benicàssim
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="certificate-card reveal"
+                        data-image="./imag/certificado3.png"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Abrir tercer certificado"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="./imag/certificado3.png"
+                                alt="Tercer certificado de voluntariado Navidad 2023-2024"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Reconocimiento
+                            </h3>
+
+                            <p>
+                                Campaña de Navidad
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="certificate-card reveal"
+                        data-image="./imag/certificado4.png"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Abrir cuarto certificado"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="./imag/certificado4.png"
+                                alt="Cuarto certificado de voluntariado verano 2024 en Moraira"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                                — Verano 2024
+                            </h3>
+
+                            <p>
+                                Moraira
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="certificate-card reveal"
+                        data-image="./imag/certificado5.png"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Abrir quinto certificado"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="./imag/certificado5.png"
+                                alt="Quinto certificado de voluntariado Navidad 2024-2025 en Benicàssim"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                                — Navidad 2024/25
+                            </h3>
+
+                            <p>
+                                Benicàssim
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="certificate-card reveal"
+                        data-image="./imag/certificado6.png"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Abrir sexto certificado"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="./imag/certificado6.png"
+                                alt="Sexto certificado de voluntariado primavera 2025 en Benicàssim"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="certificate-info">
+
+                            <h3>
+                                Voluntariado
+                                — Primavera 2025
+                            </h3>
+
+                            <p>
+                                Benicàssim
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FRASE
+        ====================================================== -->
+
+        <section class="quote-section">
+
+            <div class="container reveal">
+
+                <div class="quote-mark">
+                    “
+                </div>
+
+                <div class="quote">
+                    No se trata solamente de ayudar,
+                    sino de compartir una parte de tu tiempo
+                    y aprender de cada persona que conoces.
+                </div>
+
+                <div class="quote-author">
+                    Mi experiencia de voluntariado
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section class="cta">
+
+            <div class="container cta-content reveal">
+
+                <div class="eyebrow">
+                    Sigue descubriendo
+                </div>
+
+                <h2>
+                    Una experiencia para recordar.
+                </h2>
+
+                <p font-size: 10px>
+                    Las campañas y condiciones concretas dependen
+                    de cada convocatoria. Consulta siempre la
+                    información oficial antes de participar.
+                </p>
+
+                <a
+                    href="https://ivaj.gva.es/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button"
+                >
+                    Información IVAJ
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         MODAL CERTIFICADOS
+    ========================================================== -->
+
+    <div
+        class="modal"
+        id="certificateModal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Certificado ampliado"
+    >
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            type="button"
+            aria-label="Cerrar certificado"
+        >
+            ×
+        </button>
+
+
+        <img
+            id="modalImage"
+            src=""
+            alt="Certificado ampliado"
+        >
+
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <strong>
+                Mi experiencia de voluntariado
+            </strong>
+        </p>
+
+        <p>
+            Proyecto personal
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MENÚ MÓVIL
+        ====================================================== */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const menu =
+            document.getElementById("menu");
+
+
+        menuButton.addEventListener("click", () => {
+
+            const isOpen =
+                menu.classList.toggle("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+            menuButton.textContent =
+                isOpen ? "×" : "☰";
+
+        });
+
+
+        document
+            .querySelectorAll(".menu a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    menu.classList.remove("open");
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuButton.textContent = "☰";
+
+                });
+
+            });
+
+
+        /* =====================================================
+           NAVEGACIÓN ACTIVA
+        ====================================================== */
+
+        const sections =
+            document.querySelectorAll(
+                "main section[id]"
+            );
+
+        const navLinks =
+            document.querySelectorAll(
+                ".menu a"
+            );
+
+
+        const activeSectionObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        navLinks.forEach(link => {
+
+                            link.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+                        const activeLink =
+                            document.querySelector(
+                                `.menu a[href="#${entry.target.id}"]`
+                            );
+
+                        if (activeLink) {
+
+                            activeLink.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    rootMargin:
+                        "-35% 0px -55% 0px"
+                }
+            );
+
+
+        sections.forEach(section => {
+
+            activeSectionObserver.observe(
+                section
+            );
+
+        });
+
+
+        /* =====================================================
+           ANIMACIONES DE ENTRADA
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        });
+
+
+        /* =====================================================
+           CONTADORES
+        ====================================================== */
+
+        const counters =
+            document.querySelectorAll(
+                ".counter-number"
+            );
+
+        let countersStarted = false;
+
+
+        function animateCounters() {
+
+            if (countersStarted) {
+                return;
+            }
+
+            countersStarted = true;
+
+
+            counters.forEach(counter => {
+
+                const target =
+                    Number(
+                        counter.dataset.target
+                    );
+
+                const suffix =
+                    counter.dataset.suffix || "";
+
+
+                const duration = 1800;
+
+                const startTime =
+                    performance.now();
+
+
+                function updateCounter(
+                    currentTime
+                ) {
+
+                    const elapsed =
+                        currentTime -
+                        startTime;
+
+
+                    const progress =
+                        Math.min(
+                            elapsed / duration,
+                            1
+                        );
+
+
+                    const easedProgress =
+                        1 -
+                        Math.pow(
+                            1 - progress,
+                            3
+                        );
+
+
+                    const current =
+                        Math.floor(
+                            easedProgress * target
+                        );
+
+
+                    counter.textContent =
+                        current.toLocaleString("es-ES")
+                        + suffix;
+
+
+                    if (progress < 1) {
+
+                        requestAnimationFrame(
+                            updateCounter
+                        );
+
+                    } else {
+
+                        counter.textContent =
+                            target.toLocaleString("es-ES")
+                            + suffix;
+
+                    }
+
+                }
+
+
+                requestAnimationFrame(
+                    updateCounter
+                );
+
+            });
+
+        }
+
+
+        const counterSection =
+            document.getElementById(
+                "contador"
+            );
+
+
+        const counterObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    if (
+                        entries.some(
+                            entry =>
+                                entry.isIntersecting
+                        )
+                    ) {
+
+                        animateCounters();
+
+                        counterObserver.disconnect();
+
+                    }
+
+                },
+                {
+                    threshold: 0.25
+                }
+            );
+
+
+        counterObserver.observe(
+            counterSection
+        );
+
+
+        /* =====================================================
+           CARRUSEL
+        ====================================================== */
+
+        const track =
+            document.getElementById(
+                "carouselTrack"
+            );
+
+        const slides =
+            document.querySelectorAll(
+                ".slide"
+            );
+
+        const next =
+            document.getElementById(
+                "next"
+            );
+
+        const prev =
+            document.getElementById(
+                "prev"
+            );
+
+        const dotsContainer =
+            document.getElementById(
+                "dots"
+            );
+
+        const carousel =
+            document.getElementById(
+                "carousel"
+            );
+
+
+        let currentSlide = 0;
+
+        let autoplay = null;
+
+
+        /* CREAR PUNTOS */
+
+        slides.forEach(
+            (slide, index) => {
+
+                const dot =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                dot.classList.add(
+                    "dot"
+                );
+
+
+                dot.type = "button";
+
+
+                dot.setAttribute(
+                    "aria-label",
+                    `Ir a imagen ${index + 1}`
+                );
+
+
+                if (index === 0) {
+
+                    dot.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                dot.addEventListener(
+                    "click",
+                    () => {
+
+                        goToSlide(index);
+
+                        restartAutoplay();
+
+                    }
+                );
+
+
+                dotsContainer.appendChild(
+                    dot
+                );
+
+            }
+        );
+
+
+        const dots =
+            document.querySelectorAll(
+                ".dot"
+            );
+
+
+        function goToSlide(index) {
+
+            currentSlide = index;
+
+
+            track.style.transform =
+                `translateX(-${currentSlide * 100}%)`;
+
+
+            dots.forEach(dot => {
+
+                dot.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            dots[currentSlide]
+                .classList.add(
+                    "active"
+                );
+
+        }
+
+
+        function nextSlide() {
+
+            currentSlide =
+                (currentSlide + 1)
+                % slides.length;
+
+            goToSlide(
+                currentSlide
+            );
+
+        }
+
+
+        function previousSlide() {
+
+            currentSlide =
+                (
+                    currentSlide -
+                    1 +
+                    slides.length
+                )
+                % slides.length;
+
+            goToSlide(
+                currentSlide
+            );
+
+        }
+
+
+        next.addEventListener(
+            "click",
+            () => {
+
+                nextSlide();
+
+                restartAutoplay();
+
+            }
+        );
+
+
+        prev.addEventListener(
+            "click",
+            () => {
+
+                previousSlide();
+
+                restartAutoplay();
+
+            }
+        );
+
+
+        /* AUTOPLAY */
+
+        function startAutoplay() {
+
+            if (
+                window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches
+            ) {
+                return;
+            }
+
+            autoplay =
+                setInterval(
+                    nextSlide,
+                    5000
+                );
+
+        }
+
+
+        function stopAutoplay() {
+
+            clearInterval(
+                autoplay
+            );
+
+        }
+
+
+        function restartAutoplay() {
+
+            stopAutoplay();
+
+            startAutoplay();
+
+        }
+
+
+        carousel.addEventListener(
+            "mouseenter",
+            stopAutoplay
+        );
+
+
+        carousel.addEventListener(
+            "mouseleave",
+            startAutoplay
+        );
+
+
+        carousel.addEventListener(
+            "focusin",
+            stopAutoplay
+        );
+
+
+        carousel.addEventListener(
+            "focusout",
+            startAutoplay
+        );
+
+
+        startAutoplay();
+
+
+        /* =====================================================
+           TECLADO
+        ====================================================== */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+
+                    nextSlide();
+
+                    restartAutoplay();
+
+                }
+
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    previousSlide();
+
+                    restartAutoplay();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           SWIPE MÓVIL
+        ====================================================== */
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+
+        carousel.addEventListener(
+            "touchstart",
+            event => {
+
+                touchStartX =
+                    event.changedTouches[0]
+                        .screenX;
+
+                stopAutoplay();
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        carousel.addEventListener(
+            "touchend",
+            event => {
+
+                touchEndX =
+                    event.changedTouches[0]
+                        .screenX;
+
+
+                const difference =
+                    touchStartX -
+                    touchEndX;
+
+
+                if (
+                    Math.abs(difference) >= 50
+                ) {
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextSlide();
+
+                    } else {
+
+                        previousSlide();
+
+                    }
+
+                }
+
+
+                startAutoplay();
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* =====================================================
+           MODAL CERTIFICADOS
+        ====================================================== */
+
+        const certificateCards =
+            document.querySelectorAll(
+                ".certificate-card"
+            );
+
+
+        const certificateModal =
+            document.getElementById(
+                "certificateModal"
+            );
+
+
+        const modalImage =
+            document.getElementById(
+                "modalImage"
+            );
+
+
+        const modalClose =
+            document.getElementById(
+                "modalClose"
+            );
+
+
+        let lastFocusedElement = null;
+
+
+        function openCertificate(card) {
+
+            const image =
+                card.dataset.image;
+
+
+            if (!image) {
+                return;
+            }
+
+
+            lastFocusedElement =
+                document.activeElement;
+
+
+            modalImage.src = image;
+
+
+            const originalImage =
+                card.querySelector("img");
+
+
+            modalImage.alt =
+                originalImage
+                    ? originalImage.alt
+                    : "Certificado ampliado";
+
+
+            certificateModal
+                .classList.add("open");
+
+
+            document.body
+                .classList.add("modal-open");
+
+
+            modalClose.focus();
+
+        }
+
+
+        function closeCertificate() {
+
+            certificateModal
+                .classList.remove("open");
+
+
+            document.body
+                .classList.remove("modal-open");
+
+
+            setTimeout(() => {
+
+                modalImage.src = "";
+
+            }, 300);
+
+
+            if (
+                lastFocusedElement
+            ) {
+
+                lastFocusedElement.focus();
+
+            }
+
+        }
+
+
+        certificateCards.forEach(
+            card => {
+
+                card.addEventListener(
+                    "click",
+                    () => {
+
+                        openCertificate(
+                            card
+                        );
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "keydown",
+                    event => {
+
+                        if (
+                            event.key === "Enter" ||
+                            event.key === " "
+                        ) {
+
+                            event.preventDefault();
+
+                            openCertificate(
+                                card
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        modalClose.addEventListener(
+            "click",
+            closeCertificate
+        );
+
+
+        certificateModal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target ===
+                    certificateModal
+                ) {
+
+                    closeCertificate();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape" &&
+                    certificateModal
+                        .classList.contains("open")
+                ) {
+
+                    closeCertificate();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
