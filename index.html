@@ -1,19 +1,29 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
         content="Mi experiencia de voluntariado: campañas, actividades, fotografías y certificados."
     >
 
-    <title>Mi experiencia de voluntariado</title>
+    <meta
+        name="theme-color"
+        content="#0b4d64"
+    >
 
-    <!-- Google Fonts -->
+    <title>Mi experiencia de voluntariado | Proyecto personal</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet"
@@ -25,30 +35,42 @@
         ========================================================= */
 
         :root {
-            --primary: #126782;
-            --primary-dark: #0b4d64;
-            --primary-light: #eaf6fa;
+            --primary: #0b607a;
+            --primary-dark: #073f52;
+            --primary-light: #e8f5f8;
 
-            --accent: #f4a11a;
-            --accent-dark: #dc8b00;
+            --accent: #d88400;
+            --accent-dark: #a96400;
+            --accent-light: #fff3dc;
 
             --dark: #102f3a;
             --text: #263842;
-            --muted: #687b83;
+            --muted: #526871;
 
-            --background: #f6fafb;
+            --background: #f5f9fa;
             --white: #ffffff;
-            --border: #e3ecef;
 
-            --shadow-sm: 0 8px 25px rgba(16, 47, 58, 0.07);
-            --shadow-md: 0 18px 45px rgba(16, 47, 58, 0.12);
-            --shadow-lg: 0 30px 80px rgba(16, 47, 58, 0.18);
+            --border: #d8e5e9;
+            --border-dark: #a9c1c9;
 
-            --radius-sm: 12px;
-            --radius-md: 20px;
-            --radius-lg: 30px;
+            --success: #176b45;
 
-            --transition: 0.3s ease;
+            --shadow-sm:
+                0 6px 20px rgba(16, 47, 58, 0.07);
+
+            --shadow-md:
+                0 15px 40px rgba(16, 47, 58, 0.12);
+
+            --shadow-lg:
+                0 25px 70px rgba(16, 47, 58, 0.18);
+
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 26px;
+
+            --transition: 0.25s ease;
+
+            --max-width: 1150px;
         }
 
 
@@ -56,9 +78,9 @@
            RESET
         ========================================================= */
 
-        * {
-            margin: 0;
-            padding: 0;
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
@@ -68,12 +90,20 @@
         }
 
         body {
-            font-family: "DM Sans", Arial, Helvetica, sans-serif;
+            margin: 0;
+
+            font-family:
+                "DM Sans",
+                Arial,
+                Helvetica,
+                sans-serif;
+
             background: var(--background);
             color: var(--text);
+
             line-height: 1.7;
+
             overflow-x: hidden;
-            position: relative;
         }
 
         body.modal-open {
@@ -98,71 +128,133 @@
             color: inherit;
         }
 
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+
+        /* =========================================================
+           ACCESIBILIDAD
+        ========================================================= */
+
+        .skip-link {
+            position: fixed;
+            z-index: 9999;
+
+            top: 10px;
+            left: 10px;
+
+            padding: 12px 18px;
+
+            border-radius: 8px;
+
+            background: var(--dark);
+            color: white;
+
+            font-weight: 700;
+            text-decoration: none;
+
+            transform: translateY(-150%);
+
+            transition: transform var(--transition);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid #f2a900;
+            outline-offset: 4px;
+        }
+
 
         /* =========================================================
            UTILIDADES
         ========================================================= */
 
         .container {
-            width: min(1150px, calc(100% - 40px));
+            width: min(
+                var(--max-width),
+                calc(100% - 40px)
+            );
+
             margin-inline: auto;
         }
 
         .section {
-            padding: 110px 0;
+            padding: 100px 0;
         }
 
         .section-header {
             max-width: 760px;
-            margin: 0 auto 60px;
+
+            margin: 0 auto 55px;
+
             text-align: center;
         }
 
         .eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
 
-            margin-bottom: 14px;
-            padding: 7px 14px;
+            margin-bottom: 15px;
+            padding: 7px 13px;
 
+            border: 1px solid #c6e0e7;
             border-radius: 999px;
 
             background: var(--primary-light);
-            color: var(--primary);
+            color: var(--primary-dark);
 
-            font-size: 0.65rem;
+            font-size: 0.72rem;
             font-weight: 800;
+
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         .section-title {
-            margin-bottom: 15px;
+            margin: 0 0 15px;
 
             color: var(--primary-dark);
 
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(2.2rem, 4vw, 3.3rem);
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(2.1rem, 4vw, 3.25rem);
+
             line-height: 1.1;
+
+            letter-spacing: -0.025em;
         }
 
         .section-description {
+            margin: 0;
+
             color: var(--muted);
-            font-size: 1.0rem;
+
+            font-size: 1rem;
         }
 
 
         /* =========================================================
-           SCROLL REVEAL
+           ANIMACIONES
         ========================================================= */
 
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+
+            transform:
+                translateY(24px);
+
             transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
+                opacity 0.65s ease,
+                transform 0.65s ease;
         }
 
         .reveal.visible {
@@ -172,7 +264,7 @@
 
 
         /* =========================================================
-           NAVBAR
+           HEADER / NAV
         ========================================================= */
 
         header {
@@ -180,11 +272,14 @@
             top: 0;
             z-index: 1000;
 
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            border-bottom:
+                1px solid rgba(216, 229, 233, 0.9);
 
-            border-bottom: 1px solid rgba(227, 236, 239, 0.8);
+            background:
+                rgba(255, 255, 255, 0.94);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
         nav {
@@ -193,50 +288,36 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 30px;
         }
 
         .logo {
             display: inline-flex;
             align-items: center;
-            gap: 3px;
-
-            color: var(--primary-dark);
-
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
 
             text-decoration: none;
+
+            border-radius: 10px;
         }
 
-        .logo-mark {
-            width: 34px;
-            height: 34px;
+        .logo img {
+            width: 64px;
+            height: 52px;
 
-            display: grid;
-            place-items: center;
+            object-fit: contain;
 
-            margin-right: 5px;
-
-            border-radius: 11px;
-
-            background: var(--primary);
-            color: white;
-
-            font-size: 0.95rem;
-
-            box-shadow: 0 7px 18px rgba(18, 103, 130, 0.25);
-        }
-
-        .logo span {
-            color: var(--accent);
+            border-radius: 9px;
         }
 
         .menu {
             display: flex;
             align-items: center;
-            gap: 6px;
+
+            gap: 5px;
+
+            margin: 0;
+            padding: 0;
 
             list-style: none;
         }
@@ -248,44 +329,44 @@
 
             padding: 10px 13px;
 
-            color: #41545c;
+            border-radius: 8px;
+
+            color: #344b54;
 
             font-size: 0.92rem;
             font-weight: 700;
 
             text-decoration: none;
 
-            transition: var(--transition);
-        }
-
-        .menu a::after {
-            content: "";
-
-            position: absolute;
-            left: 13px;
-            right: 13px;
-            bottom: 4px;
-
-            height: 2px;
-
-            border-radius: 10px;
-
-            background: var(--accent);
-
-            transform: scaleX(0);
-            transform-origin: center;
-
-            transition: var(--transition);
+            transition:
+                color var(--transition),
+                background var(--transition);
         }
 
         .menu a:hover,
-        .menu a.active {
-            color: var(--primary);
+        .menu a:focus-visible {
+            background: var(--primary-light);
+            color: var(--primary-dark);
         }
 
-        .menu a:hover::after,
+        .menu a.active {
+            color: var(--primary-dark);
+        }
+
         .menu a.active::after {
-            transform: scaleX(1);
+            content: "";
+
+            position: absolute;
+
+            right: 13px;
+            bottom: 5px;
+            left: 13px;
+
+            height: 3px;
+
+            border-radius: 999px;
+
+            background: var(--accent);
         }
 
         .menu-button {
@@ -294,15 +375,16 @@
             width: 44px;
             height: 44px;
 
+            align-items: center;
+            justify-content: center;
+
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 10px;
 
             background: white;
             color: var(--primary-dark);
 
-            font-size: 1.3rem;
-
-            box-shadow: var(--shadow-sm);
+            font-size: 1.35rem;
         }
 
 
@@ -313,27 +395,26 @@
         .hero {
             position: relative;
 
-            min-height: calc(100vh - 76px);
+            min-height:
+                calc(100svh - 76px);
 
             display: flex;
             align-items: center;
 
             overflow: hidden;
 
-            color: white;
-
             background:
                 linear-gradient(
                     105deg,
-                    rgba(7, 46, 59, 0.94) 0%,
-                    rgba(10, 69, 87, 0.78) 48%,
-                    rgba(10, 69, 87, 0.38) 100%
+                    rgba(4, 39, 51, 0.96) 0%,
+                    rgba(7, 65, 82, 0.86) 52%,
+                    rgba(7, 65, 82, 0.56) 100%
                 ),
-                url("https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=1800&q=85")
+                url("./imag/verano.JPG")
                 center / cover;
         }
 
-        .hero::before {
+        .hero::after {
             content: "";
 
             position: absolute;
@@ -342,50 +423,63 @@
             background:
                 radial-gradient(
                     circle at 85% 25%,
-                    rgba(244, 161, 26, 0.22),
+                    rgba(216, 132, 0, 0.2),
                     transparent 30%
                 );
+
+            pointer-events: none;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
 
-            padding: 100px 0;
+            padding: 90px 0;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
 
-            margin-bottom: 24px;
-            padding: 9px 15px;
+            margin-bottom: 22px;
+            padding: 8px 14px;
 
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: 1px solid
+                rgba(255, 255, 255, 0.24);
+
             border-radius: 999px;
 
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background:
+                rgba(255, 255, 255, 0.08);
 
-            color: #f8fbfc;
+            color: white;
 
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
         }
 
         .hero-badge span {
-            color: var(--accent);
+            margin-right: 8px;
+            color: #ffc45c;
         }
 
         .hero h1 {
-            max-width: 900px;
+            max-width: 850px;
 
-            margin-bottom: 25px;
+            margin: 0 0 25px;
 
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(3.2rem, 7vw, 6.4rem);
+            color: white;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(3rem, 7vw, 6rem);
+
             line-height: 0.98;
+
             letter-spacing: -0.045em;
         }
 
@@ -396,79 +490,94 @@
         .hero p {
             max-width: 720px;
 
-            margin-bottom: 34px;
+            margin: 0 0 32px;
 
-            color: rgba(255, 255, 255, 0.88);
+            color:
+                rgba(255, 255, 255, 0.91);
 
-            font-size: clamp(1rem, 2vw, 1.18rem);
+            font-size:
+                clamp(1rem, 2vw, 1.18rem);
         }
 
         .hero-actions {
             display: flex;
-            align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+
+            gap: 14px;
         }
 
         .button {
+            min-height: 50px;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
 
-            min-height: 52px;
+            gap: 9px;
 
-            padding: 13px 23px;
+            padding: 12px 22px;
 
-            border: none;
+            border: 2px solid transparent;
             border-radius: 999px;
 
             background: var(--accent);
             color: white;
 
+            font-size: 0.9rem;
             font-weight: 800;
+
             text-decoration: none;
 
-            box-shadow: 0 12px 30px rgba(244, 161, 26, 0.24);
+            box-shadow:
+                0 8px 22px
+                rgba(216, 132, 0, 0.25);
 
             transition:
                 transform var(--transition),
                 background var(--transition),
                 box-shadow var(--transition);
-            font-size: small;
         }
 
         .button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+
             background: var(--accent-dark);
-            box-shadow: 0 17px 35px rgba(244, 161, 26, 0.32);
+
+            box-shadow:
+                0 12px 28px
+                rgba(216, 132, 0, 0.3);
         }
 
         .button.secondary {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-color:
+                rgba(255, 255, 255, 0.45);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
             box-shadow: none;
         }
 
         .button.secondary:hover {
-            background: rgba(255, 255, 255, 0.18);
+            background:
+                rgba(255, 255, 255, 0.17);
         }
 
         .hero-scroll {
             position: absolute;
-            bottom: 25px;
+            z-index: 2;
+
+            bottom: 24px;
             left: 50%;
 
             transform: translateX(-50%);
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            color:
+                rgba(255, 255, 255, 0.72);
 
-            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.72rem;
+            font-weight: 800;
 
-            font-size: 0.75rem;
-            font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
@@ -476,10 +585,15 @@
         .hero-scroll::after {
             content: "↓";
 
-            margin-top: 3px;
+            display: block;
 
-            color: var(--accent);
-            font-size: 1.2rem;
+            margin-top: 2px;
+
+            color: #ffc45c;
+
+            font-size: 1.1rem;
+
+            text-align: center;
         }
 
 
@@ -488,22 +602,14 @@
         ========================================================= */
 
         .counter-section {
-            position: relative;
-            overflow: hidden;
-
-            padding: 100px 0;
+            padding: 95px 0;
 
             background:
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(244, 161, 26, 0.12),
-                    transparent 25%
-                ),
                 linear-gradient(
                     135deg,
-                    #0b4d64,
-                    #126782 60%,
-                    #0f728e
+                    #073f52,
+                    #0b607a 60%,
+                    #08738d
                 );
 
             color: white;
@@ -514,66 +620,80 @@
         }
 
         .counter-section .section-description {
-            color: rgba(255, 255, 255, 0.74);
+            color:
+                rgba(255, 255, 255, 0.82);
         }
 
         .counters {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             gap: 18px;
         }
 
         .counter-card {
-            position: relative;
+            padding: 30px 20px;
 
-            padding: 32px 22px;
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.2);
 
-            border: 1px solid rgba(255, 255, 255, 0.13);
-            border-radius: 22px;
+            border-radius: 20px;
 
-            background: rgba(255, 255, 255, 0.09);
-            backdrop-filter: blur(12px);
+            background:
+                rgba(255, 255, 255, 0.08);
 
             text-align: center;
 
-            transition: var(--transition);
+            transition:
+                transform var(--transition),
+                background var(--transition);
         }
 
         .counter-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+
+            background:
+                rgba(255, 255, 255, 0.13);
         }
 
         .counter-icon {
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
 
             display: grid;
             place-items: center;
 
-            margin: 0 auto 17px;
+            margin: 0 auto 16px;
 
-            border-radius: 16px;
+            border-radius: 14px;
 
-            background: rgba(255, 255, 255, 0.1);
+            background:
+                rgba(255, 255, 255, 0.1);
 
-            font-size: 1.5rem;
+            font-size: 1.35rem;
         }
 
         .counter-number {
             margin-bottom: 5px;
 
-            color: #ffc45c;
+            color: #ffd071;
 
-            font-size: clamp(2.4rem, 4vw, 3.5rem);
+            font-size:
+                clamp(2.3rem, 4vw, 3.4rem);
+
             font-weight: 800;
+
             line-height: 1;
         }
 
         .counter-label {
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 0.9rem;
+            color:
+                rgba(255, 255, 255, 0.85);
+
+            font-size: 0.88rem;
         }
 
 
@@ -587,14 +707,19 @@
 
         .experience-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 24px;
         }
 
         .experience-card {
             overflow: hidden;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
+
             border-radius: var(--radius-lg);
 
             background: white;
@@ -607,7 +732,7 @@
         }
 
         .experience-card:hover {
-            transform: translateY(-9px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-md);
         }
 
@@ -618,76 +743,80 @@
 
         .experience-card img {
             width: 100%;
-            height: 260px;
+            height: 270px;
 
             object-fit: cover;
 
-            transition: transform 0.6s ease;
+            transition:
+                transform 0.5s ease;
         }
 
         .experience-card:hover img {
-            transform: scale(1.06);
+            transform: scale(1.04);
         }
 
         .experience-season {
             position: absolute;
-            top: 17px;
-            left: 17px;
 
-            padding: 7px 12px;
+            top: 16px;
+            left: 16px;
+
+            padding: 6px 11px;
 
             border-radius: 999px;
 
-            background: rgba(255, 255, 255, 0.92);
+            background: white;
             color: var(--primary-dark);
 
-            font-size: 0.76rem;
+            font-size: 0.75rem;
             font-weight: 800;
 
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.12);
         }
 
         .experience-content {
-            padding: 27px;
+            padding: 25px;
         }
 
         .experience-content h3 {
-            margin-bottom: 9px;
+            margin: 0 0 8px;
 
             color: var(--primary-dark);
 
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: 1.5rem;
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 1.45rem;
         }
 
         .experience-content p {
+            margin: 0;
+
             min-height: 90px;
 
             color: var(--muted);
-            font-size: 0.94rem;
+
+            font-size: 0.93rem;
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
 
-            margin-top: 17px;
-            padding: 7px 12px;
+            margin-top: 16px;
+            padding: 6px 11px;
 
             border-radius: 999px;
 
             background: var(--primary-light);
-            color: var(--primary);
+            color: var(--primary-dark);
 
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 800;
-        }
-
-        .badge::before {
-            content: "●";
-            color: var(--accent);
-            font-size: 0.55rem;
         }
 
 
@@ -696,16 +825,7 @@
         ========================================================= */
 
         .gallery {
-            background:
-                linear-gradient(
-                    180deg,
-                    #f3f9fa,
-                    #edf6f8
-                );
-        }
-
-        .carousel-wrapper {
-            position: relative;
+            background: #eef6f8;
         }
 
         .carousel {
@@ -713,9 +833,9 @@
 
             overflow: hidden;
 
-            border-radius: 28px;
+            border-radius: 25px;
 
-            background: #0d303b;
+            background: #092d38;
 
             box-shadow: var(--shadow-lg);
         }
@@ -723,17 +843,22 @@
         .carousel-track {
             display: flex;
 
-            transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
+            transition:
+                transform 0.6s
+                cubic-bezier(0.77, 0, 0.18, 1);
         }
 
         .slide {
             position: relative;
+
             min-width: 100%;
         }
 
         .slide img {
             width: 100%;
-            height: min(62vw, 590px);
+
+            height:
+                min(62vw, 590px);
 
             min-height: 350px;
 
@@ -749,9 +874,11 @@
             background:
                 linear-gradient(
                     to top,
-                    rgba(0, 0, 0, 0.75),
+                    rgba(0, 0, 0, 0.78),
                     rgba(0, 0, 0, 0.04) 65%
                 );
+
+            pointer-events: none;
         }
 
         .slide-caption {
@@ -762,22 +889,30 @@
             bottom: 0;
             left: 0;
 
-            padding: 45px 45px 40px;
-
-            color: white;
+            padding: 42px;
         }
 
         .slide-caption h3 {
-            margin-bottom: 5px;
+            margin: 0 0 5px;
 
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: white;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(1.5rem, 3vw, 2.2rem);
         }
 
         .slide-caption p {
             max-width: 650px;
 
-            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+
+            color:
+                rgba(255, 255, 255, 0.88);
 
             font-size: 0.95rem;
         }
@@ -785,68 +920,87 @@
         .carousel-button {
             position: absolute;
             z-index: 5;
+
             top: 50%;
 
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
 
             display: grid;
             place-items: center;
 
             transform: translateY(-50%);
 
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            border:
+                2px solid
+                rgba(255, 255, 255, 0.7);
+
             border-radius: 50%;
 
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.94);
             color: var(--primary-dark);
 
-            font-size: 1.25rem;
+            font-size: 1.15rem;
+            font-weight: 800;
 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
-
-            transition: var(--transition);
+            box-shadow:
+                0 7px 20px
+                rgba(0, 0, 0, 0.2);
         }
 
         .carousel-button:hover {
-            transform: translateY(-50%) scale(1.08);
             background: white;
         }
 
         .prev {
-            left: 20px;
+            left: 18px;
         }
 
         .next {
-            right: 20px;
+            right: 18px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 18px;
+
+            margin-top: 18px;
         }
 
         .dots {
             display: flex;
-            justify-content: center;
-            gap: 8px;
 
-            margin-top: 22px;
+            justify-content: center;
+
+            gap: 7px;
         }
 
         .dot {
-            width: 9px;
-            height: 9px;
+            width: 10px;
+            height: 10px;
 
             padding: 0;
 
-            border: none;
-            border-radius: 50%;
+            border: 0;
+            border-radius: 999px;
 
-            background: #a9cbd3;
-
-            transition: var(--transition);
+            background: #9dbfc8;
         }
 
         .dot.active {
-            width: 28px;
-            border-radius: 20px;
+            width: 30px;
+
             background: var(--accent);
+        }
+
+        .carousel-status {
+            color: var(--muted);
+
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
 
@@ -860,17 +1014,22 @@
 
         .certificate-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 24px;
         }
 
         .certificate-card {
             overflow: hidden;
 
-            padding: 10px;
+            padding: 9px;
 
-            border: 1px solid var(--border);
-            border-radius: 23px;
+            border:
+                1px solid var(--border);
+
+            border-radius: 21px;
 
             background: white;
 
@@ -884,7 +1043,7 @@
         }
 
         .certificate-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-md);
         }
 
@@ -892,13 +1051,13 @@
             position: relative;
             overflow: hidden;
 
-            border-radius: 17px;
+            border-radius: 15px;
 
             background: #f5f8f9;
         }
 
         .certificate-image-wrapper::after {
-            content: "Ver certificado";
+            content: "Ampliar certificado";
 
             position: absolute;
             inset: 0;
@@ -906,53 +1065,54 @@
             display: grid;
             place-items: center;
 
-            background: rgba(11, 77, 100, 0.76);
+            background:
+                rgba(7, 63, 82, 0.78);
 
             color: white;
 
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 800;
 
             opacity: 0;
 
-            transition: var(--transition);
+            transition: opacity var(--transition);
         }
 
         .certificate-card:hover
+        .certificate-image-wrapper::after,
+        .certificate-card:focus-visible
         .certificate-image-wrapper::after {
             opacity: 1;
         }
 
         .certificate-card img {
             width: 100%;
-            height: 360px;
+            height: 350px;
 
             object-fit: contain;
-
-            transition: transform 0.5s ease;
-        }
-
-        .certificate-card:hover img {
-            transform: scale(1.025);
         }
 
         .certificate-info {
-            padding: 19px 8px 10px;
+            padding: 17px 8px 9px;
+
             text-align: center;
         }
 
         .certificate-info h3 {
-            margin-bottom: 6px;
+            margin: 0 0 5px;
 
-            color: var(--primary);
+            color: var(--primary-dark);
 
-            font-size: 1rem;
+            font-size: 0.98rem;
             line-height: 1.4;
         }
 
         .certificate-info p {
+            margin: 0;
+
             color: var(--muted);
-            font-size: 0.84rem;
+
+            font-size: 0.83rem;
         }
 
 
@@ -969,17 +1129,19 @@
             align-items: center;
             justify-content: center;
 
-            padding: 30px;
+            padding: 25px;
 
-            background: rgba(5, 22, 28, 0.92);
-            backdrop-filter: blur(8px);
+            background:
+                rgba(4, 23, 29, 0.94);
+
+            backdrop-filter: blur(7px);
 
             opacity: 0;
             visibility: hidden;
 
             transition:
-                opacity 0.3s ease,
-                visibility 0.3s ease;
+                opacity 0.25s ease,
+                visibility 0.25s ease;
         }
 
         .modal.open {
@@ -988,27 +1150,23 @@
         }
 
         .modal img {
-            max-width: min(1100px, 95vw);
-            max-height: 88vh;
+            max-width: min(1100px, 94vw);
+            max-height: 86vh;
 
             object-fit: contain;
 
-            border-radius: 12px;
+            border-radius: 10px;
 
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
-
-            transform: scale(0.94);
-            transition: transform 0.35s ease;
-        }
-
-        .modal.open img {
-            transform: scale(1);
+            box-shadow:
+                0 25px 80px
+                rgba(0, 0, 0, 0.55);
         }
 
         .modal-close {
             position: absolute;
-            top: 22px;
-            right: 25px;
+
+            top: 18px;
+            right: 20px;
 
             width: 48px;
             height: 48px;
@@ -1016,16 +1174,34 @@
             display: grid;
             place-items: center;
 
-            border: none;
+            border: 2px solid white;
             border-radius: 50%;
 
             background: white;
             color: var(--primary-dark);
 
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             line-height: 1;
+        }
 
-            box-shadow: var(--shadow-md);
+        .modal-title {
+            position: absolute;
+
+            left: 20px;
+            bottom: 20px;
+
+            max-width: calc(100% - 100px);
+
+            padding: 8px 12px;
+
+            border-radius: 8px;
+
+            background:
+                rgba(0, 0, 0, 0.55);
+
+            color: white;
+
+            font-size: 0.82rem;
         }
 
 
@@ -1034,28 +1210,22 @@
         ========================================================= */
 
         .quote-section {
-            position: relative;
+            padding: 105px 0;
 
-            padding: 115px 0;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(18, 103, 130, 0.07),
-                    transparent 55%
-                ),
-                #f7fafb;
+            background: #f7fafb;
 
             text-align: center;
         }
 
         .quote-mark {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
 
             color: var(--accent);
 
             font-family: Georgia, serif;
-            font-size: 5rem;
+
+            font-size: 4.5rem;
+
             line-height: 0.5;
         }
 
@@ -1066,19 +1236,27 @@
 
             color: var(--primary-dark);
 
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.0rem, 4vw, 2.7rem);
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(1.3rem, 4vw, 2.6rem);
+
             font-style: italic;
+
             line-height: 1.35;
         }
 
         .quote-author {
-            margin-top: 25px;
+            margin-top: 24px;
 
             color: var(--muted);
 
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 800;
+
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
@@ -1089,61 +1267,57 @@
         ========================================================= */
 
         .cta {
-            position: relative;
-            overflow: hidden;
-
-            padding: 100px 0;
+            padding: 90px 0;
 
             background:
-                radial-gradient(
-                    circle at 90% 30%,
-                    rgba(244, 161, 26, 0.18),
-                    transparent 28%
-                ),
                 linear-gradient(
                     135deg,
-                    #0b4d64,
-                    #126782
+                    #073f52,
+                    #0b607a
                 );
 
             color: white;
+
             text-align: center;
         }
 
-        .cta::before {
-            content: "";
-
-            position: absolute;
-            width: 400px;
-            height: 400px;
-
-            left: -220px;
-            bottom: -250px;
-
-            border-radius: 50%;
-
-            border: 70px solid rgba(255, 255, 255, 0.04);
+        .cta-content {
+            max-width: 800px;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 1;
+        .cta .eyebrow {
+            border-color:
+                rgba(255, 255, 255, 0.2);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            color: white;
         }
 
         .cta h2 {
-            margin-bottom: 15px;
+            margin: 0 0 15px;
 
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(1.5rem, 5vw, 3.6rem);
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(2rem, 5vw, 3.5rem);
+
             line-height: 1.1;
         }
 
         .cta p {
             max-width: 720px;
 
-            margin: 0 auto 30px;
+            margin: 0 auto 28px;
 
-            color: rgba(255, 255, 255, 0.76);
+            color:
+                rgba(255, 255, 255, 0.84);
+
+            font-size: 0.95rem;
         }
 
 
@@ -1154,11 +1328,15 @@
         footer {
             padding: 30px 20px;
 
-            background: #082934;
+            background: #062a35;
 
-            color: #9db5bd;
+            color: #a8bec5;
 
             text-align: center;
+        }
+
+        footer p {
+            margin: 0;
         }
 
         footer strong {
@@ -1166,18 +1344,9 @@
         }
 
         footer p + p {
-            margin-top: 3px;
-            font-size: 0.82rem;
-        }
+            margin-top: 4px;
 
-
-        /* =========================================================
-           FOCUS
-        ========================================================= */
-
-        :focus-visible {
-            outline: 3px solid rgba(244, 161, 26, 0.8);
-            outline-offset: 4px;
+            font-size: 0.8rem;
         }
 
 
@@ -1188,33 +1357,41 @@
         @media (max-width: 1000px) {
 
             .counters {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .experience-grid {
                 grid-template-columns: 1fr;
+
                 max-width: 650px;
+
                 margin-inline: auto;
             }
 
             .certificate-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .experience-card img {
-                height: 300px;
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
         }
 
 
         @media (max-width: 720px) {
 
+            html {
+                scroll-padding-top: 75px;
+            }
+
             .container {
-                width: min(100% - 30px, 1150px);
+                width:
+                    min(
+                        100% - 30px,
+                        var(--max-width)
+                    );
             }
 
             .section {
-                padding: 80px 0;
+                padding: 75px 0;
             }
 
             nav {
@@ -1222,12 +1399,12 @@
             }
 
             .menu-button {
-                display: grid;
-                place-items: center;
+                display: flex;
             }
 
             .menu {
                 position: absolute;
+
                 top: 70px;
                 left: 15px;
                 right: 15px;
@@ -1235,24 +1412,28 @@
                 display: flex;
                 flex-direction: column;
                 align-items: stretch;
-                gap: 3px;
 
-                padding: 10px;
+                padding: 8px;
 
-                border: 1px solid var(--border);
-                border-radius: 17px;
+                border:
+                    1px solid var(--border);
 
-                background: rgba(255, 255, 255, 0.97);
+                border-radius: 15px;
+
+                background:
+                    rgba(255, 255, 255, 0.98);
+
                 box-shadow: var(--shadow-md);
 
                 opacity: 0;
                 visibility: hidden;
-                transform: translateY(-10px);
+
+                transform: translateY(-8px);
 
                 transition:
-                    opacity 0.25s ease,
-                    visibility 0.25s ease,
-                    transform 0.25s ease;
+                    opacity 0.2s ease,
+                    visibility 0.2s ease,
+                    transform 0.2s ease;
             }
 
             .menu.open {
@@ -1263,28 +1444,24 @@
 
             .menu a {
                 padding: 13px;
-                border-radius: 10px;
             }
 
-            .menu a:hover {
-                background: var(--primary-light);
-            }
-
-            .menu a::after {
+            .menu a.active::after {
                 display: none;
             }
 
             .hero {
-                min-height: calc(100vh - 70px);
+                min-height:
+                    calc(100svh - 70px);
             }
 
             .hero-content {
-                padding: 75px 0 90px;
-                font-size: smaller;
+                padding: 70px 0 90px;
             }
 
             .hero h1 {
-                font-size: clamp(3rem, 14vw, 4.5rem);
+                font-size:
+                    clamp(2.8rem, 14vw, 4.5rem);
             }
 
             .hero-actions {
@@ -1297,7 +1474,8 @@
             }
 
             .counters {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .certificate-grid {
@@ -1305,15 +1483,15 @@
             }
 
             .certificate-card img {
-                height: 420px;
+                height: 390px;
             }
 
             .slide img {
-                height: 480px;
+                height: 470px;
             }
 
             .slide-caption {
-                padding: 35px 25px 30px;
+                padding: 32px 24px 28px;
             }
 
             .carousel-button {
@@ -1322,15 +1500,11 @@
             }
 
             .prev {
-                left: 12px;
+                left: 10px;
             }
 
             .next {
-                right: 12px;
-            }
-
-            .quote-section {
-                padding: 85px 0;
+                right: 10px;
             }
         }
 
@@ -1339,10 +1513,6 @@
 
             .counters {
                 grid-template-columns: 1fr;
-            }
-
-            .counter-card {
-                padding: 25px 20px;
             }
 
             .experience-card img {
@@ -1363,7 +1533,7 @@
             }
 
             .slide-caption h3 {
-                font-size: 1.45rem;
+                font-size: 1.4rem;
             }
 
             .slide-caption p {
@@ -1371,13 +1541,17 @@
             }
 
             .modal {
-                padding: 15px;
+                padding: 12px;
+            }
+
+            .modal img {
+                max-width: 96vw;
             }
         }
 
 
         /* =========================================================
-           REDUCIR ANIMACIONES
+           REDUCIR MOVIMIENTO
         ========================================================= */
 
         @media (prefers-reduced-motion: reduce) {
@@ -1393,6 +1567,11 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -1400,20 +1579,38 @@
 
 <body>
 
+    <a
+        href="#contenido"
+        class="skip-link"
+    >
+        Saltar al contenido principal
+    </a>
+
+
     <!-- =========================================================
-         NAVBAR
-    ========================================================= -->
+         HEADER
+    ========================================================== -->
 
     <header>
 
-        <nav class="container">
+        <nav
+            class="container"
+            aria-label="Navegación principal"
+        >
 
             <a
                 href="#inicio"
                 class="logo"
-                aria-label="Volver al inicio"
+                aria-label="Ir al inicio"
             >
-                <img src="./imag/logo.jpg" alt="logo" width="80px">
+
+                <img
+                    src="./imag/logo.jpg"
+                    alt="Logo del proyecto de voluntariado"
+                    width="64"
+                    height="52"
+                >
+
             </a>
 
 
@@ -1421,18 +1618,25 @@
                 class="menu-button"
                 id="menuButton"
                 type="button"
-                aria-label="Abrir menú"
+                aria-label="Abrir menú de navegación"
                 aria-expanded="false"
                 aria-controls="menu"
             >
-                ☰
+                <span aria-hidden="true">☰</span>
             </button>
 
 
-            <ul class="menu" id="menu">
+            <ul
+                class="menu"
+                id="menu"
+            >
 
                 <li>
-                    <a href="#inicio" class="active">
+                    <a
+                        href="#inicio"
+                        class="active"
+                        aria-current="page"
+                    >
                         Inicio
                     </a>
                 </li>
@@ -1468,7 +1672,7 @@
     </header>
 
 
-    <main>
+    <main id="contenido">
 
         <!-- =====================================================
              HERO
@@ -1477,26 +1681,27 @@
         <section
             class="hero"
             id="inicio"
+            aria-labelledby="hero-title"
         >
 
             <div class="container hero-content">
 
                 <div class="hero-badge">
-                    <span>✦</span>
+                    <span aria-hidden="true">✦</span>
                     Una experiencia que transforma
                 </div>
 
 
-                <h1>
+                <h1 id="hero-title">
                     Experiencias que
                     <strong>dejan huella.</strong>
                 </h1>
 
 
                 <p>
-                    Años compartiendo tiempo, juegos, actividades y
-                    momentos especiales con niños y niñas tutelados
-                    de 9 a 12 años.
+                    Años compartiendo tiempo, juegos,
+                    actividades y momentos especiales
+                    con niños y niñas tutelados de 9 a 12 años.
                 </p>
 
 
@@ -1507,7 +1712,7 @@
                         class="button"
                     >
                         Conoce mi experiencia
-                        <span>→</span>
+                        <span aria-hidden="true">→</span>
                     </a>
 
                     <a
@@ -1522,7 +1727,10 @@
             </div>
 
 
-            <div class="hero-scroll">
+            <div
+                class="hero-scroll"
+                aria-hidden="true"
+            >
                 Descubre
             </div>
 
@@ -1536,6 +1744,7 @@
         <section
             class="counter-section"
             id="contador"
+            aria-labelledby="contador-title"
         >
 
             <div class="container">
@@ -1546,7 +1755,10 @@
                         Mi trayectoria
                     </div>
 
-                    <h2 class="section-title">
+                    <h2
+                        class="section-title"
+                        id="contador-title"
+                    >
                         Mi experiencia en números
                     </h2>
 
@@ -1560,16 +1772,19 @@
 
                 <div class="counters">
 
+                    <article class="counter-card reveal">
 
-                    <div class="counter-card reveal">
-
-                        <div class="counter-icon">
+                        <div
+                            class="counter-icon"
+                            aria-hidden="true"
+                        >
                             ❤️
                         </div>
 
                         <div
                             class="counter-number"
                             data-target="8"
+                            aria-label="8 experiencias de voluntariado"
                         >
                             0
                         </div>
@@ -1578,18 +1793,22 @@
                             Experiencias de voluntariado
                         </div>
 
-                    </div>
+                    </article>
 
 
-                    <div class="counter-card reveal">
+                    <article class="counter-card reveal">
 
-                        <div class="counter-icon">
+                        <div
+                            class="counter-icon"
+                            aria-hidden="true"
+                        >
                             📅
                         </div>
 
                         <div
                             class="counter-number"
                             data-target="1000"
+                            aria-label="Más de 1000 horas de convivencia"
                         >
                             0
                         </div>
@@ -1598,12 +1817,15 @@
                             Horas de convivencia
                         </div>
 
-                    </div>
+                    </article>
 
 
-                    <div class="counter-card reveal">
+                    <article class="counter-card reveal">
 
-                        <div class="counter-icon">
+                        <div
+                            class="counter-icon"
+                            aria-hidden="true"
+                        >
                             🎲
                         </div>
 
@@ -1611,6 +1833,7 @@
                             class="counter-number"
                             data-target="50"
                             data-suffix="+"
+                            aria-label="Más de 50 actividades compartidas"
                         >
                             0
                         </div>
@@ -1619,18 +1842,22 @@
                             Actividades compartidas
                         </div>
 
-                    </div>
+                    </article>
 
 
-                    <div class="counter-card reveal">
+                    <article class="counter-card reveal">
 
-                        <div class="counter-icon">
+                        <div
+                            class="counter-icon"
+                            aria-hidden="true"
+                        >
                             🏆
                         </div>
 
                         <div
                             class="counter-number"
                             data-target="3"
+                            aria-label="3 campañas principales"
                         >
                             0
                         </div>
@@ -1639,7 +1866,7 @@
                             Campañas principales
                         </div>
 
-                    </div>
+                    </article>
 
                 </div>
 
@@ -1655,6 +1882,7 @@
         <section
             class="section experiences"
             id="campanas"
+            aria-labelledby="campanas-title"
         >
 
             <div class="container">
@@ -1665,7 +1893,10 @@
                         Momentos especiales
                     </div>
 
-                    <h2 class="section-title">
+                    <h2
+                        class="section-title"
+                        id="campanas-title"
+                    >
                         Mis campañas
                     </h2>
 
@@ -1680,15 +1911,16 @@
 
                 <div class="experience-grid">
 
-
                     <article class="experience-card reveal">
 
                         <div class="experience-image">
 
                             <img
                                 src="./imag/navidad.jpg"
-                                alt="Campaña de Navidad"
+                                alt="Actividad de voluntariado durante la campaña de Navidad"
                                 loading="lazy"
+                                width="800"
+                                height="540"
                             >
 
                             <span class="experience-season">
@@ -1701,7 +1933,8 @@
                         <div class="experience-content">
 
                             <h3>
-                                🎄 Navidad
+                                <span aria-hidden="true">🎄</span>
+                                Navidad
                             </h3>
 
                             <p>
@@ -1725,8 +1958,10 @@
 
                             <img
                                 src="./imag/semanasanta.jpg"
-                                alt="Campaña de Semana Santa"
+                                alt="Actividad de voluntariado durante Semana Santa"
                                 loading="lazy"
+                                width="800"
+                                height="540"
                             >
 
                             <span class="experience-season">
@@ -1739,7 +1974,8 @@
                         <div class="experience-content">
 
                             <h3>
-                                🌱 Semana Santa
+                                <span aria-hidden="true">🌱</span>
+                                Semana Santa
                             </h3>
 
                             <p>
@@ -1763,8 +1999,10 @@
 
                             <img
                                 src="./imag/verano.JPG"
-                                alt="Campaña de verano"
+                                alt="Actividad de voluntariado durante el verano"
                                 loading="lazy"
+                                width="800"
+                                height="540"
                             >
 
                             <span class="experience-season">
@@ -1777,7 +2015,8 @@
                         <div class="experience-content">
 
                             <h3>
-                                ☀️ Verano
+                                <span aria-hidden="true">☀️</span>
+                                Verano
                             </h3>
 
                             <p>
@@ -1808,6 +2047,7 @@
         <section
             class="section gallery"
             id="galeria"
+            aria-labelledby="galeria-title"
         >
 
             <div class="container">
@@ -1818,7 +2058,10 @@
                         Recuerdos
                     </div>
 
-                    <h2 class="section-title">
+                    <h2
+                        class="section-title"
+                        id="galeria-title"
+                    >
                         Voluntarios y momentos compartidos
                     </h2>
 
@@ -1836,6 +2079,8 @@
                     <div
                         class="carousel"
                         id="carousel"
+                        role="region"
+                        aria-roledescription="carrusel"
                         aria-label="Galería de fotografías"
                     >
 
@@ -1844,18 +2089,24 @@
                             id="carouselTrack"
                         >
 
-
-                            <div class="slide">
+                            <article
+                                class="slide"
+                                aria-roledescription="diapositiva"
+                                aria-label="1 de 4"
+                            >
 
                                 <img
                                     src="./imag/verano.JPG"
-                                    alt="Voluntarios juntos durante el verano"
+                                    alt="Grupo de voluntarios juntos durante el verano"
+                                    width="1200"
+                                    height="700"
                                 >
 
                                 <div class="slide-caption">
 
                                     <h3>
-                                        👥 Voluntarios juntos
+                                        <span aria-hidden="true">👥</span>
+                                        Voluntarios juntos
                                     </h3>
 
                                     <p>
@@ -1865,21 +2116,28 @@
 
                                 </div>
 
-                            </div>
+                            </article>
 
 
-                            <div class="slide">
+                            <article
+                                class="slide"
+                                aria-roledescription="diapositiva"
+                                aria-label="2 de 4"
+                            >
 
                                 <img
                                     src="./imag/voluntariado.jpg"
-                                    alt="Grupo de voluntarios"
+                                    alt="Grupo de voluntarios participando en una actividad"
                                     loading="lazy"
+                                    width="1200"
+                                    height="700"
                                 >
 
                                 <div class="slide-caption">
 
                                     <h3>
-                                        🤝 Trabajo en equipo
+                                        <span aria-hidden="true">🤝</span>
+                                        Trabajo en equipo
                                     </h3>
 
                                     <p>
@@ -1890,21 +2148,28 @@
 
                                 </div>
 
-                            </div>
+                            </article>
 
 
-                            <div class="slide">
+                            <article
+                                class="slide"
+                                aria-roledescription="diapositiva"
+                                aria-label="3 de 4"
+                            >
 
                                 <img
                                     src="./imag/escritura.jpg"
-                                    alt="Actividad de escritura"
+                                    alt="Actividad de escritura realizada durante el voluntariado"
                                     loading="lazy"
+                                    width="1200"
+                                    height="700"
                                 >
 
                                 <div class="slide-caption">
 
                                     <h3>
-                                        📖 Escrituras compartidas
+                                        <span aria-hidden="true">📖</span>
+                                        Escrituras compartidas
                                     </h3>
 
                                     <p>
@@ -1915,21 +2180,28 @@
 
                                 </div>
 
-                            </div>
+                            </article>
 
 
-                            <div class="slide">
+                            <article
+                                class="slide"
+                                aria-roledescription="diapositiva"
+                                aria-label="4 de 4"
+                            >
 
                                 <img
                                     src="./imag/actividadesmonis.jpg"
-                                    alt="Actividad de voluntariado"
+                                    alt="Voluntarios realizando una actividad"
                                     loading="lazy"
+                                    width="1200"
+                                    height="700"
                                 >
 
                                 <div class="slide-caption">
 
                                     <h3>
-                                        🎲 Actividades
+                                        <span aria-hidden="true">🎲</span>
+                                        Actividades
                                     </h3>
 
                                     <p>
@@ -1940,7 +2212,7 @@
 
                                 </div>
 
-                            </div>
+                            </article>
 
                         </div>
 
@@ -1949,9 +2221,9 @@
                             class="carousel-button prev"
                             id="prev"
                             type="button"
-                            aria-label="Imagen anterior"
+                            aria-label="Fotografía anterior"
                         >
-                            ❮
+                            <span aria-hidden="true">❮</span>
                         </button>
 
 
@@ -1959,19 +2231,32 @@
                             class="carousel-button next"
                             id="next"
                             type="button"
-                            aria-label="Imagen siguiente"
+                            aria-label="Fotografía siguiente"
                         >
-                            ❯
+                            <span aria-hidden="true">❯</span>
                         </button>
 
                     </div>
 
 
-                    <div
-                        class="dots"
-                        id="dots"
-                        aria-label="Seleccionar imagen"
-                    ></div>
+                    <div class="carousel-controls">
+
+                        <div
+                            class="dots"
+                            id="dots"
+                            role="group"
+                            aria-label="Seleccionar fotografía"
+                        ></div>
+
+                        <span
+                            class="carousel-status"
+                            id="carouselStatus"
+                            aria-live="polite"
+                        >
+                            1 de 4
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -1987,6 +2272,7 @@
         <section
             class="section certificates"
             id="certificados"
+            aria-labelledby="certificados-title"
         >
 
             <div class="container">
@@ -1997,15 +2283,19 @@
                         Reconocimientos
                     </div>
 
-                    <h2 class="section-title">
-                        🏆 Mis certificados
+                    <h2
+                        class="section-title"
+                        id="certificados-title"
+                    >
+                        <span aria-hidden="true">🏆</span>
+                        Mis certificados
                     </h2>
 
                     <p class="section-description">
                         Algunos de los certificados y
                         reconocimientos obtenidos durante mis
                         experiencias de voluntariado.
-                        Haz clic sobre una imagen para verla
+                        Selecciona una imagen para verla
                         en grande.
                     </p>
 
@@ -2014,25 +2304,23 @@
 
                 <div class="certificate-grid">
 
-
                     <article
                         class="certificate-card reveal"
                         data-image="./imag/certificado1.png"
                         tabindex="0"
                         role="button"
-                        aria-label="Abrir certificado de verano 2023"
+                        aria-label="Ampliar certificado de voluntariado de verano 2023"
                     >
 
                         <div class="certificate-image-wrapper">
 
                             <img
                                 src="./imag/certificado1.png"
-                                alt="Certificado de voluntariado Diviertet verano 2023 Moraira"
+                                alt="Certificado de voluntariado Diviertet, verano 2023, Moraira"
                                 loading="lazy"
                             >
 
                         </div>
-
 
                         <div class="certificate-info">
 
@@ -2055,19 +2343,18 @@
                         data-image="./imag/certificado2.png"
                         tabindex="0"
                         role="button"
-                        aria-label="Abrir segundo certificado"
+                        aria-label="Ampliar certificado de voluntariado de Navidad 2023-2024"
                     >
 
                         <div class="certificate-image-wrapper">
 
                             <img
                                 src="./imag/certificado2.png"
-                                alt="Certificado de voluntariado Navidad 2023-2024 en Benicàssim"
+                                alt="Certificado de voluntariado durante Navidad 2023-2024 en Benicàssim"
                                 loading="lazy"
                             >
 
                         </div>
-
 
                         <div class="certificate-info">
 
@@ -2090,19 +2377,18 @@
                         data-image="./imag/certificado3.png"
                         tabindex="0"
                         role="button"
-                        aria-label="Abrir tercer certificado"
+                        aria-label="Ampliar certificado de reconocimiento de Navidad"
                     >
 
                         <div class="certificate-image-wrapper">
 
                             <img
                                 src="./imag/certificado3.png"
-                                alt="Tercer certificado de voluntariado Navidad 2023-2024"
+                                alt="Certificado de reconocimiento de voluntariado durante la campaña de Navidad"
                                 loading="lazy"
                             >
 
                         </div>
-
 
                         <div class="certificate-info">
 
@@ -2124,19 +2410,18 @@
                         data-image="./imag/certificado4.png"
                         tabindex="0"
                         role="button"
-                        aria-label="Abrir cuarto certificado"
+                        aria-label="Ampliar certificado de voluntariado de verano 2024"
                     >
 
                         <div class="certificate-image-wrapper">
 
                             <img
                                 src="./imag/certificado4.png"
-                                alt="Cuarto certificado de voluntariado verano 2024 en Moraira"
+                                alt="Certificado de voluntariado durante el verano de 2024 en Moraira"
                                 loading="lazy"
                             >
 
                         </div>
-
 
                         <div class="certificate-info">
 
@@ -2159,19 +2444,18 @@
                         data-image="./imag/certificado5.png"
                         tabindex="0"
                         role="button"
-                        aria-label="Abrir quinto certificado"
+                        aria-label="Ampliar certificado de voluntariado de Navidad 2024-2025"
                     >
 
                         <div class="certificate-image-wrapper">
 
                             <img
                                 src="./imag/certificado5.png"
-                                alt="Quinto certificado de voluntariado Navidad 2024-2025 en Benicàssim"
+                                alt="Certificado de voluntariado durante Navidad 2024-2025 en Benicàssim"
                                 loading="lazy"
                             >
 
                         </div>
-
 
                         <div class="certificate-info">
 
@@ -2194,19 +2478,18 @@
                         data-image="./imag/certificado6.png"
                         tabindex="0"
                         role="button"
-                        aria-label="Abrir sexto certificado"
+                        aria-label="Ampliar certificado de voluntariado de primavera 2025"
                     >
 
                         <div class="certificate-image-wrapper">
 
                             <img
                                 src="./imag/certificado6.png"
-                                alt="Sexto certificado de voluntariado primavera 2025 en Benicàssim"
+                                alt="Certificado de voluntariado durante primavera de 2025 en Benicàssim"
                                 loading="lazy"
                             >
 
                         </div>
-
 
                         <div class="certificate-info">
 
@@ -2234,23 +2517,32 @@
              FRASE
         ====================================================== -->
 
-        <section class="quote-section">
+        <section
+            class="quote-section"
+            aria-labelledby="quote-title"
+        >
 
             <div class="container reveal">
 
-                <div class="quote-mark">
+                <div
+                    class="quote-mark"
+                    aria-hidden="true"
+                >
                     “
                 </div>
 
-                <div class="quote">
+                <blockquote
+                    class="quote"
+                    id="quote-title"
+                >
                     No se trata solamente de ayudar,
                     sino de compartir una parte de tu tiempo
                     y aprender de cada persona que conoces.
-                </div>
+                </blockquote>
 
-                <div class="quote-author">
+                <p class="quote-author">
                     Mi experiencia de voluntariado
-                </div>
+                </p>
 
             </div>
 
@@ -2261,7 +2553,10 @@
              CTA
         ====================================================== -->
 
-        <section class="cta">
+        <section
+            class="cta"
+            aria-labelledby="cta-title"
+        >
 
             <div class="container cta-content reveal">
 
@@ -2269,11 +2564,11 @@
                     Sigue descubriendo
                 </div>
 
-                <h2>
+                <h2 id="cta-title">
                     Una experiencia para recordar.
                 </h2>
 
-                <p font-size: 10px>
+                <p>
                     Las campañas y condiciones concretas dependen
                     de cada convocatoria. Consulta siempre la
                     información oficial antes de participar.
@@ -2284,9 +2579,10 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="button"
+                    aria-label="Consultar información oficial del IVAJ, se abre en una nueva ventana"
                 >
                     Información IVAJ
-                    <span>↗</span>
+                    <span aria-hidden="true">↗</span>
                 </a>
 
             </div>
@@ -2297,7 +2593,7 @@
 
 
     <!-- =========================================================
-         MODAL CERTIFICADOS
+         MODAL
     ========================================================== -->
 
     <div
@@ -2305,7 +2601,8 @@
         id="certificateModal"
         role="dialog"
         aria-modal="true"
-        aria-label="Certificado ampliado"
+        aria-labelledby="modalTitle"
+        aria-hidden="true"
     >
 
         <button
@@ -2314,15 +2611,21 @@
             type="button"
             aria-label="Cerrar certificado"
         >
-            ×
+            <span aria-hidden="true">×</span>
         </button>
 
 
         <img
             id="modalImage"
             src=""
-            alt="Certificado ampliado"
+            alt=""
         >
+
+
+        <p
+            class="modal-title"
+            id="modalTitle"
+        ></p>
 
     </div>
 
@@ -2353,6 +2656,9 @@
 
     <script>
 
+        "use strict";
+
+
         /* =====================================================
            MENÚ MÓVIL
         ====================================================== */
@@ -2364,40 +2670,78 @@
             document.getElementById("menu");
 
 
-        menuButton.addEventListener("click", () => {
+        function closeMenu() {
 
-            const isOpen =
-                menu.classList.toggle("open");
+            menu.classList.remove("open");
 
             menuButton.setAttribute(
                 "aria-expanded",
-                isOpen
+                "false"
             );
 
-            menuButton.textContent =
-                isOpen ? "×" : "☰";
+            menuButton.setAttribute(
+                "aria-label",
+                "Abrir menú de navegación"
+            );
 
-        });
+            menuButton.innerHTML =
+                '<span aria-hidden="true">☰</span>';
+
+        }
+
+
+        menuButton.addEventListener(
+            "click",
+            () => {
+
+                const isOpen =
+                    menu.classList.toggle("open");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Cerrar menú de navegación"
+                        : "Abrir menú de navegación"
+                );
+
+                menuButton.innerHTML =
+                    isOpen
+                        ? '<span aria-hidden="true">×</span>'
+                        : '<span aria-hidden="true">☰</span>';
+
+            }
+        );
 
 
         document
             .querySelectorAll(".menu a")
             .forEach(link => {
 
-                link.addEventListener("click", () => {
-
-                    menu.classList.remove("open");
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuButton.textContent = "☰";
-
-                });
+                link.addEventListener(
+                    "click",
+                    closeMenu
+                );
 
             });
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+                    closeMenu();
+                }
+
+            }
+        );
 
 
         /* =====================================================
@@ -2421,7 +2765,9 @@
 
                     entries.forEach(entry => {
 
-                        if (!entry.isIntersecting) {
+                        if (
+                            !entry.isIntersecting
+                        ) {
                             return;
                         }
 
@@ -2431,17 +2777,28 @@
                                 "active"
                             );
 
+                            link.removeAttribute(
+                                "aria-current"
+                            );
+
                         });
+
 
                         const activeLink =
                             document.querySelector(
                                 `.menu a[href="#${entry.target.id}"]`
                             );
 
+
                         if (activeLink) {
 
                             activeLink.classList.add(
                                 "active"
+                            );
+
+                            activeLink.setAttribute(
+                                "aria-current",
+                                "page"
                             );
 
                         }
@@ -2466,7 +2823,7 @@
 
 
         /* =====================================================
-           ANIMACIONES DE ENTRADA
+           REVEAL
         ====================================================== */
 
         const revealElements =
@@ -2475,42 +2832,62 @@
             );
 
 
-        const revealObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
-            );
+        const prefersReducedMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
 
 
-        revealElements.forEach(element => {
+        if (prefersReducedMotion) {
 
-            revealObserver.observe(
-                element
-            );
+            revealElements.forEach(element => {
 
-        });
+                element.classList.add(
+                    "visible"
+                );
+
+            });
+
+        } else {
+
+            const revealObserver =
+                new IntersectionObserver(
+                    entries => {
+
+                        entries.forEach(entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        });
+
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+
+            revealElements.forEach(element => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            });
+
+        }
 
 
         /* =====================================================
@@ -2527,9 +2904,33 @@
 
         function animateCounters() {
 
-            if (countersStarted) {
+            if (
+                countersStarted ||
+                prefersReducedMotion
+            ) {
+
+                counters.forEach(counter => {
+
+                    const target =
+                        Number(
+                            counter.dataset.target
+                        );
+
+                    const suffix =
+                        counter.dataset.suffix || "";
+
+                    counter.textContent =
+                        target.toLocaleString("es-ES")
+                        + suffix;
+
+                });
+
+                countersStarted = true;
+
                 return;
+
             }
+
 
             countersStarted = true;
 
@@ -2544,8 +2945,7 @@
                 const suffix =
                     counter.dataset.suffix || "";
 
-
-                const duration = 1800;
+                const duration = 1600;
 
                 const startTime =
                     performance.now();
@@ -2559,25 +2959,22 @@
                         currentTime -
                         startTime;
 
-
                     const progress =
                         Math.min(
                             elapsed / duration,
                             1
                         );
 
-
-                    const easedProgress =
+                    const eased =
                         1 -
                         Math.pow(
                             1 - progress,
                             3
                         );
 
-
                     const current =
                         Math.floor(
-                            easedProgress * target
+                            eased * target
                         );
 
 
@@ -2586,7 +2983,9 @@
                         + suffix;
 
 
-                    if (progress < 1) {
+                    if (
+                        progress < 1
+                    ) {
 
                         requestAnimationFrame(
                             updateCounter
@@ -2681,9 +3080,13 @@
                 "carousel"
             );
 
+        const carouselStatus =
+            document.getElementById(
+                "carouselStatus"
+            );
+
 
         let currentSlide = 0;
-
         let autoplay = null;
 
 
@@ -2697,22 +3100,25 @@
                         "button"
                     );
 
-
-                dot.classList.add(
-                    "dot"
-                );
-
-
+                dot.className = "dot";
                 dot.type = "button";
-
 
                 dot.setAttribute(
                     "aria-label",
-                    `Ir a imagen ${index + 1}`
+                    `Mostrar fotografía ${index + 1}`
+                );
+
+                dot.setAttribute(
+                    "aria-pressed",
+                    index === 0
+                        ? "true"
+                        : "false"
                 );
 
 
-                if (index === 0) {
+                if (
+                    index === 0
+                ) {
 
                     dot.classList.add(
                         "active"
@@ -2747,40 +3153,68 @@
             );
 
 
+        function updateCarouselAccessibility() {
+
+            slides.forEach(
+                (slide, index) => {
+
+                    const active =
+                        index === currentSlide;
+
+                    slide.setAttribute(
+                        "aria-hidden",
+                        String(!active)
+                    );
+
+                }
+            );
+
+
+            dots.forEach(
+                (dot, index) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        index === currentSlide
+                    );
+
+                    dot.setAttribute(
+                        "aria-pressed",
+                        index === currentSlide
+                            ? "true"
+                            : "false"
+                    );
+
+                }
+            );
+
+
+            carouselStatus.textContent =
+                `${currentSlide + 1} de ${slides.length}`;
+
+        }
+
+
         function goToSlide(index) {
 
-            currentSlide = index;
+            currentSlide =
+                (index + slides.length)
+                % slides.length;
 
 
             track.style.transform =
                 `translateX(-${currentSlide * 100}%)`;
 
 
-            dots.forEach(dot => {
-
-                dot.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-            dots[currentSlide]
-                .classList.add(
-                    "active"
-                );
+            updateCarouselAccessibility();
 
         }
 
 
         function nextSlide() {
 
-            currentSlide =
-                (currentSlide + 1)
-                % slides.length;
-
             goToSlide(
-                currentSlide
+                currentSlide + 1
             );
 
         }
@@ -2788,16 +3222,8 @@
 
         function previousSlide() {
 
-            currentSlide =
-                (
-                    currentSlide -
-                    1 +
-                    slides.length
-                )
-                % slides.length;
-
             goToSlide(
-                currentSlide
+                currentSlide - 1
             );
 
         }
@@ -2808,7 +3234,6 @@
             () => {
 
                 nextSlide();
-
                 restartAutoplay();
 
             }
@@ -2820,7 +3245,6 @@
             () => {
 
                 previousSlide();
-
                 restartAutoplay();
 
             }
@@ -2832,17 +3256,19 @@
         function startAutoplay() {
 
             if (
-                window.matchMedia(
-                    "(prefers-reduced-motion: reduce)"
-                ).matches
+                prefersReducedMotion
             ) {
                 return;
             }
 
+
+            stopAutoplay();
+
+
             autoplay =
                 setInterval(
                     nextSlide,
-                    5000
+                    5500
                 );
 
         }
@@ -2850,9 +3276,15 @@
 
         function stopAutoplay() {
 
-            clearInterval(
-                autoplay
-            );
+            if (autoplay) {
+
+                clearInterval(
+                    autoplay
+                );
+
+                autoplay = null;
+
+            }
 
         }
 
@@ -2860,7 +3292,6 @@
         function restartAutoplay() {
 
             stopAutoplay();
-
             startAutoplay();
 
         }
@@ -2890,23 +3321,30 @@
         );
 
 
+        updateCarouselAccessibility();
         startAutoplay();
 
 
-        /* =====================================================
-           TECLADO
-        ====================================================== */
+        /* TECLADO */
 
         document.addEventListener(
             "keydown",
             event => {
 
                 if (
+                    event.target.matches(
+                        "input, textarea, select"
+                    )
+                ) {
+                    return;
+                }
+
+
+                if (
                     event.key === "ArrowRight"
                 ) {
 
                     nextSlide();
-
                     restartAutoplay();
 
                 }
@@ -2917,7 +3355,6 @@
                 ) {
 
                     previousSlide();
-
                     restartAutoplay();
 
                 }
@@ -2926,12 +3363,9 @@
         );
 
 
-        /* =====================================================
-           SWIPE MÓVIL
-        ====================================================== */
+        /* SWIPE */
 
         let touchStartX = 0;
-        let touchEndX = 0;
 
 
         carousel.addEventListener(
@@ -2955,10 +3389,9 @@
             "touchend",
             event => {
 
-                touchEndX =
+                const touchEndX =
                     event.changedTouches[0]
                         .screenX;
-
 
                 const difference =
                     touchStartX -
@@ -2994,7 +3427,7 @@
 
 
         /* =====================================================
-           MODAL CERTIFICADOS
+           MODAL DE CERTIFICADOS
         ====================================================== */
 
         const certificateCards =
@@ -3002,22 +3435,24 @@
                 ".certificate-card"
             );
 
-
         const certificateModal =
             document.getElementById(
                 "certificateModal"
             );
-
 
         const modalImage =
             document.getElementById(
                 "modalImage"
             );
 
-
         const modalClose =
             document.getElementById(
                 "modalClose"
+            );
+
+        const modalTitle =
+            document.getElementById(
+                "modalTitle"
             );
 
 
@@ -3039,11 +3474,20 @@
                 document.activeElement;
 
 
-            modalImage.src = image;
-
-
             const originalImage =
-                card.querySelector("img");
+                card.querySelector(
+                    "img"
+                );
+
+
+            const title =
+                card.querySelector(
+                    ".certificate-info h3"
+                );
+
+
+            modalImage.src =
+                image;
 
 
             modalImage.alt =
@@ -3052,12 +3496,26 @@
                     : "Certificado ampliado";
 
 
-            certificateModal
-                .classList.add("open");
+            modalTitle.textContent =
+                title
+                    ? title.textContent.trim()
+                    : "Certificado";
 
 
-            document.body
-                .classList.add("modal-open");
+            certificateModal.classList.add(
+                "open"
+            );
+
+
+            certificateModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "modal-open"
+            );
 
 
             modalClose.focus();
@@ -3067,19 +3525,29 @@
 
         function closeCertificate() {
 
-            certificateModal
-                .classList.remove("open");
+            certificateModal.classList.remove(
+                "open"
+            );
 
 
-            document.body
-                .classList.remove("modal-open");
+            certificateModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
 
 
-            setTimeout(() => {
+            document.body.classList.remove(
+                "modal-open"
+            );
 
-                modalImage.src = "";
 
-            }, 300);
+            modalImage.src = "";
+
+
+            modalImage.alt = "";
+
+
+            modalTitle.textContent = "";
 
 
             if (
@@ -3161,8 +3629,9 @@
 
                 if (
                     event.key === "Escape" &&
-                    certificateModal
-                        .classList.contains("open")
+                    certificateModal.classList.contains(
+                        "open"
+                    )
                 ) {
 
                     closeCertificate();
@@ -3176,3 +3645,4 @@
 
 </body>
 </html>
+```
